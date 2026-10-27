@@ -24,7 +24,7 @@ WordPress core, `wp-config.php`, uploads and the local database are ignored on p
 Push to `main` and the workflow lints every PHP file, then FTPS-syncs the theme folder to:
 
 ```
-public_html/wp-content/themes/ibanint/
+/home/cpanelid/ibanint/wp-content/themes/ibanint/
 ```
 
 ### Required repository secrets
@@ -32,10 +32,10 @@ public_html/wp-content/themes/ibanint/
 | Secret | Value |
 | --- | --- |
 | `FTP_SERVER` | Namecheap FTP host |
-| `FTP_USERNAME` | cPanel FTP user (jailed to `public_html`) |
+| `FTP_USERNAME` | cPanel FTP user |
 | `FTP_PASSWORD` | cPanel FTP password |
 
-The FTP user is jailed to `public_html`, so the workflow `server-dir` is relative to that root.
+The FTP account is jailed to the website folder `/home/cpanelid/ibanint` (not `public_html`), so the workflow `server-dir` is `./wp-content/themes/ibanint/` relative to that login root.
 
 ### First deploy on a new server
 
