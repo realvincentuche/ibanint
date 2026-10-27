@@ -1,7 +1,8 @@
 <?php
 /**
- * Homepage: hero slider, trust strip, about, sectors, why-choose,
- * value steps, audience carousel, CTA banner, stats.
+ * Homepage: hero slider (with floating trust strip), counters, about,
+ * sector panel, why-choose, approach panel, audience carousel.
+ * CTA banner lives in footer.php so it appears on every page.
  *
  * @package Ibanint
  */
@@ -46,46 +47,52 @@ $ibanint_contact_url = home_url( '/contact/' );
 		</div>
 	<?php endforeach; ?>
 
-	<div class="ib-hero-dots" id="ib-hero-dots"></div>
-	<div class="ib-hero-nav">
-		<button type="button" class="ib-hero-prev" id="ib-hero-prev" aria-label="<?php esc_attr_e( 'Previous slide', 'ibanint' ); ?>"><i class="ph ph-caret-left" aria-hidden="true"></i></button>
-		<button type="button" class="ib-hero-next" id="ib-hero-next" aria-label="<?php esc_attr_e( 'Next slide', 'ibanint' ); ?>"><i class="ph ph-caret-right" aria-hidden="true"></i></button>
+	<div class="ib-trust">
+		<div class="ib-wrap ib-trust-grid">
+			<?php
+			$ibanint_trust = array(
+				array( 'ph-globe-hemisphere-west', 'International business' ),
+				array( 'ph-strategy', 'Eight practice areas' ),
+				array( 'ph-handshake', 'Strategic partnerships' ),
+				array( 'ph-arrows-left-right', 'Connections across borders' ),
+				array( 'ph-trend-up', 'Endless possibilities' ),
+			);
+			foreach ( $ibanint_trust as $ibanint_item ) :
+				?>
+				<div class="ib-trust-item">
+					<i class="ph <?php echo esc_attr( $ibanint_item[0] ); ?>" aria-hidden="true"></i>
+					<span><?php echo esc_html( $ibanint_item[1] ); ?></span>
+				</div>
+			<?php endforeach; ?>
+		</div>
 	</div>
 </section>
 
-<!-- 1. Trust strip -->
-<section class="ib-trust" id="ib-trust">
-	<div class="ib-wrap ib-trust-grid">
-		<?php
-		$ibanint_trust = array(
-			array( 'ph-globe-hemisphere-west', 'International business' ),
-			array( 'ph-strategy', 'Eight practice areas' ),
-			array( 'ph-handshake', 'Strategic partnerships' ),
-			array( 'ph-arrows-left-right', 'Connections across borders' ),
-			array( 'ph-trend-up', 'Endless possibilities' ),
-		);
-		foreach ( $ibanint_trust as $ibanint_item ) :
-			?>
-			<div class="ib-trust-item">
-				<i class="ph <?php echo esc_attr( $ibanint_item[0] ); ?>" aria-hidden="true"></i>
-				<span><?php echo esc_html( $ibanint_item[1] ); ?></span>
-			</div>
-		<?php endforeach; ?>
+<!-- Counters -->
+<section class="ib-stats" id="ib-stats">
+	<div class="ib-wrap ib-stats-grid">
+		<div class="ib-stat">
+			<span class="ib-stat-num" data-count="8">8</span>
+			<span class="ib-stat-label"><?php esc_html_e( 'Practice areas, one group', 'ibanint' ); ?></span>
+		</div>
+		<div class="ib-stat">
+			<span class="ib-stat-num" data-count="5">5</span>
+			<span class="ib-stat-label"><?php esc_html_e( 'Regions, from Africa to North America', 'ibanint' ); ?></span>
+		</div>
+		<div class="ib-stat">
+			<span class="ib-stat-num" data-count="10" data-suffix="+">10+</span>
+			<span class="ib-stat-label"><?php esc_html_e( 'Years opening doors across borders', 'ibanint' ); ?></span>
+		</div>
+		<div class="ib-stat">
+			<span class="ib-stat-num ib-stat-inf">&infin;</span>
+			<span class="ib-stat-label"><?php esc_html_e( 'Possibilities next door', 'ibanint' ); ?></span>
+		</div>
 	</div>
 </section>
 
-<!-- 2. About tease -->
+<!-- Who we are -->
 <section class="ib-about" id="ib-about">
 	<div class="ib-wrap ib-about-grid">
-		<div class="ib-about-media ib-reveal">
-			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-tease.jpg' ); ?>" alt="<?php esc_attr_e( 'Business people closing a deal with a handshake', 'ibanint' ); ?>" width="700" height="880" loading="lazy">
-			<?php /* Unsplash free tier: handshake deal 1582213782179 (about-tease.jpg) */ ?>
-			<div class="ib-about-badge">
-				<span class="ib-about-badge-num"><?php echo esc_html( __( '10+', 'ibanint' ) ); ?></span>
-				<span class="ib-about-badge-label"><?php echo esc_html( __( 'Years opening doors across borders', 'ibanint' ) ); ?></span>
-			</div>
-		</div>
-
 		<div class="ib-about-copy">
 			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Who We Are', 'ibanint' ); ?></p>
 			<h2 class="ib-h2"><?php esc_html_e( 'The business is connecting', 'ibanint' ); ?></h2>
@@ -103,51 +110,64 @@ $ibanint_contact_url = home_url( '/contact/' );
 				<i class="ph ph-arrow-right" aria-hidden="true"></i>
 			</a>
 		</div>
+
+		<div class="ib-about-media ib-reveal">
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-tease.jpg' ); ?>" alt="<?php esc_attr_e( 'Business people closing a deal with a handshake', 'ibanint' ); ?>" width="700" height="880" loading="lazy">
+			<?php /* Unsplash free tier: handshake deal 1582213782179 (about-tease.jpg) */ ?>
+			<div class="ib-about-badge">
+				<span class="ib-about-badge-num">10+</span>
+				<span class="ib-about-badge-label"><?php echo esc_html( __( 'Years opening doors across borders', 'ibanint' ) ); ?></span>
+			</div>
+		</div>
 	</div>
 </section>
 
-<!-- 3. Sectors grid -->
+<!-- What we do (overlapping panel with photo cards) -->
 <section class="ib-sectors" id="ib-sectors">
 	<div class="ib-wrap">
-		<div class="ib-sectors-head ib-reveal">
-			<p class="ib-kicker ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'What We Do', 'ibanint' ); ?></p>
-			<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'Eight doors, one connected group', 'ibanint' ); ?></h2>
-			<p class="ib-sector-intro">
-				<?php esc_html_e( 'Everything from commerce to recycling. Each practice runs on its own experience, and every one is connected to the others.', 'ibanint' ); ?>
-			</p>
-			<a href="<?php echo esc_url( $ibanint_services_url ); ?>" class="ib-link-more ib-link-more-light">
-				<?php esc_html_e( 'See our businesses', 'ibanint' ); ?>
-				<i class="ph ph-arrow-right" aria-hidden="true"></i>
-			</a>
-		</div>
+		<div class="ib-sectors-panel ib-reveal">
+			<div class="ib-sectors-head">
+				<p class="ib-kicker ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'What We Do', 'ibanint' ); ?></p>
+				<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'Eight doors, one connected group', 'ibanint' ); ?></h2>
+				<p class="ib-sector-intro">
+					<?php esc_html_e( 'Everything from commerce to recycling. Each practice runs on its own experience, and every one is connected to the others.', 'ibanint' ); ?>
+				</p>
+				<a href="<?php echo esc_url( $ibanint_services_url ); ?>" class="ib-btn ib-btn-gold">
+					<?php esc_html_e( 'See our businesses', 'ibanint' ); ?>
+					<i class="ph ph-arrow-right" aria-hidden="true"></i>
+				</a>
+			</div>
 
-		<div class="ib-sector-grid">
-			<?php foreach ( $ibanint_sectors as $ib_slug => $ib_sector ) : ?>
-				<?php
-				$ib_sector_page = get_page_by_path( 'services/' . $ib_slug );
-				$ib_sector_url  = $ib_sector_page ? get_permalink( $ib_sector_page ) : home_url( '/services/' . $ib_slug . '/' );
-				?>
-				<article class="ib-sector-card ib-reveal">
-					<i class="ph <?php echo esc_attr( $ib_sector['icon'] ); ?>" aria-hidden="true"></i>
-					<h3><?php echo esc_html( $ib_sector['title'] ); ?></h3>
-					<p><?php echo esc_html( $ib_sector['blurb'] ); ?></p>
-					<a class="ib-card-link" href="<?php echo esc_url( $ib_sector_url ); ?>">
-						<?php
-						printf(
-							/* translators: %s: sector short name */
-							esc_html__( 'Explore %s', 'ibanint' ),
-							esc_html( $ib_sector['short'] )
-						);
-						?>
-						<i class="ph ph-arrow-right" aria-hidden="true"></i>
-					</a>
-				</article>
-			<?php endforeach; ?>
+			<div class="ib-sector-grid">
+				<?php foreach ( $ibanint_sectors as $ib_slug => $ib_sector ) : ?>
+					<?php
+					$ib_sector_page = get_page_by_path( 'services/' . $ib_slug );
+					$ib_sector_url  = $ib_sector_page ? get_permalink( $ib_sector_page ) : home_url( '/services/' . $ib_slug . '/' );
+					?>
+					<article class="ib-sector-card">
+						<div class="ib-sector-card-media" style="background-image:url('<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . $ib_sector['banner'] ); ?>');" role="img" aria-label="<?php echo esc_attr( $ib_sector['title'] ); ?>"></div>
+						<div class="ib-sector-card-body">
+							<h3><?php echo esc_html( $ib_sector['title'] ); ?></h3>
+							<p><?php echo esc_html( $ib_sector['blurb'] ); ?></p>
+							<a class="ib-card-link" href="<?php echo esc_url( $ib_sector_url ); ?>">
+								<?php
+								printf(
+									/* translators: %s: sector short name */
+									esc_html__( 'Explore %s', 'ibanint' ),
+									esc_html( $ib_sector['short'] )
+								);
+								?>
+								<i class="ph ph-arrow-right" aria-hidden="true"></i>
+							</a>
+						</div>
+					</article>
+				<?php endforeach; ?>
+			</div>
 		</div>
 	</div>
 </section>
 
-<!-- 4. Why choose -->
+<!-- Why Iban International -->
 <section class="ib-why" id="ib-why">
 	<div class="ib-wrap ib-why-grid">
 		<div class="ib-why-media ib-reveal">
@@ -173,57 +193,61 @@ $ibanint_contact_url = home_url( '/contact/' );
 	</div>
 </section>
 
-<!-- 5. Value steps + showcase card -->
+<!-- Our approach (overlapping panel) -->
 <section class="ib-steps" id="ib-steps">
-	<div class="ib-wrap ib-steps-grid">
-		<div class="ib-steps-main">
-			<p class="ib-kicker ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Our Approach', 'ibanint' ); ?></p>
-			<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'We build the staircase, opening every door on the way', 'ibanint' ); ?></h2>
-			<div class="ib-step-list">
-				<?php
-				$ibanint_steps = array(
-					array( 'ph-binoculars', 'Identify', 'We research the proverbial backdoor: the opportunity and partnership you cannot see from your side of the border.' ),
-					array( 'ph-users-three', 'Connect', 'We do not just see the door; we are a bridge between opportunities and partnerships.' ),
-					array( 'ph-strategy', 'Develop', 'We blend new perspectives into the recipe of success and position your business for each market.' ),
-					array( 'ph-rocket-launch', 'Execute', 'We keep it simple: define your goal, know each step, time every action, and position for the win.' ),
-					array( 'ph-trend-up', 'Grow', 'We are passionate about success and ready to build the layers of growth together.' ),
-				);
-				foreach ( $ibanint_steps as $ibanint_num => $ibanint_step ) :
-					?>
-					<div class="ib-step ib-reveal">
-						<span class="ib-step-num"><?php echo esc_html( $ibanint_num + 1 ); ?></span>
-						<i class="ph <?php echo esc_attr( $ibanint_step[0] ); ?>" aria-hidden="true"></i>
-						<div>
-							<h3><?php echo esc_html( $ibanint_step[1] ); ?></h3>
-							<p><?php echo esc_html( $ibanint_step[2] ); ?></p>
-						</div>
+	<div class="ib-wrap">
+		<div class="ib-steps-panel">
+			<div class="ib-steps-grid">
+				<div class="ib-steps-main">
+					<p class="ib-kicker ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Our Approach', 'ibanint' ); ?></p>
+					<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'We build the staircase, opening every door on the way', 'ibanint' ); ?></h2>
+					<div class="ib-step-list">
+						<?php
+						$ibanint_steps = array(
+							array( 'ph-binoculars', 'Identify', 'We research the proverbial backdoor: the opportunity and partnership you cannot see from your side of the border.' ),
+							array( 'ph-users-three', 'Connect', 'We do not just see the door; we are a bridge between opportunities and partnerships.' ),
+							array( 'ph-strategy', 'Develop', 'We blend new perspectives into the recipe of success and position your business for each market.' ),
+							array( 'ph-rocket-launch', 'Execute', 'We keep it simple: define your goal, know each step, time every action, and position for the win.' ),
+							array( 'ph-trend-up', 'Grow', 'We are passionate about success and ready to build the layers of growth together.' ),
+						);
+						foreach ( $ibanint_steps as $ibanint_num => $ibanint_step ) :
+							?>
+							<div class="ib-step ib-reveal">
+								<span class="ib-step-num"><?php echo esc_html( $ibanint_num + 1 ); ?></span>
+								<i class="ph <?php echo esc_attr( $ibanint_step[0] ); ?>" aria-hidden="true"></i>
+								<div>
+									<h3><?php echo esc_html( $ibanint_step[1] ); ?></h3>
+									<p><?php echo esc_html( $ibanint_step[2] ); ?></p>
+								</div>
+							</div>
+						<?php endforeach; ?>
 					</div>
-				<?php endforeach; ?>
+				</div>
+
+				<aside class="ib-steps-card ib-reveal">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/showcase-card.jpg' ); ?>" alt="<?php esc_attr_e( 'IBAN debriefing with a partner', 'ibanint' ); ?>" loading="lazy">
+					<?php /* Unsplash free tier: businesswoman portrait 1758518727888 (showcase-card.jpg) */ ?>
+					<div class="ib-steps-card-body">
+						<div class="ib-steps-card-badge">
+							<span class="ib-eight-count">8</span>
+							<span class="ib-eight-word"><?php esc_html_e( 'Practice areas', 'ibanint' ); ?></span>
+						</div>
+						<h3><?php esc_html_e( 'The debriefing session for the ambitious', 'ibanint' ); ?></h3>
+						<p class="ib-quote">
+							<?php esc_html_e( 'A commodity opportunity can create a logistics opportunity. That is the Iban difference.', 'ibanint' ); ?>
+						</p>
+						<a href="<?php echo esc_url( $ibanint_contact_url ); ?>" class="ib-btn ib-btn-gold ib-btn-block">
+							<?php esc_html_e( 'Talk to Iban', 'ibanint' ); ?>
+							<i class="ph ph-arrow-right" aria-hidden="true"></i>
+						</a>
+					</div>
+				</aside>
 			</div>
 		</div>
-
-		<aside class="ib-steps-card ib-reveal">
-			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/showcase-card.jpg' ); ?>" alt="<?php esc_attr_e( 'IBAN debriefing with a partner', 'ibanint' ); ?>" loading="lazy">
-			<?php /* Unsplash free tier: businesswoman portrait 1758518727888 (showcase-card.jpg) */ ?>
-			<div class="ib-steps-card-body">
-				<div class="ib-steps-card-badge">
-					<span class="ib-eight-count">8</span>
-					<span class="ib-eight-word"><?php esc_html_e( 'Practice areas', 'ibanint' ); ?></span>
-				</div>
-				<h3><?php esc_html_e( 'The debriefing session for the ambitious', 'ibanint' ); ?></h3>
-				<p class="ib-quote">
-					<?php esc_html_e( 'A commodity opportunity can create a logistics opportunity. That is the Iban difference.', 'ibanint' ); ?>
-				</p>
-				<a href="<?php echo esc_url( $ibanint_contact_url ); ?>" class="ib-btn ib-btn-gold ib-btn-block">
-					<?php esc_html_e( 'Talk to Iban', 'ibanint' ); ?>
-					<i class="ph ph-arrow-right" aria-hidden="true"></i>
-				</a>
-			</div>
-		</aside>
 	</div>
 </section>
 
-<!-- 6. Audiences carousel -->
+<!-- Our reach (photo cards) -->
 <section class="ib-audience" id="ib-audience">
 	<div class="ib-wrap">
 		<div class="ib-head-center">
@@ -237,66 +261,28 @@ $ibanint_contact_url = home_url( '/contact/' );
 		<div class="ib-carousel" id="ib-audience-carousel" tabindex="0" aria-label="<?php esc_attr_e( 'Who we work with', 'ibanint' ); ?>">
 			<div class="ib-carousel-track" id="ib-audience-track">
 				<?php
+				$ibanint_img = get_template_directory_uri() . '/assets/images/';
 				$ibanint_audience = array(
-					array( 'ph-plant', 'Producers & farmers', 'Land, water, or hard working hands. Situated in the heart of a new market, or at the edge of a known one.' ),
-					array( 'ph-package', 'Importers & exporters', 'A lesson in cross-border trade: when to pull the trigger, and when to go long.' ),
-					array( 'ph-factory', 'Manufacturers', 'A plant without a market is a cost. A market without a partner is a risk.' ),
-					array( 'ph-diamond', 'Investors', 'Where is the return? The region is rich, but returns go to those who read it closely.' ),
-					array( 'ph-bank', 'Institutions & NGOs', 'Where bank risk safeguards touch livelihoods. A partnership is the surest road.' ),
-					array( 'ph-flag', 'Governments & regions', 'One region of potential. Many partnerships woven by the people who shape it.' ),
+					array( 'banner-agriculture.jpg', 'Producers & farmers', 'Land, water, or hard working hands. Situated in the heart of a new market, or at the edge of a known one.' ),
+					array( 'banner-trade.jpg', 'Importers & exporters', 'A lesson in cross-border trade: when to pull the trigger, and when to go long.' ),
+					array( 'banner-infrastructure.jpg', 'Manufacturers', 'A plant without a market is a cost. A market without a partner is a risk.' ),
+					array( 'hero-1.jpg', 'Investors', 'Where is the return? The region is rich, but returns go to those who read it closely.' ),
+					array( 'about-tease.jpg', 'Institutions & NGOs', 'Where bank risk safeguards touch livelihoods. A partnership is the surest road.' ),
+					array( 'banner-services.jpg', 'Governments & regions', 'One region of potential. Many partnerships woven by the people who shape it.' ),
 				);
 				foreach ( $ibanint_audience as $ibanint_aud ) :
 					?>
 					<div class="ib-aud-card">
-						<i class="ph <?php echo esc_attr( $ibanint_aud[0] ); ?>" aria-hidden="true"></i>
-						<h3><?php echo esc_html( $ibanint_aud[1] ); ?></h3>
-						<p><?php echo esc_html( $ibanint_aud[2] ); ?></p>
+						<div class="ib-aud-media" style="background-image:url('<?php echo esc_url( $ibanint_img . $ibanint_aud[0] ); ?>');" role="img" aria-label="<?php echo esc_attr( $ibanint_aud[1] ); ?>"></div>
+						<div class="ib-aud-body">
+							<h3><?php echo esc_html( $ibanint_aud[1] ); ?></h3>
+							<p><?php echo esc_html( $ibanint_aud[2] ); ?></p>
+						</div>
 					</div>
 				<?php endforeach; ?>
 			</div>
 			<div class="ib-carousel-dots" id="ib-audience-dots"></div>
 		</div>
-	</div>
-</section>
-
-<!-- 7. CTA banner -->
-<section class="ib-cta" id="ib-cta" style="background-image:url('<?php echo esc_url( get_template_directory_uri() . '/assets/images/cta-banner.jpg' ); ?>');">
-	<?php /* Unsplash free tier: team meeting at table 1716703432455 (cta-banner.jpg) */ ?>
-	<div class="ib-cta-shade"></div>
-	<div class="ib-wrap ib-cta-inner ib-reveal">
-		<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'A door can begin with one conversation', 'ibanint' ); ?></h2>
-		<p>
-			<?php esc_html_e( 'You bring the ambition; we bring the cross-border expertise, the network, and the doors. The conversation is free.', 'ibanint' ); ?>
-		</p>
-		<div class="ib-slide-actions">
-			<a href="<?php echo esc_url( $ibanint_contact_url ); ?>" class="ib-btn ib-btn-gold">
-				<?php esc_html_e( 'Partner With Us', 'ibanint' ); ?>
-				<i class="ph ph-arrow-right" aria-hidden="true"></i>
-			</a>
-			<a href="<?php echo esc_url( $ibanint_services_url ); ?>" class="ib-btn ib-btn-ghost-light">
-				<?php esc_html_e( 'Our Businesses', 'ibanint' ); ?>
-			</a>
-		</div>
-	</div>
-</section>
-
-<!-- 8. Stats -->
-<section class="ib-stats" id="ib-stats">
-	<div class="ib-wrap ib-stats-grid">
-		<?php
-		$ibanint_stats = array(
-			array( '8', 'Practice areas, one group' ),
-			array( '5', 'Regions, from Africa to North America' ),
-			array( '10+', 'Years opening doors across borders' ),
-			array( '&infin;', 'Possibilities next door', 'raw' ),
-		);
-		foreach ( $ibanint_stats as $ibanint_stat ) :
-			?>
-			<div class="ib-stat">
-				<span class="ib-stat-num"><?php echo 'raw' === ( $ibanint_stat[2] ?? '' ) ? wp_kses_post( $ibanint_stat[0] ) : esc_html( $ibanint_stat[0] ); ?></span>
-				<span class="ib-stat-label"><?php echo esc_html( $ibanint_stat[1] ); ?></span>
-			</div>
-		<?php endforeach; ?>
 	</div>
 </section>
 

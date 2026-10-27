@@ -7,6 +7,30 @@
 ?>
 </main>
 
+<!-- CTA banner (all pages, just before the footer) -->
+<section class="ib-cta" style="background-image:url('<?php echo esc_url( get_template_directory_uri() . '/assets/images/cta-banner.jpg' ); ?>');">
+	<?php /* Unsplash free tier: team meeting at table 1716703432455 (cta-banner.jpg) */ ?>
+	<div class="ib-cta-shade"></div>
+	<div class="ib-wrap ib-cta-inner ib-reveal">
+		<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'A door can begin with one conversation', 'ibanint' ); ?></h2>
+		<p>
+			<?php esc_html_e( 'You bring the ambition; we bring the cross-border expertise, the network, and the doors. The conversation is free.', 'ibanint' ); ?>
+		</p>
+		<div class="ib-slide-actions">
+			<?php $ibanint_services_page = get_page_by_path( 'services' ); ?>
+			<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="ib-btn ib-btn-gold">
+				<?php esc_html_e( 'Partner With Us', 'ibanint' ); ?>
+				<i class="ph ph-arrow-right" aria-hidden="true"></i>
+			</a>
+			<?php if ( $ibanint_services_page ) : ?>
+				<a href="<?php echo esc_url( get_permalink( $ibanint_services_page ) ); ?>" class="ib-btn ib-btn-ghost-light">
+					<?php esc_html_e( 'Our Businesses', 'ibanint' ); ?>
+				</a>
+			<?php endif; ?>
+		</div>
+	</div>
+</section>
+
 <footer class="ib-footer" id="ib-footer">
 	<div class="ib-wrap">
 		<div class="ib-footer-grid">
