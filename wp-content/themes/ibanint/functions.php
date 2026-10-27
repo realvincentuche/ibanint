@@ -1,6 +1,6 @@
 <?php
 /**
- * Ibanint theme setup.
+ * Iban International theme setup, helpers and seeder.
  *
  * @package Ibanint
  */
@@ -8,7 +8,7 @@
 define( 'IBANINT_VERSION', '0.1.0' );
 
 /**
- * Theme supports, menus.
+ * Theme supports and menu locations.
  */
 function ibanint_setup() {
 	load_theme_textdomain( 'ibanint', get_template_directory() . '/languages' );
@@ -16,13 +16,14 @@ function ibanint_setup() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'automatic-feed-links' );
-	add_theme_support( 'html5', array( 'search-form', 'gallery', 'caption', 'style', 'script' ) );
+	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script' ) );
 	add_theme_support( 'responsive-embeds' );
+	add_theme_support( 'align-wide' );
 	add_theme_support(
 		'custom-logo',
 		array(
-			'height'      => 64,
-			'width'       => 200,
+			'height'      => 212,
+			'width'       => 952,
 			'flex-height' => true,
 			'flex-width'  => true,
 		)
@@ -31,122 +32,552 @@ function ibanint_setup() {
 	register_nav_menus(
 		array(
 			'primary' => __( 'Primary Menu', 'ibanint' ),
-			'footer'  => __( 'Footer Menu', 'ibanint' ),
+			'footer'  => __( 'Footer Legal Menu', 'ibanint' ),
 		)
 	);
 }
 add_action( 'after_setup_theme', 'ibanint_setup' );
 
 /**
- * Enqueue theme assets.
+ * Content width.
+ */
+function ibanint_content_width() {
+	$GLOBALS['content_width'] = 1240;
+}
+add_action( 'after_setup_theme', 'ibanint_content_width', 0 );
+
+/**
+ * Enqueue Google Fonts (CDN - mmbuss convention) and theme assets.
  */
 function ibanint_assets() {
 	wp_enqueue_style(
-		'ibanint-main',
-		get_template_directory_uri() . '/assets/css/main.css',
+		'ibanint-fonts',
+		'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap',
 		array(),
-		IBANINT_VERSION
+		null
 	);
 
-	wp_enqueue_script(
-		'ibanint-main',
-		get_template_directory_uri() . '/assets/js/main.js',
-		array(),
-		IBANINT_VERSION,
-		true
-	);
+	wp_enqueue_style( 'ibanint-style', get_stylesheet_uri(), array(), IBANINT_VERSION );
+	wp_enqueue_style( 'ibanint-phosphor', get_template_directory_uri() . '/assets/css/phosphor-icon-regular.css', array(), IBANINT_VERSION );
+	wp_enqueue_style( 'ibanint-main', get_template_directory_uri() . '/assets/css/main.css', array( 'ibanint-style', 'ibanint-phosphor' ), IBANINT_VERSION );
+
+	wp_enqueue_script( 'ibanint-main', get_template_directory_uri() . '/assets/js/main.js', array(), IBANINT_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'ibanint_assets' );
 
 /**
- * Primary menu fallback.
+ * Preconnect for Google Fonts.
+ *
+ * @param array  $urls          URLs to print for resource hints.
+ * @param string $relation_type The relation type.
+ * @return array
  */
-function ibanint_menu_fallback() {
-	echo '<ul class="menu">';
-	echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'ibanint' ) . '</a></li>';
-	wp_list_pages(
-		array(
-			'title_li' => '',
-			'depth'    => 1,
-		)
-	);
-	echo '</ul>';
+function ibanint_resource_hints( $urls, $relation_type ) {
+	if ( 'preconnect' === $relation_type ) {
+		$urls[] = array(
+			'href'        => 'https://fonts.gstatic.com',
+			'crossorigin' => 'anonymous',
+		);
+		$urls[] = 'https://fonts.googleapis.com';
+	}
+	return $urls;
 }
+add_filter( 'wp_resource_hints', 'ibanint_resource_hints', 10, 2 );
 
 /**
- * Footer menu fallback.
+ * Favicon (theme asset, used when the site icon is not set).
  */
-function ibanint_footer_fallback() {
-	echo '<ul class="menu">';
-	echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'ibanint' ) . '</a></li>';
-	wp_list_pages(
-		array(
-			'title_li' => '',
-			'depth'    => 1,
-		)
+function ibanint_site_icon() {
+	if ( function_exists( 'has_site_icon' ) && has_site_icon() ) {
+		return;
+	}
+	printf(
+		'<link rel="icon" href="%s" sizes="any" type="image/png">',
+		esc_url( get_template_directory_uri() . '/assets/images/favicon.png' )
 	);
-	echo '</ul>';
 }
+add_action( 'wp_head', 'ibanint_site_icon', 2 );
 
 /**
- * Required pages for this site.
+ * Site contact details.
+ *
+ * Email left empty until the corporate address is confirmed.
  *
  * @return array
  */
-function ibanint_required_pages() {
+function ibanint_contact() {
 	return array(
-		'home'     => array( 'Home', '' ),
-		'about'    => array( 'About', 'about' ),
-		'services' => array( 'Services', 'services' ),
-		'contact'  => array( 'Contact', 'contact' ),
+		'name'        => 'Iban International Ltd',
+		'tagline'     => 'Global Opportunities. Strategic Solutions. Lasting Value.',
+		'phone'       => '+255 762 199 712',
+		'phone_href'  => 'tel:+255762199712',
+		'website'     => 'ibanint.com',
+		'website_href'=> 'https://ibanint.com',
+		'regions'     => 'Africa | Europe | Asia | Middle East | North America',
+		'email'       => '',
 	);
 }
 
 /**
- * Create pages, set the static front page, flush rewrites.
+ * The eight practice areas.
+ *
+ * Title, icon, profile blurb (verbatim), banner image and the
+ * cross-practice "connection" line from the profile.
+ *
+ * @return array
  */
-function ibanint_seed_pages() {
-	$front_id = 0;
+function ibanint_sectors() {
+	return array(
+		'international-commodity-trade' => array(
+			'title'      => 'International & Commodity Trade',
+			'short'      => 'Trade',
+			'icon'       => 'ph-arrows-left-right',
+			'blurb'      => 'Connecting producers, suppliers, buyers, and markets across borders to facilitate strategic trade opportunities.',
+			'banner'     => 'banner-trade.jpg',
+			'connection' => 'A commodity opportunity can create a logistics opportunity.',
+		),
+		'energy'                        => array(
+			'title'      => 'Energy',
+			'short'      => 'Energy',
+			'icon'       => 'ph-lightning',
+			'blurb'      => 'Pursuing strategic opportunities across the energy landscape while supporting the development of commercially viable solutions.',
+			'banner'     => 'banner-energy.jpg',
+			'connection' => 'Rather than work in silos, we pursue opportunities across all our business sectors.',
+		),
+		'agriculture-food'              => array(
+			'title'      => 'Agriculture & Food',
+			'short'      => 'Agriculture',
+			'icon'       => 'ph-basket',
+			'blurb'      => 'From agricultural production and food processing to packaging and distribution, we support opportunities across the food value chain.',
+			'banner'     => 'banner-agriculture.jpg',
+			'connection' => 'An agricultural project can create processing and distribution opportunities.',
+		),
+		'transportation-logistics'      => array(
+			'title'      => 'Transportation & Logistics',
+			'short'      => 'Logistics',
+			'icon'       => 'ph-truck',
+			'blurb'      => 'Connecting markets and strengthening supply chains through transportation, logistics, distribution, and strategic infrastructure opportunities.',
+			'banner'     => 'banner-logistics.jpg',
+			'connection' => 'Infrastructure can unlock trade.',
+		),
+		'infrastructure-advisory'       => array(
+			'title'      => 'Infrastructure Advisory',
+			'short'      => 'Infrastructure',
+			'icon'       => 'ph-bridge',
+			'blurb'      => 'Driving investments and development in large and small infrastructure projects, guiding them from concept to profitable reality.',
+			'banner'     => 'banner-infrastructure.jpg',
+			'connection' => 'A commodity opportunity can create a logistics opportunity.',
+		),
+		'real-estate-development'       => array(
+			'title'      => 'Real Estate Development',
+			'short'      => 'Real Estate',
+			'icon'       => 'ph-house-line',
+			'blurb'      => 'Identifying and developing commercially valuable real estate opportunities with a focus on sustainable, long-term growth.',
+			'banner'     => 'banner-realestate.jpg',
+			'connection' => 'Real estate can support commercial growth.',
+		),
+		'waste-management'              => array(
+			'title'      => 'Waste Management',
+			'short'      => 'Waste',
+			'icon'       => 'ph-recycle',
+			'blurb'      => 'Transforming waste challenges into opportunities through responsible collection, recovery, recycling, resource management, and circular-economy solutions.',
+			'banner'     => 'banner-waste.jpg',
+			'connection' => 'Waste can become a resource.',
+		),
+		'mining-natural-resources'      => array(
+			'title'      => 'Mining & Natural Resources',
+			'short'      => 'Mining',
+			'icon'       => 'ph-mountains',
+			'blurb'      => 'Exploring strategic opportunities in mining and natural-resource development while emphasizing responsible and sustainable value creation.',
+			'banner'     => 'banner-mining.jpg',
+			'connection' => 'Rather than work in silos, we pursue opportunities across all our business sectors.',
+		),
+	);
+}
 
-	foreach ( ibanint_required_pages() as $key => $page ) {
-		$slug     = $page[1] ? $page[1] : 'home';
-		$existing = get_page_by_path( $slug );
+/**
+ * Front sliding hero copy.
+ *
+ * @return array
+ */
+function ibanint_slides() {
+	return array(
+		array(
+			'kicker' => 'Iban International Ltd',
+			'title'  => 'Global opportunities, arranged with intent',
+			'text'   => 'This is not capacity building. It is a strategic partnership approach to business development.',
+			'cta'    => 'Explore Our Businesses',
+			'link'   => '/services/',
+			'image'  => 'hero-1.jpg',
+		),
+		array(
+			'kicker' => 'Our Focus',
+			'title'  => 'Eight industries. One integrated approach.',
+			'text'   => 'From trade flows to waste streams, we open and operate the doors others stop at.',
+			'cta'    => 'What We Do',
+			'link'   => '/services/',
+			'image'  => 'hero-2.jpg',
+		),
+		array(
+			'kicker' => 'The Difference',
+			'title'  => 'We look at the bigger picture',
+			'text'   => 'Where others see separate markets, we see connections. That is how an agricultural deal opens a logistics door.',
+			'cta'    => 'Partner With Us',
+			'link'   => '/contact/',
+			'image'  => 'hero-3.jpg',
+		),
+	);
+}
 
-		if ( $existing ) {
-			if ( 'home' === $key ) {
-				$front_id = (int) $existing->ID;
-			}
+/**
+ * Structured pages: slug => [title, template, parent-slug, is-front, is-posts].
+ *
+ * @return array
+ */
+function ibanint_site_pages() {
+	$pages = array(
+		'home'      => array( 'Home', '', '', 1, 0 ),
+		'about'     => array( 'About Us', 'page-about.php', '', 0, 0 ),
+		'services'  => array( 'Our Businesses', 'page-services.php', '', 0, 0 ),
+		'contact'   => array( 'Contact Us', 'page-contact.php', '', 0, 0 ),
+		'news'      => array( 'News', '', '', 0, 1 ),
+	);
+
+	foreach ( ibanint_sectors() as $slug => $sector ) {
+		$pages[ $slug ] = array( $sector['title'], 'page-sector.php', 'services', 0, 0 );
+	}
+
+	return $pages;
+}
+
+/**
+ * Seed pages, menus and options. Runs on activation or on demand.
+ * Existing pages and menus are never overwritten.
+ */
+function ibanint_seed_site() {
+	$pages      = ibanint_site_pages();
+	$created    = array();
+	$services_id = 0;
+	$front_id   = 0;
+	$news_id    = 0;
+
+	foreach ( $pages as $slug => $data ) {
+		if ( isset( $created[ $slug ] ) ) {
 			continue;
 		}
-
-		$page_id = wp_insert_post(
-			array(
-				'post_title'   => $page[0],
-				'post_name'    => $slug,
-				'post_status'  => 'publish',
-				'post_type'    => 'page',
-				'post_content' => '',
-			)
-		);
-
-		if ( $page_id && ! is_wp_error( $page_id ) && 'home' === $key ) {
-			$front_id = (int) $page_id;
+		$existing = get_page_by_path( $slug );
+		if ( $existing && 'publish' === $existing->post_status ) {
+			$created[ $slug ] = (int) $existing->ID;
+		} elseif ( $existing ) {
+			$created[ $slug ] = (int) $existing->ID;
+		} else {
+			$page_id = wp_insert_post(
+				array(
+					'post_title'   => $data[0],
+					'post_name'    => $slug,
+					'post_status'  => 'publish',
+					'post_type'    => 'page',
+					'post_content' => '',
+				)
+			);
+			if ( $page_id && ! is_wp_error( $page_id ) ) {
+				$created[ $slug ] = (int) $page_id;
+			}
 		}
 	}
+
+	if ( isset( $created['services'] ) ) {
+		$services_id = $created['services'];
+	}
+
+	// Pass 2: sector children + templates.
+	foreach ( ibanint_sectors() as $slug => $sector ) {
+		if ( ! isset( $created[ $slug ] ) ) {
+			continue;
+		}
+		$sector_id = $created[ $slug ];
+
+		if ( $services_id && $sector_id ) {
+			$post = get_post( $sector_id );
+			if ( $post && (int) $post->post_parent !== (int) $services_id ) {
+				wp_update_post(
+					array(
+						'ID'          => $sector_id,
+						'post_parent' => $services_id,
+					)
+				);
+			}
+		}
+
+		$template = get_post_meta( $sector_id, '_wp_page_template', true );
+		if ( ! $template || 'default' === $template ) {
+			update_post_meta( $sector_id, '_wp_page_template', 'page-sector.php' );
+		}
+	}
+
+	if ( isset( $created['about'] ) ) {
+		$template = get_post_meta( $created['about'], '_wp_page_template', true );
+		if ( ! $template || 'default' === $template ) {
+			update_post_meta( $created['about'], '_wp_page_template', 'page-about.php' );
+		}
+	}
+	if ( isset( $created['services'] ) ) {
+		$template = get_post_meta( $created['services'], '_wp_page_template', true );
+		if ( ! $template || 'default' === $template ) {
+			update_post_meta( $created['services'], '_wp_page_template', 'page-services.php' );
+		}
+	}
+	if ( isset( $created['contact'] ) ) {
+		$template = get_post_meta( $created['contact'], '_wp_page_template', true );
+		if ( ! $template || 'default' === $template ) {
+			update_post_meta( $created['contact'], '_wp_page_template', 'page-contact.php' );
+		}
+	}
+
+	// Reading settings.
+	$front_id = isset( $created['home'] ) ? $created['home'] : 0;
+	$news_id  = isset( $created['news'] ) ? $created['news'] : 0;
 
 	if ( $front_id ) {
 		update_option( 'show_on_front', 'page' );
 		update_option( 'page_on_front', $front_id );
 	}
+	if ( $news_id ) {
+		update_option( 'page_for_posts', $news_id );
+	}
+
+	// Site identity.
+	update_option( 'blogname', 'Iban International Ltd' );
+	update_option( 'blogdescription', 'Global Opportunities. Strategic Solutions. Lasting Value.' );
+
+	// Publish the existing privacy draft.
+	$privacy = get_page_by_path( 'privacy-policy' );
+	if ( $privacy && 'draft' === get_post_status( $privacy ) ) {
+		wp_update_post(
+			array(
+				'ID'          => $privacy->ID,
+				'post_status' => 'publish',
+			)
+		);
+	}
+
+	// Terms of Use stub if missing.
+	if ( ! get_page_by_path( 'terms-of-use' ) ) {
+		wp_insert_post(
+			array(
+				'post_title'   => 'Terms of Use',
+				'post_name'    => 'terms-of-use',
+				'post_status'  => 'publish',
+				'post_type'    => 'page',
+				'post_content' => "<p>This page will carry our terms of use. For questions about how you may use the content of this site, or about any agreement with Iban International Ltd, please contact us.</p>\n<p><a href=\"" . esc_url( home_url( '/contact/' ) ) . '">Contact Iban International</a></p>',
+			)
+		);
+	}
+
+	// Trash default content.
+	$hello = get_page_by_path( 'hello-world', OBJECT, 'post' );
+	if ( ! $hello ) {
+		$hello_post = get_posts(
+			array(
+				'title'        => 'Hello world!',
+				'numberposts'  => 1,
+				'post_type'    => 'post',
+				'post_status'  => 'any',
+				'fields'       => 'ids',
+			)
+		);
+		if ( ! empty( $hello_post ) ) {
+			wp_trash_post( $hello_post[0] );
+		}
+	} elseif ( $hello && 'publish' === get_post_status( $hello ) ) {
+		wp_trash_post( $hello->ID );
+	}
+
+	$sample = get_page_by_path( 'sample-page' );
+	if ( $sample && 'publish' === get_post_status( $sample ) ) {
+		wp_trash_post( $sample->ID );
+	}
+
+	// Primary navigation menu.
+	ibanint_seed_menu();
 
 	flush_rewrite_rules();
+
+	return $created;
 }
 
 /**
- * Seed on activation.
+ * Create the primary menu with Our Businesses dropdown, if absent.
+ */
+function ibanint_seed_menu() {
+	$existing = wp_get_nav_menu_object( 'Primary' );
+	if ( $existing ) {
+		return;
+	}
+
+	$menu_id = wp_create_nav_menu( 'Primary' );
+	if ( is_wp_error( $menu_id ) || ! $menu_id ) {
+		return;
+	}
+
+	$items = array(
+		array( 'Home', 'home' ),
+		array( 'About Us', 'about' ),
+		array( 'Our Businesses', 'services' ),
+		array( 'News', 'news' ),
+		array( 'Contact Us', 'contact' ),
+	);
+
+	foreach ( $items as $item ) {
+		$page = get_page_by_path( $item[1] );
+		if ( ! $page ) {
+			continue;
+		}
+		wp_update_nav_menu_item(
+			$menu_id,
+			0,
+			array(
+				'menu-item-title'     => $item[0],
+				'menu-item-object'    => 'page',
+				'menu-item-object-id' => $page->ID,
+				'menu-item-type'      => 'post_type',
+				'menu-item-status'    => 'publish',
+			)
+		);
+	}
+
+	// Child items under Our Businesses.
+	$services_page = get_page_by_path( 'services' );
+	if ( $services_page ) {
+		$parent_item_id = 0;
+		foreach ( wp_get_nav_menu_items( $menu_id ) as $candidate ) {
+			if ( (int) $candidate->object_id === (int) $services_page->ID ) {
+				$parent_item_id = (int) $candidate->ID;
+				break;
+			}
+		}
+
+		if ( $parent_item_id ) {
+			foreach ( ibanint_sectors() as $slug => $sector ) {
+				$sector_page = get_page_by_path( 'services/' . $slug );
+				if ( $sector_page ) {
+					wp_update_nav_menu_item(
+						$menu_id,
+						0,
+						array(
+							'menu-item-title'     => $sector['title'],
+							'menu-item-object'    => 'page',
+							'menu-item-object-id' => $sector_page->ID,
+							'menu-item-type'      => 'post_type',
+							'menu-item-status'    => 'publish',
+							'menu-item-parent-id' => $parent_item_id,
+						)
+					);
+				}
+			}
+		}
+	}
+
+	$locations           = get_theme_mod( 'nav_menu_locations', array() );
+	$locations['primary'] = $menu_id;
+	set_theme_mod( 'nav_menu_locations', $locations );
+}
+
+/**
+ * Primary menu fallback matching the seeded structure.
+ */
+function ibanint_menu_fallback() {
+	$items = array(
+		array( 'home', __( 'Home', 'ibanint' ) ),
+		array( 'about', __( 'About', 'ibanint' ) ),
+		array( 'services', __( 'Our Businesses', 'ibanint' ) ),
+		array( 'news', __( 'News', 'ibanint' ) ),
+		array( 'contact', __( 'Contact', 'ibanint' ) ),
+	);
+
+	echo '<ul class="menu">';
+	foreach ( $items as $item ) {
+		$page = get_page_by_path( $item[0] );
+		if ( ! $page ) {
+			continue;
+		}
+		$classes = array( 'menu-item' );
+		$is_active = is_page( $item[0] );
+		if ( $is_active ) {
+			$classes[] = 'current-menu-item';
+		}
+		if ( 'services' === $item[0] ) {
+			$classes[] = 'menu-item-has-children';
+		}
+		echo '<li class="' . esc_attr( implode( ' ', $classes ) ) . '"><a href="' . esc_url( get_permalink( $page ) ) . '">' . esc_html( $item[1] ) . '</a>';
+
+		if ( 'services' === $item[0] ) {
+			echo '<ul class="sub-menu">';
+			foreach ( ibanint_sectors() as $slug => $sector ) {
+				$sector_page = get_page_by_path( 'services/' . $slug );
+				if ( $sector_page ) {
+					$active = is_page( $slug ) ? ' current-menu-item' : '';
+					echo '<li class="menu-item' . esc_attr( $active ) . '"><a href="' . esc_url( get_permalink( $sector_page ) ) . '">' . esc_html( $sector['title'] ) . '</a></li>';
+				}
+			}
+			echo '</ul>';
+		}
+		echo '</li>';
+	}
+	echo '</ul>';
+}
+
+/**
+ * Is this ID a sector page?
+ *
+ * @param int $post_id Post ID.
+ * @return bool
+ */
+function ibanint_is_sector_post( $post_id ) {
+	$post = get_post( $post_id );
+	if ( ! $post || 'page' !== $post->post_type ) {
+		return false;
+	}
+	return 'services' === get_post_field( 'post_name', $post->post_parent ) && isset( ibanint_sectors()[ $post->post_name ] );
+}
+
+/**
+ * Footer legal menu fallback.
+ */
+function ibanint_footer_fallback() {
+	echo '<ul class="menu">';
+	$privacy = get_page_by_path( 'privacy-policy' );
+	if ( $privacy ) {
+		echo '<li><a href="' . esc_url( get_permalink( $privacy ) ) . '">' . esc_html__( 'Privacy Policy', 'ibanint' ) . '</a></li>';
+	}
+	$terms = get_page_by_path( 'terms-of-use' );
+	if ( $terms ) {
+		echo '<li><a href="' . esc_url( get_permalink( $terms ) ) . '">' . esc_html__( 'Terms of Use', 'ibanint' ) . '</a></li>';
+	}
+	echo '</ul>';
+}
+
+/**
+ * Full-bleed banner part markup (kept here for reuse).
+ * Prefer template-parts/page-banner.php; this is the data helper.
+ *
+ * @param string $title    Banner title.
+ * @param string $image    Image file in assets/images (optional).
+ * @param string $sub      Small line under the title (optional).
+ * @return void
+ */
+function ibanint_page_banner( $title, $image = '', $sub = '' ) {
+	set_query_var( 'ibanint_banner_title', $title );
+	set_query_var( 'ibanint_banner_image', $image );
+	set_query_var( 'ibanint_banner_sub', $sub );
+	get_template_part( 'template-parts/page-banner' );
+}
+
+/**
+ * Seed on theme activation.
  */
 function ibanint_seed_on_activate() {
-	ibanint_seed_pages();
+	ibanint_seed_site();
 }
 add_action( 'after_switch_theme', 'ibanint_seed_on_activate' );
 
@@ -159,23 +590,20 @@ function ibanint_setup_notice() {
 	}
 
 	$missing = array();
-
-	foreach ( ibanint_required_pages() as $page ) {
-		if ( ! get_page_by_path( $page[1] ? $page[1] : 'home' ) ) {
-			$missing[] = $page[0];
+	foreach ( array( 'home', 'about', 'services', 'contact', 'news' ) as $slug ) {
+		if ( ! get_page_by_path( $slug ) ) {
+			$missing[] = $slug;
 		}
 	}
 
-	if ( ! $missing ) {
+	if ( empty( $missing ) ) {
 		return;
 	}
 
 	printf(
-		'<div class="notice notice-warning"><p><strong>%s</strong> %s</p><p><a class="button button-primary" href="%s">%s</a></p></div>',
-		esc_html__( 'Ibanint setup:', 'ibanint' ),
-		esc_html( sprintf( __( 'Missing pages: %s', 'ibanint' ), implode( ', ', $missing ) ) ),
-		esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=ibanint_seed' ), 'ibanint_seed' ) ),
-		esc_html__( 'Create pages now', 'ibanint' )
+		'<div class="notice notice-warning"><p><strong>Iban International setup:</strong> missing pages: %s</p><p><a class="button button-primary" href="%s">Create pages now</a></p></div>',
+		esc_html( implode( ', ', $missing ) ),
+		esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=ibanint_seed' ), 'ibanint_seed' ) )
 	);
 }
 add_action( 'admin_notices', 'ibanint_setup_notice' );
@@ -189,8 +617,7 @@ function ibanint_handle_seed() {
 	}
 
 	check_admin_referer( 'ibanint_seed' );
-
-	ibanint_seed_pages();
+	ibanint_seed_site();
 
 	wp_safe_redirect( admin_url( 'edit.php?post_type=page&ibanint_seeded=1' ) );
 	exit;
