@@ -194,8 +194,9 @@ a { color: var(--navy-2); }
 	align-items: center;
 	gap: 22px;
 	min-height: 74px;
-	margin: 0 clamp(12px, 2.6vw, 22px);
-	padding: 0 10px 0 22px;
+	max-width: 1320px;
+	margin: 0 auto;
+	padding: 0 22px;
 	border-radius: 14px;
 	background: rgba(255, 255, 255, 0.96);
 	backdrop-filter: blur(8px);
@@ -487,7 +488,6 @@ html.ib-js .ib-slide.active .ib-slide-content { opacity: 1; transform: none; }
 	color: var(--white);
 	line-height: 1.35;
 }
-.ib-trust-item:last-child { grid-column: 1 / -1; justify-self: center; max-width: 340px; }
 .ib-trust-item .ph {
 	width: 52px;
 	height: 52px;
@@ -555,8 +555,9 @@ html.ib-js .ib-slide.active .ib-slide-content { opacity: 1; transform: none; }
 	margin-top: -70px;
 	background: var(--navy);
 	border-radius: 24px;
-	padding: 74px clamp(16px, 4vw, 70px) 78px;
+	padding: 74px 0 78px;
 }
+.ib-sectors-panel .ib-wrap { padding: 0 clamp(16px, 4vw, 70px); }
 .ib-sectors-head { margin-bottom: 44px; }
 .ib-sector-intro { color: rgba(255, 255, 255, 0.82); max-width: 620px; margin: 0 0 24px; }
 
@@ -609,8 +610,9 @@ html.ib-js .ib-slide.active .ib-slide-content { opacity: 1; transform: none; }
 	margin-top: -70px;
 	background: var(--navy-deep);
 	border-radius: 24px;
-	padding: 74px clamp(16px, 4vw, 70px) 78px;
+	padding: 74px 0 78px;
 }
+.ib-steps-panel .ib-wrap { padding: 0 clamp(16px, 4vw, 70px); }
 .ib-steps-grid {
 	display: grid;
 	grid-template-columns: 7fr 4fr;

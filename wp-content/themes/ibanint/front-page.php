@@ -24,7 +24,7 @@ $ibanint_contact_url = home_url( '/contact/' );
  */
 ?>
 
-<section class="ib-hero" id="ib-hero">
+<section class="ib-hero" id="ib-hero" tabindex="0">
 	<?php foreach ( $ibanint_slides as $ibanint_index => $ibanint_slide ) : ?>
 		<div class="ib-slide ib-slide-<?php echo (int) $ibanint_index + 1; ?><?php echo 0 === $ibanint_index ? ' active' : ''; ?>" style="background-image:url('<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . $ibanint_slide['image'] ); ?>');">
 			<div class="ib-slide-shade"></div>
@@ -55,7 +55,6 @@ $ibanint_contact_url = home_url( '/contact/' );
 				array( 'ph-strategy', 'Eight practice areas' ),
 				array( 'ph-handshake', 'Strategic partnerships' ),
 				array( 'ph-arrows-left-right', 'Connections across borders' ),
-				array( 'ph-trend-up', 'Endless possibilities' ),
 			);
 			foreach ( $ibanint_trust as $ibanint_item ) :
 				?>
@@ -65,8 +64,8 @@ $ibanint_contact_url = home_url( '/contact/' );
 				</div>
 			<?php endforeach; ?>
 		</div>
-		</div>
-	</section>
+	</div>
+</section>
 
 <!-- Who we are -->
 <section class="ib-about" id="ib-about">
