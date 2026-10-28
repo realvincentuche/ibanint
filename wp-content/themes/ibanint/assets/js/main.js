@@ -31,15 +31,22 @@
 	var hero = document.getElementById('ib-hero');
 	if (hero) {
 		var slides = Array.prototype.slice.call(hero.querySelectorAll('.ib-slide'));
-		var current = Math.max(0, slides.findIndex(function (s) { return s.classList.contains('active'); }));
+		var activeIndex = slides.findIndex(function (s) { return s.classList.contains('active'); });
+		var current = activeIndex >= 0 ? activeIndex : 0;
 		var timer = null;
 		var DELAY = 9000;
 
 		var go = function (index) {
-			if (!slides[index]) { return; }
-			slides[current].classList.remove('active');
-			current = (index + slides.length) % slides.length;
-			slides[current].classList.add('active');
+			if (!slides.length) { return; }
+			current = ((index % slides.length) + slides.length) % slides.length;
+			slides.forEach(function (slide, slideIndex) {
+				slide.classList.toggle('active', slideIndex === current);
+			});
+		};
+
+		var step = function (direction) {
+			go(current + direction);
+			restart();
 		};
 
 		var restart = function () {
@@ -65,7 +72,7 @@
 			if (null === touchX || !e.changedTouches || !e.changedTouches.length) { return; }
 			var dx = e.changedTouches[0].clientX - touchX;
 			touchX = null;
-			if (Math.abs(dx) >= 40) { go(dx < 0 ? current + 1 : current - 1); restart(); }
+			if (Math.abs(dx) >= 40) { step(dx < 0 ? 1 : -1); }
 		}, { passive: true });
 		hero.addEventListener('touchcancel', function () { touchX = null; }, { passive: true });
 		document.addEventListener('keydown', function (e) {
@@ -75,8 +82,7 @@
 			var rect = hero.getBoundingClientRect();
 			if (rect.bottom < 0 || rect.top > window.innerHeight) { return; }
 			e.preventDefault();
-			go(current + (e.key === 'ArrowRight' ? 1 : -1));
-			restart();
+			step(e.key === 'ArrowRight' ? 1 : -1);
 		});
 
 		restart();
