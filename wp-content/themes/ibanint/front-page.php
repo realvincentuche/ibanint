@@ -65,30 +65,8 @@ $ibanint_contact_url = home_url( '/contact/' );
 				</div>
 			<?php endforeach; ?>
 		</div>
-	</div>
-</section>
-
-<!-- Counters -->
-<section class="ib-stats" id="ib-stats">
-	<div class="ib-wrap ib-stats-grid">
-		<div class="ib-stat">
-			<span class="ib-stat-num" data-count="8">8</span>
-			<span class="ib-stat-label"><?php esc_html_e( 'Practice areas, one group', 'ibanint' ); ?></span>
 		</div>
-		<div class="ib-stat">
-			<span class="ib-stat-num" data-count="5">5</span>
-			<span class="ib-stat-label"><?php esc_html_e( 'Regions, from Africa to North America', 'ibanint' ); ?></span>
-		</div>
-		<div class="ib-stat">
-			<span class="ib-stat-num" data-count="10" data-suffix="+">10+</span>
-			<span class="ib-stat-label"><?php esc_html_e( 'Years opening doors across borders', 'ibanint' ); ?></span>
-		</div>
-		<div class="ib-stat">
-			<span class="ib-stat-num ib-stat-inf">&infin;</span>
-			<span class="ib-stat-label"><?php esc_html_e( 'Possibilities next door', 'ibanint' ); ?></span>
-		</div>
-	</div>
-</section>
+	</section>
 
 <!-- Who we are -->
 <section class="ib-about" id="ib-about">
@@ -122,10 +100,31 @@ $ibanint_contact_url = home_url( '/contact/' );
 	</div>
 </section>
 
+<!-- Counters -->
+<section class="ib-stats" id="ib-stats">
+	<div class="ib-wrap ib-stats-grid">
+		<div class="ib-stat">
+			<span class="ib-stat-num" data-count="8">8</span>
+			<span class="ib-stat-label"><?php esc_html_e( 'Practice areas, one group', 'ibanint' ); ?></span>
+		</div>
+		<div class="ib-stat">
+			<span class="ib-stat-num" data-count="5">5</span>
+			<span class="ib-stat-label"><?php esc_html_e( 'Regions, from Africa to North America', 'ibanint' ); ?></span>
+		</div>
+		<div class="ib-stat">
+			<span class="ib-stat-num" data-count="10" data-suffix="+">10+</span>
+			<span class="ib-stat-label"><?php esc_html_e( 'Years opening doors across borders', 'ibanint' ); ?></span>
+		</div>
+		<div class="ib-stat">
+			<span class="ib-stat-num ib-stat-inf">&infin;</span>
+			<span class="ib-stat-label"><?php esc_html_e( 'Possibilities next door', 'ibanint' ); ?></span>
+		</div>
+	</div>
+</section>
+
 <!-- What we do (overlapping panel with photo cards) -->
 <section class="ib-sectors" id="ib-sectors">
-	<div class="ib-wrap">
-		<div class="ib-sectors-panel ib-reveal">
+	<div class="ib-sectors-panel ib-reveal">
 			<div class="ib-sectors-head">
 				<p class="ib-kicker ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'What We Do', 'ibanint' ); ?></p>
 				<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'Eight doors, one connected group', 'ibanint' ); ?></h2>
@@ -164,8 +163,7 @@ $ibanint_contact_url = home_url( '/contact/' );
 				<?php endforeach; ?>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
 <!-- Why Iban International -->
 <section class="ib-why" id="ib-why">
@@ -195,8 +193,7 @@ $ibanint_contact_url = home_url( '/contact/' );
 
 <!-- Our approach (overlapping panel) -->
 <section class="ib-steps" id="ib-steps">
-	<div class="ib-wrap">
-		<div class="ib-steps-panel">
+	<div class="ib-steps-panel">
 			<div class="ib-steps-grid">
 				<div class="ib-steps-main">
 					<p class="ib-kicker ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Our Approach', 'ibanint' ); ?></p>
@@ -244,8 +241,7 @@ $ibanint_contact_url = home_url( '/contact/' );
 				</aside>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
 <!-- Our reach (photo cards) -->
 <section class="ib-audience" id="ib-audience">

@@ -40,7 +40,6 @@
 			slides[current].classList.remove('active');
 			current = (index + slides.length) % slides.length;
 			slides[current].classList.add('active');
-			restart();
 		};
 
 		var restart = function () {
@@ -64,6 +63,22 @@
 				else if (timer) { window.clearInterval(timer); timer = null; }
 			});
 		}
+
+		/* Keyboard + touch swipe */
+		hero.setAttribute('tabindex', '0');
+		hero.addEventListener('keydown', function (e) {
+			if (e.key === 'ArrowRight') { go(current + 1); }
+			if (e.key === 'ArrowLeft') { go(current - 1); }
+		});
+
+		var tsX = 0;
+		hero.addEventListener('touchstart', function (e) {
+			tsX = e.changedTouches[0].clientX;
+		}, { passive: true });
+		hero.addEventListener('touchend', function (e) {
+			var dx = tsX - e.changedTouches[0].clientX;
+			if (Math.abs(dx) > 60) { go(dx > 0 ? current + 1 : current - 1); }
+		}, { passive: true });
 
 		restart();
 	}

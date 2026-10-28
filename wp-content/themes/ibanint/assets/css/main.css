@@ -469,33 +469,35 @@ html.ib-js .ib-slide.active .ib-slide-content { opacity: 1; transform: none; }
 	right: 0;
 	bottom: 0;
 	z-index: 5;
-	padding: 0 0 28px;
+	padding: 0 0 26px;
 }
 .ib-trust-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	gap: 18px 30px;
+	gap: 24px;
 }
 .ib-trust-item {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	gap: 14px;
+	gap: 8px;
+	text-align: center;
 	font-weight: 700;
-	font-size: 0.95rem;
+	font-size: 1.15rem;
 	color: var(--white);
+	line-height: 1.35;
 }
-.ib-trust-item:last-child { grid-column: 1 / -1; justify-content: center; }
+.ib-trust-item:last-child { grid-column: 1 / -1; justify-self: center; max-width: 340px; }
 .ib-trust-item .ph {
-	flex: 0 0 42px;
-	width: 42px;
-	height: 42px;
+	width: 52px;
+	height: 52px;
 	border-radius: 50%;
-	border: 1px solid rgba(255, 255, 255, 0.45);
+	border: none;
 	background: transparent;
-	color: var(--white);
+	color: var(--gold-2);
 	display: grid;
 	place-items: center;
-	font-size: 1.1rem;
+	font-size: 1.7rem;
 }
 
 /* ---------------------------------------------------------
@@ -548,10 +550,12 @@ html.ib-js .ib-slide.active .ib-slide-content { opacity: 1; transform: none; }
 .ib-sectors-panel {
 	position: relative;
 	z-index: 2;
+	width: 100vw;
+	margin-left: calc(50% - 50vw);
+	margin-top: -70px;
 	background: var(--navy);
 	border-radius: 24px;
-	margin-top: -70px;
-	padding: 74px 44px 78px;
+	padding: 74px clamp(16px, 4vw, 70px) 78px;
 }
 .ib-sectors-head { margin-bottom: 44px; }
 .ib-sector-intro { color: rgba(255, 255, 255, 0.82); max-width: 620px; margin: 0 0 24px; }
@@ -600,10 +604,12 @@ html.ib-js .ib-slide.active .ib-slide-content { opacity: 1; transform: none; }
 .ib-steps-panel {
 	position: relative;
 	z-index: 2;
+	width: 100vw;
+	margin-left: calc(50% - 50vw);
+	margin-top: -70px;
 	background: var(--navy-deep);
 	border-radius: 24px;
-	margin-top: -70px;
-	padding: 74px 44px 78px;
+	padding: 74px clamp(16px, 4vw, 70px) 78px;
 }
 .ib-steps-grid {
 	display: grid;
@@ -759,7 +765,7 @@ html.ib-js .ib-slide.active .ib-slide-content { opacity: 1; transform: none; }
 	background-color: var(--navy);
 	background-size: cover;
 	background-position: center;
-	padding: 168px 0 76px;
+	padding: 210px 0 100px;
 	text-align: left;
 }
 .ib-banner-shade {
