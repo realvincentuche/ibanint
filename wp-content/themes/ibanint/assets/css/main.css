@@ -554,17 +554,19 @@ html.ib-js .ib-slide.active .ib-slide-content { opacity: 1; transform: none; }
 	margin-left: calc(50% - 50vw);
 	margin-top: -70px;
 	background: var(--navy);
-	border-radius: 24px;
+	border-radius: 0;
 	padding: 74px 0 78px;
 }
 .ib-sectors-panel .ib-wrap { padding: 0 clamp(16px, 4vw, 70px); }
-.ib-sectors-head { margin-bottom: 44px; }
+.ib-sectors-head { margin-bottom: 44px; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 20px; }
+.ib-sector-next { width: 54px; height: 54px; border: 1px solid rgba(255,255,255,.42); border-radius: 50%; color: var(--navy); background: var(--gold-2); display: grid; place-items: center; font-size: 1.35rem; cursor: pointer; }
+.ib-sector-viewport { overflow: hidden; }
 .ib-sector-intro { color: rgba(255, 255, 255, 0.82); max-width: 620px; margin: 0 0 24px; }
 
 .ib-sector-grid {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	display: flex;
 	gap: 22px;
+	transition: transform .45s ease;
 }
 .ib-sector-card {
 	background: var(--navy-deep);
@@ -575,6 +577,7 @@ html.ib-js .ib-slide.active .ib-slide-content { opacity: 1; transform: none; }
 	flex-direction: column;
 	transition: transform 0.25s ease, border-color 0.25s ease;
 	min-height: 100%;
+	flex: 0 0 calc((100% - 44px) / 3);
 }
 .ib-sector-card:hover { transform: translateY(-6px); border-color: var(--gold); }
 .ib-sector-card-media {
@@ -1257,7 +1260,7 @@ html.ib-js .ib-reveal.ib-revealed { opacity: 1; transform: none; }
 @media (max-width: 1120px) {
 	.ib-header-inner { gap: 14px; padding-left: 18px; padding-right: 18px; }
 	.ib-header-cta { padding-left: 14px; padding-right: 14px; }
-	.ib-sector-grid { grid-template-columns: repeat(2, 1fr); }
+	.ib-sector-card { flex-basis: calc((100% - 22px) / 2); }
 	.ib-pillar-grid { grid-template-columns: repeat(2, 1fr); }
 	.ib-aud-card { flex: 0 0 calc((100% - 22px) / 2); }
 	.ib-stats-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1298,7 +1301,7 @@ html.ib-js .ib-reveal.ib-revealed { opacity: 1; transform: none; }
 	.ib-trust-item .ph { flex-basis: 36px; width: 36px; height: 36px; }
 	.ib-slide-actions .ib-btn { padding: 12px 22px; }
 
-	.ib-sector-grid { grid-template-columns: 1fr; }
+	.ib-sector-card { flex-basis: 100%; }
 	.ib-sector-card-body { min-height: 0; }
 	.ib-sectors-panel, .ib-steps-panel { padding: 36px 20px 40px; border-radius: 16px; }
 	.ib-pillar-grid { grid-template-columns: 1fr; }

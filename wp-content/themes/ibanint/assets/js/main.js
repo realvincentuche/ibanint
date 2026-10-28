@@ -194,6 +194,22 @@
 
 	buildCarousel('ib-audience-carousel', 'ib-audience-track', 'ib-audience-dots', 3);
 
+	var sectorTrack = document.getElementById('ib-sector-track');
+	var sectorNext = document.getElementById('ib-sector-next');
+	if (sectorTrack && sectorNext && sectorTrack.children.length) {
+		var sectorIndex = 0;
+		var sectorCards = Array.prototype.slice.call(sectorTrack.children);
+		var moveSector = function () {
+			var visible = window.innerWidth < 640 ? 1 : (window.innerWidth < 1120 ? 2 : 3);
+			var max = Math.max(0, sectorCards.length - visible);
+			sectorIndex = sectorIndex >= max ? 0 : sectorIndex + 1;
+			var gap = parseFloat(window.getComputedStyle(sectorTrack).gap) || 0;
+			sectorTrack.style.transform = 'translateX(' + (-(sectorCards[0].getBoundingClientRect().width + gap) * sectorIndex) + 'px)';
+		};
+		sectorNext.addEventListener('click', moveSector);
+		window.addEventListener('resize', function () { sectorIndex = 0; sectorTrack.style.transform = 'translateX(0)'; });
+	}
+
 	/* -------------------------------------------------------
 	   Dropdown tap fallback (touch + Escape + click-outside)
 	   ------------------------------------------------------- */

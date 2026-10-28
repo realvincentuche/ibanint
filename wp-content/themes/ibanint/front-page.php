@@ -126,8 +126,11 @@ $ibanint_contact_url = home_url( '/contact/' );
 	<div class="ib-sectors-panel ib-reveal">
 		<div class="ib-wrap">
 			<div class="ib-sectors-head">
+				<div class="ib-sectors-heading">
 				<p class="ib-kicker ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'What We Do', 'ibanint' ); ?></p>
 				<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'Eight doors, one connected group', 'ibanint' ); ?></h2>
+				</div>
+				<button class="ib-sector-next" id="ib-sector-next" type="button" aria-label="Show next businesses"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
 				<p class="ib-sector-intro">
 					<?php esc_html_e( 'Everything from commerce to recycling. Each practice runs on its own experience, and every one is connected to the others.', 'ibanint' ); ?>
 				</p>
@@ -137,7 +140,8 @@ $ibanint_contact_url = home_url( '/contact/' );
 				</a>
 			</div>
 
-			<div class="ib-sector-grid">
+			<div class="ib-sector-viewport" id="ib-sector-carousel">
+			<div class="ib-sector-grid" id="ib-sector-track">
 				<?php foreach ( $ibanint_sectors as $ib_slug => $ib_sector ) : ?>
 					<?php
 					$ib_sector_page = get_page_by_path( 'services/' . $ib_slug );
@@ -161,6 +165,7 @@ $ibanint_contact_url = home_url( '/contact/' );
 						</div>
 					</article>
 				<?php endforeach; ?>
+			</div>
 			</div>
 		</div>
 	</div>
