@@ -44,7 +44,7 @@
 
 		var restart = function () {
 			if (timer) { window.clearInterval(timer); }
-			if (!reducedMotion && slides.length > 1) {
+			if (slides.length > 1) {
 				timer = window.setInterval(function () { go(current + 1); }, DELAY);
 			}
 		};
