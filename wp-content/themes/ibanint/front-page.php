@@ -124,6 +124,7 @@ $ibanint_contact_url = home_url( '/contact/' );
 <!-- What we do (overlapping panel with photo cards) -->
 <section class="ib-sectors" id="ib-sectors">
 	<div class="ib-sectors-panel ib-reveal">
+		<div class="ib-wrap">
 			<div class="ib-sectors-head">
 				<p class="ib-kicker ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'What We Do', 'ibanint' ); ?></p>
 				<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'Eight doors, one connected group', 'ibanint' ); ?></h2>
@@ -162,7 +163,8 @@ $ibanint_contact_url = home_url( '/contact/' );
 				<?php endforeach; ?>
 			</div>
 		</div>
-	</section>
+	</div>
+</section>
 
 <!-- Why Iban International -->
 <section class="ib-why" id="ib-why">
@@ -193,6 +195,7 @@ $ibanint_contact_url = home_url( '/contact/' );
 <!-- Our approach (overlapping panel) -->
 <section class="ib-steps" id="ib-steps">
 	<div class="ib-steps-panel">
+		<div class="ib-wrap">
 			<div class="ib-steps-grid">
 				<div class="ib-steps-main">
 					<p class="ib-kicker ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Our Approach', 'ibanint' ); ?></p>
@@ -240,7 +243,8 @@ $ibanint_contact_url = home_url( '/contact/' );
 				</aside>
 			</div>
 		</div>
-	</section>
+	</div>
+</section>
 
 <!-- Our reach (photo cards) -->
 <section class="ib-audience" id="ib-audience">
