@@ -49,14 +49,6 @@
 			}
 		};
 
-		['mouseenter', 'focusin', 'touchstart'].forEach(function (evt) {
-			hero.addEventListener(evt, function () {
-				if (timer) { window.clearInterval(timer); timer = null; }
-			}, { passive: true });
-		});
-		['mouseleave', 'focusout'].forEach(function (evt) {
-			hero.addEventListener(evt, restart);
-		});
 		if (document.visibilityState) {
 			document.addEventListener('visibilitychange', function () {
 				if (document.visibilityState === 'visible') { restart(); }
