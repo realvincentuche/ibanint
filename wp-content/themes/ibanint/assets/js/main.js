@@ -64,21 +64,28 @@
 			});
 		}
 
-		/* Keyboard + touch swipe */
-		hero.setAttribute('tabindex', '0');
-		hero.addEventListener('keydown', function (e) {
-			if (e.key === 'ArrowRight') { go(current + 1); }
-			if (e.key === 'ArrowLeft') { go(current - 1); }
-		});
-
-		var tsX = 0;
+		/* Touch swipe and visible-hero keyboard navigation. */
+		var touchX = null;
 		hero.addEventListener('touchstart', function (e) {
-			tsX = e.changedTouches[0].clientX;
+			if (e.changedTouches && e.changedTouches.length) { touchX = e.changedTouches[0].clientX; }
 		}, { passive: true });
 		hero.addEventListener('touchend', function (e) {
-			var dx = tsX - e.changedTouches[0].clientX;
-			if (Math.abs(dx) > 60) { go(dx > 0 ? current + 1 : current - 1); }
+			if (null === touchX || !e.changedTouches || !e.changedTouches.length) { return; }
+			var dx = e.changedTouches[0].clientX - touchX;
+			touchX = null;
+			if (Math.abs(dx) >= 40) { go(dx < 0 ? current + 1 : current - 1); restart(); }
 		}, { passive: true });
+		hero.addEventListener('touchcancel', function () { touchX = null; }, { passive: true });
+		document.addEventListener('keydown', function (e) {
+			if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') { return; }
+			var tag = e.target && e.target.tagName ? e.target.tagName.toLowerCase() : '';
+			if (['input', 'textarea', 'select'].indexOf(tag) !== -1 || (e.target && e.target.isContentEditable)) { return; }
+			var rect = hero.getBoundingClientRect();
+			if (rect.bottom < 0 || rect.top > window.innerHeight) { return; }
+			e.preventDefault();
+			go(current + (e.key === 'ArrowRight' ? 1 : -1));
+			restart();
+		});
 
 		restart();
 	}
