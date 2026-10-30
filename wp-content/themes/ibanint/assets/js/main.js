@@ -9,6 +9,20 @@
 
 	var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+	/* Preloader */
+	var preloader = document.getElementById('ib-preloader');
+	var hidePreloader = function () {
+		if (preloader) {
+			window.setTimeout(function () { preloader.classList.add('done'); }, 350);
+		}
+	};
+	if (document.readyState === 'complete') {
+		hidePreloader();
+	} else {
+		window.addEventListener('load', hidePreloader, { once: true });
+	}
+	window.setTimeout(hidePreloader, 3500);
+
 	/* -------------------------------------------------------
 	   Sticky header shadow
 	   ------------------------------------------------------- */
