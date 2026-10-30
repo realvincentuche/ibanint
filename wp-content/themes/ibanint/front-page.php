@@ -47,6 +47,39 @@ $ibanint_contact_url = home_url( '/contact/' );
 		</div>
 	<?php endforeach; ?>
 
+<?php /* Counter panel overlaps the lower edge of the slider. */ ?>
+<section class="ib-stats" id="ib-stats" aria-label="<?php esc_attr_e( 'Iban International at a glance', 'ibanint' ); ?>">
+	<div class="ib-wrap ib-stats-grid">
+		<div class="ib-stat">
+			<i class="ph ph-strategy ib-stat-icon" aria-hidden="true"></i>
+			<div class="ib-stat-copy">
+				<span class="ib-stat-num" data-count="8">8</span>
+				<span class="ib-stat-label"><?php esc_html_e( 'Practice areas, one group', 'ibanint' ); ?></span>
+			</div>
+		</div>
+		<div class="ib-stat">
+			<i class="ph ph-globe-hemisphere-west ib-stat-icon" aria-hidden="true"></i>
+			<div class="ib-stat-copy">
+				<span class="ib-stat-num" data-count="5">5</span>
+				<span class="ib-stat-label"><?php esc_html_e( 'Regions, from Africa to North America', 'ibanint' ); ?></span>
+			</div>
+		</div>
+		<div class="ib-stat">
+			<i class="ph ph-calendar-check ib-stat-icon" aria-hidden="true"></i>
+			<div class="ib-stat-copy">
+				<span class="ib-stat-num" data-count="10" data-suffix="+">10+</span>
+				<span class="ib-stat-label"><?php esc_html_e( 'Years opening doors across borders', 'ibanint' ); ?></span>
+			</div>
+		</div>
+		<div class="ib-stat">
+			<i class="ph ph-infinity ib-stat-icon" aria-hidden="true"></i>
+			<div class="ib-stat-copy">
+				<span class="ib-stat-num ib-stat-inf">&infin;</span>
+				<span class="ib-stat-label"><?php esc_html_e( 'Possibilities next door', 'ibanint' ); ?></span>
+			</div>
+		</div>
+	</div>
+</section>
 </section>
 
 <!-- Who we are -->
@@ -77,28 +110,6 @@ $ibanint_contact_url = home_url( '/contact/' );
 				<span class="ib-about-badge-num">10+</span>
 				<span class="ib-about-badge-label"><?php echo esc_html( __( 'Years opening doors across borders', 'ibanint' ) ); ?></span>
 			</div>
-		</div>
-	</div>
-</section>
-
-<!-- Counters -->
-<section class="ib-stats" id="ib-stats">
-	<div class="ib-wrap ib-stats-grid">
-		<div class="ib-stat">
-			<span class="ib-stat-num" data-count="8">8</span>
-			<span class="ib-stat-label"><?php esc_html_e( 'Practice areas, one group', 'ibanint' ); ?></span>
-		</div>
-		<div class="ib-stat">
-			<span class="ib-stat-num" data-count="5">5</span>
-			<span class="ib-stat-label"><?php esc_html_e( 'Regions, from Africa to North America', 'ibanint' ); ?></span>
-		</div>
-		<div class="ib-stat">
-			<span class="ib-stat-num" data-count="10" data-suffix="+">10+</span>
-			<span class="ib-stat-label"><?php esc_html_e( 'Years opening doors across borders', 'ibanint' ); ?></span>
-		</div>
-		<div class="ib-stat">
-			<span class="ib-stat-num ib-stat-inf">&infin;</span>
-			<span class="ib-stat-label"><?php esc_html_e( 'Possibilities next door', 'ibanint' ); ?></span>
 		</div>
 	</div>
 </section>
