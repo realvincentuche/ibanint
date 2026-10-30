@@ -47,24 +47,6 @@ $ibanint_contact_url = home_url( '/contact/' );
 		</div>
 	<?php endforeach; ?>
 
-	<div class="ib-trust">
-		<div class="ib-wrap ib-trust-grid">
-			<?php
-			$ibanint_trust = array(
-				array( 'ph-globe-hemisphere-west', 'International business' ),
-				array( 'ph-strategy', 'Eight practice areas' ),
-				array( 'ph-handshake', 'Strategic partnerships' ),
-				array( 'ph-arrows-left-right', 'Connections across borders' ),
-			);
-			foreach ( $ibanint_trust as $ibanint_item ) :
-				?>
-				<div class="ib-trust-item">
-					<i class="ph <?php echo esc_attr( $ibanint_item[0] ); ?>" aria-hidden="true"></i>
-					<span><?php echo esc_html( $ibanint_item[1] ); ?></span>
-				</div>
-			<?php endforeach; ?>
-		</div>
-	</div>
 </section>
 
 <!-- Who we are -->
