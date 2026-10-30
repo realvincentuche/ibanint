@@ -1,7 +1,7 @@
 /* =========================================================
    Iban International - main design system
    Palette from the logo: navy #13223F/#1D3160, gold #C7A144/#E7C876
-   Fonts: Manrope (UI/body), Caveat (accent script)
+   Fonts: Plus Jakarta Sans (headings), Manrope (UI/body)
    ========================================================= */
 
 :root {
@@ -19,6 +19,7 @@
 	--radius: 10px;
 	--shadow: 0 18px 45px rgba(19, 34, 63, 0.12);
 	--font: "Manrope", -apple-system, "Segoe UI", Roboto, sans-serif;
+	--font-heading: "Plus Jakarta Sans", var(--font);
 }
 
 *,
@@ -42,7 +43,7 @@ body.ib-lock { overflow: hidden; }
 
 img { max-width: 100%; height: auto; display: block; }
 
-h1, h2, h3, h4 { color: var(--navy); line-height: 1.18; letter-spacing: -0.015em; }
+h1, h2, h3, h4 { color: var(--navy); font-family: var(--font-heading); line-height: 1.18; letter-spacing: -0.015em; }
 
 a { color: var(--navy-2); }
 
@@ -888,7 +889,7 @@ html.ib-js .ib-slide.active .ib-slide-content { opacity: 1; transform: none; }
 }
 .ib-mindset-media img { border-radius: var(--radius); box-shadow: var(--shadow); }
 .ib-quote-big {
-	font-family: "Caveat", cursive;
+	font-family: var(--font-heading);
 	font-size: clamp(1.6rem, 3vw, 2.2rem);
 	color: var(--gold);
 	margin: 0 0 18px;

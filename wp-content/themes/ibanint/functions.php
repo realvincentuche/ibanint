@@ -5,7 +5,7 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.1.2' );
+define( 'IBANINT_VERSION', '0.1.3' );
 
 /**
  * Theme supports and menu locations.
@@ -52,7 +52,7 @@ add_action( 'after_setup_theme', 'ibanint_content_width', 0 );
 function ibanint_assets() {
 	wp_enqueue_style(
 		'ibanint-fonts',
-		'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap',
+		'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap',
 		array(),
 		null
 	);
