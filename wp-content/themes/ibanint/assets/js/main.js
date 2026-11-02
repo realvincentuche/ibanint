@@ -20,6 +20,7 @@
 		var timer = null;
 		var touchStart = null;
 		var showSlide = function (index) {
+			hero.classList.add('has-advanced');
 			active = (index + slides.length) % slides.length;
 			slides.forEach(function (slide, i) {
 				var selected = i === active;

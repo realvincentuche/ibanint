@@ -9,7 +9,7 @@ get_header();
 
 $ibanint_news_id = get_option( 'page_for_posts' );
 
-set_query_var( 'ibanint_banner_title', __( 'News', 'ibanint' ) );
+set_query_var( 'ibanint_banner_title', __( 'Updates & Events', 'ibanint' ) );
 set_query_var( 'ibanint_banner_image', 'banner-news.jpg' );
 set_query_var( 'ibanint_banner_sub', '' );
 get_template_part( 'template-parts/page-banner' );
