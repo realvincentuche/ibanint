@@ -19,11 +19,14 @@ $ibanint_contact_url = home_url( '/contact/' );
 /* Hero image: Unsplash containers port 1770710195407 (hero-2.jpg). */
 ?>
 
-<section class="ib-hero" id="ib-hero" style="background-image:url('<?php echo esc_url( get_template_directory_uri() . '/assets/images/hero-2.jpg' ); ?>');">
-	<div class="ib-slide-shade"></div>
+<section class="ib-hero" id="ib-hero">
+	<div class="ib-hero-visual">
+		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/hero-2.jpg' ); ?>" alt="<?php esc_attr_e( 'Shipping containers at an international port', 'ibanint' ); ?>" width="1600" height="1000" fetchpriority="high">
+		<div class="ib-hero-note"><span><?php esc_html_e( 'Connected thinking', 'ibanint' ); ?></span><strong><?php esc_html_e( 'Across borders and sectors', 'ibanint' ); ?></strong></div>
+	</div>
 	<div class="ib-wrap ib-slide-inner">
 		<div class="ib-slide-content">
-			<p class="ib-slide-kicker"><?php esc_html_e( 'Iban International Ltd', 'ibanint' ); ?></p>
+			<p class="ib-slide-kicker"><?php esc_html_e( 'International business development', 'ibanint' ); ?></p>
 			<h1 class="ib-slide-title"><?php esc_html_e( 'Connecting markets. Developing opportunity.', 'ibanint' ); ?></h1>
 			<p class="ib-slide-text"><?php esc_html_e( 'We bring partners together across trade, infrastructure, energy and five other business areas.', 'ibanint' ); ?></p>
 			<div class="ib-slide-actions">

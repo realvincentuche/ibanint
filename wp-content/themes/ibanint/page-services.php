@@ -57,6 +57,7 @@ get_template_part( 'template-parts/page-banner' );
 			?>
 			<article class="ib-sector-detail ib-reveal" id="<?php echo esc_attr( $ib_slug ); ?>">
 				<div class="ib-sector-detail-media">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . $ib_sector['banner'] ); ?>" alt="" width="900" height="650" loading="lazy">
 					<i class="ph <?php echo esc_attr( $ib_sector['icon'] ); ?>" aria-hidden="true"></i>
 				</div>
 				<div class="ib-sector-detail-copy">

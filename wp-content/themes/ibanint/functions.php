@@ -5,7 +5,7 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.1.8' );
+define( 'IBANINT_VERSION', '0.1.9' );
 
 /**
  * Theme supports and menu locations.
@@ -52,7 +52,7 @@ add_action( 'after_setup_theme', 'ibanint_content_width', 0 );
 function ibanint_assets() {
 	wp_enqueue_style(
 		'ibanint-fonts',
-		'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap',
+		'https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap',
 		array(),
 		null
 	);
@@ -60,6 +60,7 @@ function ibanint_assets() {
 	wp_enqueue_style( 'ibanint-style', get_stylesheet_uri(), array(), IBANINT_VERSION );
 	wp_enqueue_style( 'ibanint-phosphor', get_template_directory_uri() . '/assets/css/phosphor-icon-regular.css', array(), IBANINT_VERSION );
 	wp_enqueue_style( 'ibanint-main', get_template_directory_uri() . '/assets/css/main.css', array( 'ibanint-style', 'ibanint-phosphor' ), IBANINT_VERSION );
+	wp_enqueue_style( 'ibanint-design', get_template_directory_uri() . '/assets/css/design.css', array( 'ibanint-main' ), IBANINT_VERSION );
 
 	wp_enqueue_script( 'ibanint-main', get_template_directory_uri() . '/assets/js/main.js', array(), IBANINT_VERSION, true );
 }
