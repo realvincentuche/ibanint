@@ -213,10 +213,10 @@ $ibanint_marquee = array(
 						</div>
 						<h3><?php esc_html_e( 'The debriefing session for the ambitious', 'ibanint' ); ?></h3>
 						<p class="ib-quote">
-							<?php esc_html_e( 'A commodity opportunity can create a logistics opportunity. That is the Iban difference.', 'ibanint' ); ?>
+							<?php esc_html_e( 'A commodity opportunity can create a logistics opportunity. That is the IBAN difference.', 'ibanint' ); ?>
 						</p>
 						<a href="<?php echo esc_url( $ibanint_contact_url ); ?>" class="ib-btn ib-btn-gold ib-btn-block">
-							<?php esc_html_e( 'Talk to Iban', 'ibanint' ); ?>
+							<?php esc_html_e( 'Talk to IBAN', 'ibanint' ); ?>
 							<i class="ph ph-arrow-right" aria-hidden="true"></i>
 						</a>
 					</div>
@@ -226,42 +226,34 @@ $ibanint_marquee = array(
 	</div>
 </section>
 
-<!-- Our reach (photo cards) -->
+<!-- Our reach -->
 <section class="ib-audience" id="ib-audience">
 	<div class="ib-wrap">
 		<div class="ib-head-center">
-			<p class="ib-kicker ib-kicker-center ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Our Reach', 'ibanint' ); ?></p>
-			<h2 class="ib-h2 ib-h2-light"><?php echo ibanint_highlight_heading( __( 'Who we work with', 'ibanint' ), 'work with' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
+			<p class="ib-kicker ib-kicker-center"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Our Reach', 'ibanint' ); ?></p>
+			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'Who we work with', 'ibanint' ), 'work with' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<p class="ib-audience-sub">
-				<?php esc_html_e( 'They are not always in a boardroom. They are not always on the map. Sometimes, they are you.', 'ibanint' ); ?>
+				<?php esc_html_e( 'We work with people and organisations building value across markets and communities.', 'ibanint' ); ?>
 			</p>
 		</div>
-
-		<div class="ib-carousel" id="ib-audience-carousel" tabindex="0" aria-label="<?php esc_attr_e( 'Who we work with', 'ibanint' ); ?>">
-			<div class="ib-carousel-track" id="ib-audience-track">
-				<?php
-				$ibanint_img = get_template_directory_uri() . '/assets/images/';
-				$ibanint_audience = array(
-					array( 'banner-agriculture.jpg', 'Producers & farmers', 'Land, water, or hard working hands. Situated in the heart of a new market, or at the edge of a known one.' ),
-					array( 'banner-trade.jpg', 'Importers & exporters', 'A lesson in cross-border trade: when to pull the trigger, and when to go long.' ),
-					array( 'banner-infrastructure.jpg', 'Manufacturers', 'A plant without a market is a cost. A market without a partner is a risk.' ),
-					array( 'hero-1.jpg', 'Investors', 'Where is the return? The region is rich, but returns go to those who read it closely.' ),
-					array( 'about-tease.jpg', 'Institutions & NGOs', 'Where bank risk safeguards touch livelihoods. A partnership is the surest road.' ),
-					array( 'banner-services.jpg', 'Governments & regions', 'One region of potential. Many partnerships woven by the people who shape it.' ),
-				);
-				foreach ( $ibanint_audience as $ibanint_aud ) :
-					?>
-					<div class="ib-aud-card">
-						<div class="ib-aud-media" style="background-image:url('<?php echo esc_url( $ibanint_img . $ibanint_aud[0] ); ?>');" role="img" aria-label="<?php echo esc_attr( $ibanint_aud[1] ); ?>"></div>
-						<div class="ib-aud-body">
-							<h3><?php echo esc_html( $ibanint_aud[1] ); ?></h3>
-							<p><?php echo esc_html( $ibanint_aud[2] ); ?></p>
-						</div>
-					</div>
-				<?php endforeach; ?>
-			</div>
-			<div class="ib-carousel-dots" id="ib-audience-dots"></div>
-		</div>
+		<?php
+		$ibanint_audience = array(
+			array( 'ph-basket', 'Producers & farmers', 'Production and processing opportunities connected to stronger routes to market.' ),
+			array( 'ph-arrows-left-right', 'Importers & exporters', 'Trade connections for buyers, suppliers and distributors across borders.' ),
+			array( 'ph-gear', 'Manufacturers', 'Partners, supply chains and market access around commercial production.' ),
+			array( 'ph-trend-up', 'Investors', 'Opportunities across connected sectors and regions.' ),
+			array( 'ph-users-three', 'Institutions & NGOs', 'Collaborations that connect business activity with community priorities.' ),
+			array( 'ph-globe-hemisphere-west', 'Governments & regions', 'Partnerships aligned with development priorities and regional opportunity.' ),
+		);
+		?>
+		<ul class="ib-audience-list">
+			<?php foreach ( $ibanint_audience as $ibanint_aud ) : ?>
+				<li class="ib-audience-item ib-reveal">
+					<span class="ib-audience-icon"><i class="ph <?php echo esc_attr( $ibanint_aud[0] ); ?>" aria-hidden="true"></i></span>
+					<div><h3><?php echo esc_html( $ibanint_aud[1] ); ?></h3><p><?php echo esc_html( $ibanint_aud[2] ); ?></p></div>
+				</li>
+			<?php endforeach; ?>
+		</ul>
 	</div>
 </section>
 

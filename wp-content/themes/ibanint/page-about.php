@@ -74,7 +74,7 @@ get_template_part( 'template-parts/page-banner' );
 				&ldquo;<?php esc_html_e( 'A connection is the surest road to what is next.', 'ibanint' ); ?>&rdquo;
 			</p>
 			<p>
-				<?php esc_html_e( 'Every industry changes over time. We position ourselves accordingly: identifying and developing opportunities before the market dominates the conversation. A site without a market is a cost; a market without a partner is a risk. Iban exists to close both gaps at once.', 'ibanint' ); ?>
+				<?php esc_html_e( 'Every industry changes over time. We position ourselves accordingly: identifying and developing opportunities before the market dominates the conversation. A site without a market is a cost; a market without a partner is a risk. IBAN exists to close both gaps at once.', 'ibanint' ); ?>
 			</p>
 		</div>
 		<div class="ib-mindset-media ib-reveal">

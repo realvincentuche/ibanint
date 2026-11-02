@@ -5,7 +5,7 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.2.6' );
+define( 'IBANINT_VERSION', '0.2.7' );
 
 /**
  * Escape a heading and color one meaningful phrase.

@@ -633,52 +633,6 @@ body.ib-offcanvas-open .ib-scrim { opacity: 1; }
 }
 
 /* ---------------------------------------------------------
-   Audience carousel (deep navy)
-   --------------------------------------------------------- */
-.ib-audience { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%); padding: 96px 0; }
-.ib-audience-sub { color: rgba(255, 255, 255, 0.78); max-width: 560px; margin: 0 auto 40px; text-align: center; }
-
-.ib-carousel { overflow: hidden; position: relative; }
-.ib-carousel-track { display: flex; gap: 22px; transition: transform 0.55s ease; will-change: transform; }
-.ib-aud-card {
-	flex: 0 0 calc((100% - 44px) / 3);
-	background: rgba(255, 255, 255, 0.05);
-	border: 1px solid rgba(255, 255, 255, 0.12);
-	border-radius: var(--radius);
-	overflow: hidden;
-}
-.ib-aud-media {
-	height: 150px;
-	background-size: cover;
-	background-position: center;
-}
-.ib-aud-body { padding: 22px 24px 26px; }
-.ib-aud-body h3 { color: var(--white); font-size: 1.08rem; margin: 0 0 10px; }
-.ib-aud-body p { color: rgba(255, 255, 255, 0.72); font-size: 0.94rem; margin: 0; }
-
-.ib-aud-fallback {
-	height: 150px;
-	display: grid;
-	place-items: center;
-	background: rgba(255, 255, 255, 0.06);
-	color: var(--gold-2);
-	font-size: 2rem;
-}
-
-.ib-carousel-dots { display: flex; gap: 8px; justify-content: center; margin-top: 30px; }
-.ib-carousel-dots .ib-dot {
-	width: 10px;
-	height: 10px;
-	border-radius: 50%;
-	border: 0;
-	padding: 0;
-	background: rgba(255, 255, 255, 0.4);
-	cursor: pointer;
-	transition: background 0.2s ease, transform 0.2s ease;
-}
-.ib-carousel-dots .ib-dot.active { background: var(--gold); transform: scale(1.25); }
-
-/* ---------------------------------------------------------
    CTA banner
    --------------------------------------------------------- */
 .ib-cta {
@@ -1109,7 +1063,6 @@ body.ib-offcanvas-open .ib-scrim { opacity: 1; }
 
 @media (prefers-reduced-motion: reduce) {
 	html { scroll-behavior: auto; }
-	.ib-carousel-track { transition: none; }
 }
 
 /* ---------------------------------------------------------
@@ -1186,7 +1139,6 @@ body.ib-offcanvas-open .ib-scrim { opacity: 1; }
 	.ib-header-cta { padding-left: 14px; padding-right: 14px; }
 	.ib-sector-card { flex-basis: calc((100% - 22px) / 2); }
 	.ib-pillar-grid { grid-template-columns: repeat(2, 1fr); }
-	.ib-aud-card { flex: 0 0 calc((100% - 22px) / 2); }
 	.ib-footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
@@ -1225,8 +1177,6 @@ body.ib-offcanvas-open .ib-scrim { opacity: 1; }
 	.ib-sector-card-body { min-height: 0; }
 	.ib-sectors-panel, .ib-steps-panel { padding: 36px 20px 40px; border-radius: 16px; }
 	.ib-pillar-grid { grid-template-columns: 1fr; }
-	.ib-aud-card { flex: 0 0 100%; }
-	.ib-aud-media { height: 170px; }
 	.ib-sector-nav-grid { grid-template-columns: 1fr; }
 	.ib-footer-grid { grid-template-columns: 1fr; gap: 30px; padding: 52px 0 40px; }
 	.ib-footer-legal-inner { flex-direction: column; align-items: flex-start; }

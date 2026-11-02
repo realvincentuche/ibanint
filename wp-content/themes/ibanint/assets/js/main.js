@@ -1,6 +1,6 @@
 /* =========================================================
    Iban International - front-end behaviour
-   Ported mechanisms: offcanvas nav, dropdown tap fallback, audience carousel,
+   Ported mechanisms: offcanvas nav, dropdown tap fallback, business carousel,
    back-to-top, sticky header shadow.
    ========================================================= */
 (function () {
@@ -84,79 +84,6 @@
 		window.addEventListener('scroll', onScrollHeader, { passive: true });
 		onScrollHeader();
 	}
-
-	/* -------------------------------------------------------
-	   Audience carousel  (port of the industries mechanism)
-	   ------------------------------------------------------- */
-	var buildCarousel = function (rootId, trackId, dotsId, perViewLg) {
-		var root = document.getElementById(rootId);
-		var track = document.getElementById(trackId);
-		var dotsWrap = document.getElementById(dotsId);
-		if (!root || !track) { return; }
-
-		var cards = Array.prototype.slice.call(track.children);
-		if (!cards.length) { return; }
-
-		var perView = function () {
-			var w = window.innerWidth;
-			if (w < 640) { return 1; }
-			if (w < 1120) { return 2; }
-			return perViewLg;
-		};
-
-		var index = 0;
-		var dots = [];
-		var buildDots = function () {
-			if (!dotsWrap) { return; }
-			dotsWrap.innerHTML = '';
-			dots = [];
-			var positions = Math.max(1, cards.length - perView() + 1);
-			for (var i = 0; i < positions; i++) {
-				var b = document.createElement('button');
-				b.type = 'button';
-				b.className = 'ib-dot';
-				b.setAttribute('aria-label', 'Show group ' + (i + 1));
-				b.addEventListener('click', (function (position) { return function () { go(position); }; }(i)));
-				dotsWrap.appendChild(b);
-				dots.push(b);
-			}
-		};
-
-		var go = function (i) {
-			var per = perView();
-			var maxIndex = Math.max(0, cards.length - per);
-			index = i < 0 ? maxIndex : (i > maxIndex ? 0 : i);
-			var gap = parseFloat(window.getComputedStyle(track).gap) || 0;
-			track.style.transform = 'translateX(' + (-(cards[0].getBoundingClientRect().width + gap) * index) + 'px)';
-			dots.forEach(function (d, di) {
-				d.classList.toggle('active', di === index);
-				d.setAttribute('aria-current', di === index ? 'true' : 'false');
-			});
-		};
-
-		var timer = null;
-		var start = function () {
-			if (timer || reducedMotion || cards.length <= perView()) { return; }
-			timer = window.setInterval(function () { go(index + 1); }, 7000);
-		};
-		var stop = function () {
-			if (timer) { window.clearInterval(timer); timer = null; }
-		};
-
-		root.addEventListener('mouseenter', stop);
-		root.addEventListener('mouseleave', start);
-		root.addEventListener('focusin', stop);
-		root.addEventListener('focusout', start);
-		root.addEventListener('touchstart', stop, { passive: true });
-
-		window.addEventListener('resize', function () { buildDots(); go(Math.min(index, Math.max(0, cards.length - perView()))); });
-
-		buildDots();
-		go(0);
-		start();
-	};
-
-	buildCarousel('ib-audience-carousel', 'ib-audience-track', 'ib-audience-dots', 3);
 
 	var sectorShell = document.getElementById('ib-sector-carousel');
 	var sectorTrack = document.getElementById('ib-sector-track');
