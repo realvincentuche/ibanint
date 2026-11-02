@@ -37,29 +37,27 @@ get_template_part( 'template-parts/page-banner' );
 			<?php $ibanint_contact = ibanint_contact(); ?>
 			<a class="ib-contact-card ib-reveal" href="<?php echo esc_url( $ibanint_contact['phone_href'] ); ?>">
 				<i class="ph ph-phone" aria-hidden="true"></i>
-				<span class="ib-contact-label"><?php esc_html_e( 'Phone / WhatsApp', 'ibanint' ); ?></span>
+				<span class="screen-reader-text"><?php esc_html_e( 'Phone or WhatsApp: ', 'ibanint' ); ?></span>
 				<span class="ib-contact-value"><?php echo esc_html( $ibanint_contact['phone'] ); ?></span>
 			</a>
 			<?php if ( $ibanint_contact['email'] ) : ?>
 				<a class="ib-contact-card ib-reveal" href="<?php echo esc_url( 'mailto:' . $ibanint_contact['email'] ); ?>">
 					<i class="ph ph-envelope" aria-hidden="true"></i>
-					<span class="ib-contact-label"><?php esc_html_e( 'Email', 'ibanint' ); ?></span>
 					<span class="ib-contact-value"><?php echo esc_html( $ibanint_contact['email'] ); ?></span>
 				</a>
 			<?php endif; ?>
 			<div class="ib-contact-card ib-reveal">
 				<i class="ph ph-map-pin" aria-hidden="true"></i>
-				<span class="ib-contact-label"><?php esc_html_e( 'Operating regions', 'ibanint' ); ?></span>
+				<span class="screen-reader-text"><?php esc_html_e( 'Operating regions: ', 'ibanint' ); ?></span>
 				<span class="ib-contact-value"><?php echo esc_html( $ibanint_contact['regions'] ); ?></span>
 			</div>
 			<div class="ib-contact-card ib-reveal">
 				<i class="ph ph-globe-hemisphere-west" aria-hidden="true"></i>
-				<span class="ib-contact-label"><?php esc_html_e( 'Company locations', 'ibanint' ); ?></span>
+				<span class="screen-reader-text"><?php esc_html_e( 'Company locations: ', 'ibanint' ); ?></span>
 				<span class="ib-contact-value"><?php esc_html_e( 'Africa · United States', 'ibanint' ); ?></span>
 			</div>
 			<a class="ib-contact-card ib-reveal" href="<?php echo esc_url( $ibanint_contact['website_href'] ); ?>">
 				<i class="ph ph-globe" aria-hidden="true"></i>
-				<span class="ib-contact-label"><?php esc_html_e( 'Website', 'ibanint' ); ?></span>
 				<span class="ib-contact-value"><?php echo esc_html( $ibanint_contact['website'] ); ?></span>
 			</a>
 		</div>

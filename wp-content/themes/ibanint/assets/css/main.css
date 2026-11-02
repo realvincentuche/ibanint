@@ -741,8 +741,7 @@ body.ib-offcanvas-open .ib-scrim { opacity: 1; }
 	place-items: center;
 	font-size: 1.15rem;
 }
-.ib-contact-label { display: block; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-.ib-contact-value { display: block; font-weight: 700; color: var(--navy); }
+.ib-contact-value { display: block; min-width: 0; overflow-wrap: anywhere; color: var(--navy); font-weight: 700; line-height: 1.5; }
 .ib-contact-form { margin-top: 32px; }
 .ib-contact-form .wpcf7 form { display: grid; gap: 18px; }
 .ib-contact-form .wpcf7 form > p { margin: 0; }
