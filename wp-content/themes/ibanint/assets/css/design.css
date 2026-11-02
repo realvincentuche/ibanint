@@ -138,8 +138,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 .ib-banner-shade { background: linear-gradient(90deg, rgba(9,26,48,.82), rgba(9,26,48,.5) 55%, rgba(9,26,48,.16)); }
 .ib-banner-inner { width: 100%; }
 .ib-banner-title { font-size: clamp(2.8rem, 5vw, 4.8rem); font-weight: 600; line-height: 1.02; letter-spacing: -.025em; max-width: 840px; }
-body:not(.home) .ib-h2 { font-size: clamp(2.15rem, 3.5vw, 3.5rem); font-weight: 600; }
-body:not(.home) .ib-h2-small { font-size: clamp(1.4rem, 2.4vw, 1.85rem); }
 .ib-intro { padding: 88px 0; background: radial-gradient(circle at 100% 0%, rgba(198,215,219,.65), transparent 40%), #eaf0f1; }
 .ib-intro-grid { gap: clamp(50px, 7vw, 110px); }
 .ib-intro-media img { border-radius: 0; box-shadow: none; max-height: 610px; object-fit: cover; }
