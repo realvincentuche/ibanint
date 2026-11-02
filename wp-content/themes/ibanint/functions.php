@@ -5,7 +5,7 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.1.9' );
+define( 'IBANINT_VERSION', '0.2.1' );
 
 /**
  * Theme supports and menu locations.

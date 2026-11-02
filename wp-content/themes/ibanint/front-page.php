@@ -16,33 +16,46 @@ $ibanint_services_id = get_page_by_path( 'services' );
 $ibanint_services_url = $ibanint_services_id ? get_permalink( $ibanint_services_id ) : home_url( '/services/' );
 $ibanint_contact_url = home_url( '/contact/' );
 
-/* Hero image: Unsplash containers port 1770710195407 (hero-2.jpg). */
+$ibanint_hero_slides = array(
+	array( 'image' => 'hero-2.jpg', 'alt' => 'Shipping containers at an international port', 'kicker' => 'International business development', 'title' => 'Connecting markets. Developing opportunity.', 'text' => 'We bring partners together across trade, infrastructure, energy and five other business areas.', 'cta' => 'Explore our businesses', 'url' => $ibanint_services_url ),
+	array( 'image' => 'banner-infrastructure.jpg', 'alt' => 'Infrastructure development project', 'kicker' => 'Connected expertise', 'title' => 'Where sectors meet, progress begins.', 'text' => 'Our work connects infrastructure, logistics and investment opportunities across borders.', 'cta' => 'How we work', 'url' => $ibanint_about_url ),
+	array( 'image' => 'banner-agriculture.jpg', 'alt' => 'Agricultural production landscape', 'kicker' => 'Partnerships with purpose', 'title' => 'The right partners change what is possible.', 'text' => 'We look across the value chain to find the people and capabilities that move projects forward.', 'cta' => 'Start a conversation', 'url' => $ibanint_contact_url ),
+);
 ?>
 
-<section class="ib-hero" id="ib-hero">
-	<div class="ib-hero-visual">
-		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/hero-2.jpg' ); ?>" alt="<?php esc_attr_e( 'Shipping containers at an international port', 'ibanint' ); ?>" width="1600" height="1000" fetchpriority="high">
-		<div class="ib-hero-note"><span><?php esc_html_e( 'Connected thinking', 'ibanint' ); ?></span><strong><?php esc_html_e( 'Across borders and sectors', 'ibanint' ); ?></strong></div>
+	<section class="ib-hero" id="ib-hero" aria-label="<?php esc_attr_e( 'Featured Iban International stories', 'ibanint' ); ?>" tabindex="0">
+	<div class="ib-hero-slides">
+		<?php foreach ( $ibanint_hero_slides as $ibanint_index => $ibanint_slide ) : ?>
+			<article class="ib-hero-slide<?php echo 0 === $ibanint_index ? ' is-active' : ''; ?>" aria-hidden="<?php echo 0 === $ibanint_index ? 'false' : 'true'; ?>" <?php echo 0 === $ibanint_index ? '' : 'inert'; ?>>
+				<img class="ib-hero-image" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . $ibanint_slide['image'] ); ?>" alt="<?php echo esc_attr( $ibanint_slide['alt'] ); ?>" width="1600" height="1000" <?php echo 0 === $ibanint_index ? 'fetchpriority="high"' : 'loading="lazy"'; ?>>
+				<div class="ib-hero-shade"></div>
+				<div class="ib-wrap ib-slide-inner">
+					<div class="ib-slide-content">
+						<p class="ib-slide-kicker"><?php echo esc_html( $ibanint_slide['kicker'] ); ?></p>
+						<?php if ( 0 === $ibanint_index ) : ?><h1 class="ib-slide-title"><?php echo esc_html( $ibanint_slide['title'] ); ?></h1><?php else : ?><h2 class="ib-slide-title"><?php echo esc_html( $ibanint_slide['title'] ); ?></h2><?php endif; ?>
+						<p class="ib-slide-text"><?php echo esc_html( $ibanint_slide['text'] ); ?></p>
+						<a href="<?php echo esc_url( $ibanint_slide['url'] ); ?>" class="ib-btn ib-btn-gold"><?php echo esc_html( $ibanint_slide['cta'] ); ?><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+					</div>
+				</div>
+			</article>
+		<?php endforeach; ?>
 	</div>
-	<div class="ib-wrap ib-slide-inner">
-		<div class="ib-slide-content">
-			<p class="ib-slide-kicker"><?php esc_html_e( 'International business development', 'ibanint' ); ?></p>
-			<h1 class="ib-slide-title"><?php esc_html_e( 'Connecting markets. Developing opportunity.', 'ibanint' ); ?></h1>
-			<p class="ib-slide-text"><?php esc_html_e( 'We bring partners together across trade, infrastructure, energy and five other business areas.', 'ibanint' ); ?></p>
-			<div class="ib-slide-actions">
-				<a href="<?php echo esc_url( $ibanint_services_url ); ?>" class="ib-btn ib-btn-gold"><?php esc_html_e( 'Explore our businesses', 'ibanint' ); ?><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
-				<a href="<?php echo esc_url( $ibanint_about_url ); ?>" class="ib-btn ib-btn-ghost-light"><?php esc_html_e( 'About Iban', 'ibanint' ); ?></a>
-			</div>
+	<div class="ib-hero-controls ib-wrap">
+		<div class="ib-hero-dots" aria-label="<?php esc_attr_e( 'Choose a slide', 'ibanint' ); ?>">
+			<?php foreach ( $ibanint_hero_slides as $ibanint_index => $ibanint_slide ) : ?><button type="button" class="ib-hero-dot<?php echo 0 === $ibanint_index ? ' is-active' : ''; ?>" aria-label="<?php echo esc_attr( sprintf( __( 'Show slide %d', 'ibanint' ), $ibanint_index + 1 ) ); ?>" aria-current="<?php echo 0 === $ibanint_index ? 'true' : 'false'; ?>"></button><?php endforeach; ?>
 		</div>
-	</div>
-	<div class="ib-hero-foot">
-		<div class="ib-wrap">
-			<span><?php esc_html_e( 'Trade', 'ibanint' ); ?></span>
-			<span><?php esc_html_e( 'Development', 'ibanint' ); ?></span>
-			<span><?php esc_html_e( 'Cross-border partnerships', 'ibanint' ); ?></span>
-		</div>
+		<div class="ib-hero-arrows"><button type="button" id="ib-hero-prev" aria-label="<?php esc_attr_e( 'Previous slide', 'ibanint' ); ?>"><i class="ph ph-arrow-left" aria-hidden="true"></i></button><button type="button" id="ib-hero-next" aria-label="<?php esc_attr_e( 'Next slide', 'ibanint' ); ?>"><i class="ph ph-arrow-right" aria-hidden="true"></i></button><button type="button" id="ib-hero-pause" aria-label="<?php esc_attr_e( 'Pause slides', 'ibanint' ); ?>"><i class="ph ph-pause" aria-hidden="true"></i></button></div>
 	</div>
 </section>
+<div class="ib-service-marquee" aria-label="<?php esc_attr_e( 'Our business areas', 'ibanint' ); ?>">
+	<div class="ib-service-marquee-track">
+		<?php for ( $ibanint_repeat = 0; $ibanint_repeat < 2; $ibanint_repeat++ ) : ?>
+			<div class="ib-service-marquee-group" <?php echo 1 === $ibanint_repeat ? 'aria-hidden="true"' : ''; ?>>
+				<?php foreach ( $ibanint_sectors as $ibanint_sector ) : ?><span><?php echo esc_html( $ibanint_sector['short'] ); ?></span><?php endforeach; ?>
+			</div>
+		<?php endfor; ?>
+	</div>
+</div>
 
 <!-- Who we are -->
 <section class="ib-about" id="ib-about">
@@ -66,7 +79,7 @@ $ibanint_contact_url = home_url( '/contact/' );
 		</div>
 
 		<div class="ib-about-media ib-reveal">
-			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-tease.jpg' ); ?>" alt="<?php esc_attr_e( 'Business people closing a deal with a handshake', 'ibanint' ); ?>" width="700" height="880" loading="lazy">
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-tease.jpg' ); ?>" alt="<?php esc_attr_e( 'Team members placing their hands together', 'ibanint' ); ?>" width="700" height="880" loading="lazy">
 			<?php /* Unsplash free tier: handshake deal 1582213782179 (about-tease.jpg) */ ?>
 		</div>
 	</div>

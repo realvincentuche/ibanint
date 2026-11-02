@@ -42,24 +42,36 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 .ib-burger { display: none; }
 .ib-menu > li > .sub-menu, .ib-menu > li .sub-menu { border-radius: 2px; }
 
-/* Split hero: the photograph has its own space and keeps the type legible. */
-.ib-hero { min-height: 730px; height: min(850px, 100vh); margin-top: 86px; background: var(--navy-deep); overflow: hidden; }
-.ib-hero::before { content: ""; position: absolute; inset: 0 43% 0 0; z-index: 1; background: linear-gradient(125deg, #0a1b31 15%, #183755 100%); }
-.ib-hero-visual { position: absolute; inset: 0 0 0 54%; }
-.ib-hero-visual img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.ib-hero-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(9,26,48,.25), transparent 38%); }
-.ib-slide-inner { align-items: center; padding-top: 20px; padding-bottom: 85px; }
-.ib-slide-content { max-width: 680px; }
+/* Image-led slider with clear manual controls. */
+.ib-header-inner { min-height: 104px; }
+.ib-logo { height: 72px; }
+.ib-hero { min-height: 600px; height: min(780px, calc(100vh - 104px)); margin-top: 104px; background: var(--navy-deep); overflow: hidden; }
+.ib-hero::before { display: none; }
+.ib-hero-slides, .ib-hero-slide { position: absolute; inset: 0; }
+.ib-hero-slide { opacity: 0; visibility: hidden; transition: opacity .75s ease, visibility .75s; }
+.ib-hero-slide.is-active { opacity: 1; visibility: visible; }
+.ib-hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ib-hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,23,43,.94) 0%, rgba(7,23,43,.75) 37%, rgba(7,23,43,.15) 100%), linear-gradient(0deg, rgba(7,23,43,.5), transparent 35%); }
+.ib-slide-inner { position: relative; z-index: 2; height: 100%; align-items: center; padding-top: 20px; padding-bottom: 80px; }
+.ib-slide-content { max-width: 750px; }
 .ib-slide-kicker { font-size: .84rem; text-transform: none; letter-spacing: .03em; margin-bottom: 24px; }
-.ib-slide-title { font-size: clamp(4.4rem, 7vw, 7.4rem); line-height: .91; letter-spacing: -.045em; max-width: 720px; margin-bottom: 32px; }
-.ib-slide-text { font-size: 1.18rem; line-height: 1.65; max-width: 500px; }
-.ib-hero-note { position: absolute; z-index: 2; right: 0; bottom: 72px; width: min(370px, 76%); padding: 27px 32px 30px; background: var(--gold-2); color: var(--navy-deep); }
-.ib-hero-note span { display: block; font-size: .8rem; font-weight: 700; margin-bottom: 7px; }
-.ib-hero-note strong { display: block; font-family: var(--font-heading); font-size: 2rem; line-height: 1; }
-.ib-hero-foot { background: var(--navy-deep); border-top: 1px solid rgba(255,255,255,.15); }
-.ib-hero-foot .ib-wrap { gap: 24px; }
-.ib-hero-foot span + span::before { margin-right: 24px; }
-
+.ib-slide-title { font-size: clamp(4.2rem, 7vw, 7.2rem); line-height: .94; letter-spacing: -.04em; max-width: 780px; margin-bottom: 32px; }
+.ib-slide-text { font-size: 1.18rem; line-height: 1.65; max-width: 570px; }
+.ib-hero-slide.is-active .ib-slide-content { animation: ib-hero-enter .8s ease both; }
+@keyframes ib-hero-enter { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+.ib-hero-controls { position: absolute; inset: auto 0 32px; z-index: 5; display: flex; align-items: center; justify-content: space-between; }
+.ib-hero-dots, .ib-hero-arrows { display: flex; align-items: center; gap: 10px; }
+.ib-hero-dot { width: 32px; height: 4px; padding: 0; border: 0; background: rgba(255,255,255,.45); cursor: pointer; transition: width .25s ease, background .25s ease; }
+.ib-hero-dot.is-active { width: 58px; background: var(--gold-2); }
+.ib-hero-arrows button { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.65); background: rgba(7,23,43,.28); color: white; font-size: 1.1rem; cursor: pointer; transition: background .2s ease, color .2s ease; }
+.ib-hero-arrows button:hover { background: var(--gold-2); color: var(--navy-deep); }
+.ib-service-marquee { overflow: hidden; background: var(--gold-2); color: var(--navy-deep); padding: 17px 0; }
+.ib-service-marquee-track { display: flex; width: max-content; animation: ib-marquee 40s linear infinite; }
+.ib-service-marquee:hover .ib-service-marquee-track { animation-play-state: paused; }
+.ib-service-marquee-group { display: flex; align-items: center; flex: none; }
+.ib-service-marquee-group span { flex: none; font-family: var(--font-heading); font-weight: 700; font-size: 1.3rem; white-space: nowrap; }
+.ib-service-marquee-group span::after { content: ''; display: inline-block; width: 5px; height: 5px; margin: 0 28px 4px; background: var(--navy-deep); transform: rotate(45deg); }
+@keyframes ib-marquee { to { transform: translateX(-50%); } }
 /* The two editorial image sections use generous type and a quiet margin. */
 .ib-about, .ib-why { padding: 130px 0; }
 .ib-about-grid, .ib-why-grid { grid-template-columns: 1fr 1fr; gap: clamp(50px, 8vw, 130px); }
@@ -103,7 +115,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 .ib-carousel-dots .ib-dot.active { transform: none; }
 
 /* Interior templates share the same scale and photography. */
-.ib-banner { margin-top: 86px; min-height: 455px; padding: 155px 0 90px; display: flex; align-items: flex-end; }
+.ib-banner { margin-top: 104px; min-height: 455px; padding: 155px 0 90px; display: flex; align-items: flex-end; }
 .ib-banner-shade { background: linear-gradient(90deg, rgba(9,26,48,.96), rgba(9,26,48,.65) 55%, rgba(9,26,48,.2)); }
 .ib-banner-inner { width: 100%; }
 .ib-banner-title { font-size: clamp(3.4rem, 6.4vw, 6.5rem); line-height: .96; letter-spacing: -.035em; max-width: 840px; }
@@ -136,12 +148,25 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 .ib-cta-shade { background: linear-gradient(90deg, rgba(9,26,48,.94), rgba(9,26,48,.56)); }
 .ib-footer { background: #07172b; }
 
+/* Motion responds to interaction; the hero and marquee carry the ambient motion. */
+.ib-sector-card-media, .ib-aud-media { transition: transform .45s ease, filter .45s ease; }
+.ib-sector-card:hover .ib-sector-card-media, .ib-aud-card:hover .ib-aud-media { transform: scale(1.045); }
+.ib-sector-card, .ib-aud-card { overflow: hidden; }
+.ib-step { transition: border-color .25s ease, padding-left .25s ease; }
+.ib-step:hover { border-color: var(--gold-2); padding-left: 8px; }
+.ib-pillar { transition: background .25s ease; }
+.ib-pillar:hover { background: #fffaf0; }
+.ib-btn .ph { transition: transform .25s ease; }
+.ib-btn:hover .ph { transform: translateX(4px); }
+
 @media (max-width: 1120px) {
 	.ib-nav { display: none; }
 	.ib-burger { display: block; }
 	.ib-header-cta { margin-left: auto; }
-	.ib-hero::before { right: 35%; }
-	.ib-hero-visual { left: 52%; }
+	.ib-header-inner { min-height: 86px; }
+	.ib-logo { height: 54px; }
+	.ib-hero { margin-top: 86px; }
+	.ib-banner { margin-top: 86px; }
 	.ib-slide-title { font-size: clamp(4rem, 7vw, 6rem); }
 }
 @media (max-width: 920px) {
@@ -159,21 +184,23 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 	.ib-header-inner { min-height: 72px; }
 	.ib-logo { height: 42px; }
 	.ib-header-cta { display: none; }
-	.ib-hero { margin-top: 72px; min-height: 790px; height: auto; }
-	.ib-hero::before { inset: 0; background: linear-gradient(180deg, rgba(9,26,48,.22), #091a30 48%); }
-	.ib-hero-visual { inset: 0 0 auto; height: 48%; }
-	.ib-hero-visual::after { background: linear-gradient(0deg, #091a30, transparent 65%); }
-	.ib-hero-note { display: none; }
-	.ib-slide-inner { padding-top: 340px; padding-bottom: 145px; }
-	.ib-slide-title { font-size: clamp(3.5rem, 13vw, 5rem); }
+	.ib-burger { margin-left: auto; }
+	.ib-hero { margin-top: 72px; min-height: 580px; height: calc(100svh - 72px); }
+	.ib-hero-shade { background: linear-gradient(90deg, rgba(7,23,43,.84), rgba(7,23,43,.38)), linear-gradient(0deg, rgba(7,23,43,.7), transparent 55%); }
+	.ib-slide-inner { padding-top: 55px; padding-bottom: 90px; }
+	.ib-slide-title { font-size: clamp(3.2rem, 12vw, 4.8rem); }
 	.ib-slide-text { font-size: 1rem; }
-	.ib-hero-foot .ib-wrap { gap: 5px 12px; }
-	.ib-hero-foot span + span::before { margin-right: 12px; }
+	.ib-hero-controls { bottom: 18px; }
+	.ib-hero-arrows button { width: 38px; height: 38px; }
+	.ib-hero-dot { width: 21px; }
+	.ib-hero-dot.is-active { width: 35px; }
+	.ib-service-marquee-group span { font-size: 1.1rem; }
 	.ib-about, .ib-why, .ib-intro, .ib-mindset { padding: 80px 0; }
 	.ib-about-media img, .ib-why-media img { height: 360px; }
 	.ib-sectors-panel, .ib-steps-panel { padding: 75px 0 85px; border-radius: 0; }
 	.ib-sectors-head { grid-template-columns: 1fr auto; }
 	.ib-sector-next { grid-column: 2; grid-row: 1; align-self: start; }
+	.ib-sector-intro, .ib-sectors-head > .ib-btn { grid-column: 1 / -1; justify-self: start; }
 	.ib-sector-card-media { height: 230px; }
 	.ib-audience { padding: 85px 0; }
 	.ib-banner { margin-top: 72px; min-height: 345px; padding: 110px 0 55px; }
@@ -181,4 +208,13 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 	.ib-pillar-grid { grid-template-columns: 1fr; }
 	.ib-pillar { border-right: 0; border-bottom: 1px solid var(--line); }
 	.ib-sector-detail-media { min-height: 270px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ib-hero-slide, .ib-hero-dot { transition: none; }
+	.ib-hero-slide.is-active .ib-slide-content { animation: none; }
+	.ib-service-marquee-track { animation: none; width: auto; }
+	.ib-service-marquee-group[aria-hidden="true"] { display: none; }
+	.ib-service-marquee { overflow-x: auto; }
+	.ib-sector-card-media, .ib-aud-media, .ib-step, .ib-pillar, .ib-btn .ph { transition: none; }
 }
