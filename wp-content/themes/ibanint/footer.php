@@ -32,13 +32,6 @@
 
 <footer class="ib-footer" id="ib-footer">
 	<div class="ib-wrap">
-		<div class="ib-footer-masthead">
-			<div>
-				<p class="ib-footer-eyebrow"><?php esc_html_e( 'International business development', 'ibanint' ); ?></p>
-				<h2><?php esc_html_e( 'IBAN International', 'ibanint' ); ?></h2>
-			</div>
-			<p><?php esc_html_e( 'Connecting people, markets and projects across eight business areas.', 'ibanint' ); ?></p>
-		</div>
 		<div class="ib-footer-grid">
 
 			<div class="ib-footer-brand">
@@ -46,6 +39,14 @@
 				<p class="ib-footer-tagline">
 					<?php echo esc_html( get_bloginfo( 'description' ) ); ?>
 				</p>
+				<div class="ib-footer-regions">
+					<h2 class="ib-footer-h"><?php esc_html_e( 'Our Regions', 'ibanint' ); ?></h2>
+					<ul>
+						<?php foreach ( array_map( 'trim', explode( '|', ibanint_contact()['regions'] ) ) as $ibanint_region ) : ?>
+							<li><?php echo esc_html( $ibanint_region ); ?></li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
 			</div>
 
 			<div class="ib-footer-col">
@@ -103,14 +104,6 @@
 				</a>
 			</div>
 
-		</div>
-		<div class="ib-footer-regions">
-			<p><?php esc_html_e( 'Our regions', 'ibanint' ); ?></p>
-			<ul>
-				<?php foreach ( array_map( 'trim', explode( '|', $ibanint_contact['regions'] ) ) as $ibanint_region ) : ?>
-					<li><?php echo esc_html( $ibanint_region ); ?></li>
-				<?php endforeach; ?>
-			</ul>
 		</div>
 	</div>
 

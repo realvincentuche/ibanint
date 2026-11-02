@@ -141,7 +141,6 @@ $ibanint_marquee = array(
 			</div>
 			<button class="ib-sector-control ib-sector-next" id="ib-sector-next" type="button" aria-label="<?php esc_attr_e( 'Next businesses', 'ibanint' ); ?>"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
 			</div>
-			<div class="ib-sector-playback"><button id="ib-sector-playback" type="button" aria-pressed="false"><i class="ph ph-pause" aria-hidden="true"></i><span><?php esc_html_e( 'Pause carousel', 'ibanint' ); ?></span></button></div>
 		</div>
 	</div>
 </section>

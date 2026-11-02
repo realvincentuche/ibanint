@@ -1,5 +1,5 @@
 /* =========================================================
-   Iban International - front-end behaviour
+   IBAN International - front-end behaviour
    Ported mechanisms: offcanvas nav, dropdown tap fallback, business carousel,
    back-to-top, sticky header shadow.
    ========================================================= */
@@ -89,7 +89,6 @@
 	var sectorTrack = document.getElementById('ib-sector-track');
 	var sectorPrev = document.getElementById('ib-sector-prev');
 	var sectorNext = document.getElementById('ib-sector-next');
-	var sectorPlayback = document.getElementById('ib-sector-playback');
 	if (sectorShell && sectorTrack && sectorPrev && sectorNext) {
 		var sectorCards = Array.prototype.slice.call(sectorTrack.children);
 		var sectorIndex = 0;
@@ -151,19 +150,6 @@
 		});
 		sectorPrev.addEventListener('click', function () { moveSector(-1); });
 		sectorNext.addEventListener('click', function () { moveSector(1); });
-		if (sectorPlayback) {
-			var updatePlayback = function () {
-				sectorPlayback.setAttribute('aria-pressed', sectorPaused ? 'true' : 'false');
-				sectorPlayback.querySelector('i').className = sectorPaused ? 'ph ph-play' : 'ph ph-pause';
-				sectorPlayback.querySelector('span').textContent = sectorPaused ? 'Play carousel' : 'Pause carousel';
-			};
-			sectorPlayback.addEventListener('click', function () {
-				sectorPaused = !sectorPaused;
-				updatePlayback();
-				if (sectorPaused) { stopSector(); } else { startSector(); }
-			});
-			updatePlayback();
-		}
 		sectorShell.addEventListener('mouseenter', stopSector);
 		sectorShell.addEventListener('mouseleave', startSector);
 		sectorShell.addEventListener('focusin', stopSector);
