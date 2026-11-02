@@ -12,7 +12,6 @@
 	var hero = document.getElementById('ib-hero');
 	if (hero) {
 		var slides = Array.prototype.slice.call(hero.querySelectorAll('.ib-hero-slide'));
-		var heroDots = Array.prototype.slice.call(hero.querySelectorAll('.ib-hero-dot'));
 		var prev = document.getElementById('ib-hero-prev');
 		var next = document.getElementById('ib-hero-next');
 		var pause = document.getElementById('ib-hero-pause');
@@ -28,10 +27,6 @@
 				slide.setAttribute('aria-hidden', selected ? 'false' : 'true');
 				slide.inert = !selected;
 			});
-			heroDots.forEach(function (dot, i) {
-				dot.classList.toggle('is-active', i === active);
-				dot.setAttribute('aria-current', i === active ? 'true' : 'false');
-			});
 		};
 		var stopHero = function () { if (timer) { window.clearInterval(timer); timer = null; } };
 		var startHero = function () {
@@ -41,7 +36,6 @@
 		var changeSlide = function (index) { showSlide(index); stopHero(); startHero(); };
 		if (prev) { prev.addEventListener('click', function () { changeSlide(active - 1); }); }
 		if (next) { next.addEventListener('click', function () { changeSlide(active + 1); }); }
-		heroDots.forEach(function (dot, i) { dot.addEventListener('click', function () { changeSlide(i); }); });
 		if (pause) {
 			pause.addEventListener('click', function () {
 				paused = !paused;

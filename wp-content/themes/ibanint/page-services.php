@@ -21,7 +21,7 @@ get_template_part( 'template-parts/page-banner' );
 	<div class="ib-wrap ib-intro-grid">
 		<div class="ib-intro-copy">
 			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'What We Do', 'ibanint' ); ?></p>
-			<h2 class="ib-h2"><?php esc_html_e( 'Everything from commerce to recycling', 'ibanint' ); ?></h2>
+			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'Everything from commerce to recycling', 'ibanint' ), 'commerce to recycling' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<p class="ib-lead">
 				<?php esc_html_e( 'Our eight business areas span trade, energy, agriculture, logistics, infrastructure, real estate, waste management and mining.', 'ibanint' ); ?>
 			</p>
@@ -61,7 +61,7 @@ get_template_part( 'template-parts/page-banner' );
 					<i class="ph <?php echo esc_attr( $ib_sector['icon'] ); ?>" aria-hidden="true"></i>
 				</div>
 				<div class="ib-sector-detail-copy">
-					<h3><?php echo esc_html( $ib_sector['title'] ); ?></h3>
+					<h3><?php echo ibanint_highlight_heading( $ib_sector['title'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h3>
 					<p><?php echo esc_html( $ib_sector['blurb'] ); ?></p>
 					<p class="ib-detail-extra"><?php echo esc_html( $ibanint_extras[ $ib_slug ] ); ?></p>
 					<p class="ib-connection">

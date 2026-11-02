@@ -22,7 +22,7 @@ get_template_part( 'template-parts/page-banner' );
 	<div class="ib-wrap ib-intro-grid">
 		<div class="ib-intro-copy">
 			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Who We Are', 'ibanint' ); ?></p>
-			<h2 class="ib-h2"><?php esc_html_e( 'Growth is what we do. Connecting is how we do it.', 'ibanint' ); ?></h2>
+			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'Growth is what we do. Connecting is how we do it.', 'ibanint' ), 'Connecting is how we do it.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<p class="ib-lead">
 				<?php esc_html_e( 'Iban International has been opening doors for over a decade. We keep you ahead by knowing where the next door is, when to knock, and how to bring the right partners with you.', 'ibanint' ); ?>
 			</p>
@@ -40,7 +40,7 @@ get_template_part( 'template-parts/page-banner' );
 	<div class="ib-wrap">
 		<div class="ib-head-center">
 			<p class="ib-kicker ib-kicker-center"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Our Approach', 'ibanint' ); ?></p>
-			<h2 class="ib-h2"><?php esc_html_e( 'Four pillars hold every door we open', 'ibanint' ); ?></h2>
+			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'Four pillars hold every door we open', 'ibanint' ), 'every door we open' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<p class="ib-lead ib-lead-center">
 				<?php esc_html_e( 'How we work is what sets us apart. Four ideas guide every opportunity we touch.', 'ibanint' ); ?>
 			</p>
@@ -69,7 +69,7 @@ get_template_part( 'template-parts/page-banner' );
 	<div class="ib-wrap ib-mindset-grid">
 		<div class="ib-mindset-copy">
 			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'The Mindset', 'ibanint' ); ?></p>
-			<h2 class="ib-h2"><?php esc_html_e( 'This is not capacity building. It is partnership.', 'ibanint' ); ?></h2>
+			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'This is not capacity building. It is partnership.', 'ibanint' ), 'It is partnership.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<p class="ib-quote-big">
 				&ldquo;<?php esc_html_e( 'A connection is the surest road to what is next.', 'ibanint' ); ?>&rdquo;
 			</p>

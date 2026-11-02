@@ -25,7 +25,7 @@ if ( $ibanint_sector ) {
 		<div class="ib-wrap ib-intro-grid">
 			<div class="ib-intro-copy">
 				<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Our Businesses', 'ibanint' ); ?></p>
-				<h2 class="ib-h2"><?php echo esc_html( $ibanint_sector['title'] ); ?></h2>
+				<h2 class="ib-h2"><?php echo ibanint_highlight_heading( $ibanint_sector['title'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 				<p class="ib-lead"><?php echo esc_html( $ibanint_sector['blurb'] ); ?></p>
 				<p>
 					<?php esc_html_e( 'Every market looks different from the inside. We bring the cross-border view: the partners, the timing, and the doors that make this practice area work in your favour.', 'ibanint' ); ?>
@@ -53,7 +53,7 @@ if ( $ibanint_sector ) {
 
 	<section class="ib-sector-nav-section" id="ib-sector-nav">
 		<div class="ib-wrap">
-			<h2 class="ib-h2 ib-h2-small"><?php esc_html_e( 'Connected across the group', 'ibanint' ); ?></h2>
+			<h2 class="ib-h2 ib-h2-small"><?php echo ibanint_highlight_heading( __( 'Connected across the group', 'ibanint' ), 'across the group' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<div class="ib-sector-nav-grid">
 				<?php
 				$ib_slugs = array_keys( $ibanint_sectors );

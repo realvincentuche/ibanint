@@ -5,7 +5,26 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.2.1' );
+define( 'IBANINT_VERSION', '0.2.2' );
+
+/**
+ * Escape a heading and color one meaningful phrase.
+ *
+ * @param string $text   Full heading.
+ * @param string $phrase Phrase to highlight; defaults to the final word.
+ * @return string Safe heading markup.
+ */
+function ibanint_highlight_heading( $text, $phrase = '' ) {
+	if ( '' === $phrase ) {
+		$last_space = strrpos( $text, ' ' );
+		$phrase     = false === $last_space ? '' : substr( $text, $last_space + 1 );
+	}
+	$position = $phrase ? strpos( $text, $phrase ) : false;
+	if ( false === $position ) {
+		return esc_html( $text );
+	}
+	return esc_html( substr( $text, 0, $position ) ) . '<span class="ib-highlight">' . esc_html( $phrase ) . '</span>' . esc_html( substr( $text, $position + strlen( $phrase ) ) );
+}
 
 /**
  * Theme supports and menu locations.

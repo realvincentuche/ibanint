@@ -1,6 +1,6 @@
 <?php
 /**
- * Header: light navbar, logo left, menu right, gold CTA pill.
+ * Header shared by image banners and content pages.
  *
  * @package Ibanint
  */
@@ -17,7 +17,7 @@
 
 <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ibanint' ); ?></a>
 
-<header class="ib-header" id="ib-header">
+<header class="ib-header<?php echo ( is_front_page() || is_page() || is_home() ) ? ' ib-header-overlay' : ''; ?>" id="ib-header">
 	<div class="ib-wrap ib-header-inner">
 
 		<div class="ib-brand">
@@ -26,7 +26,8 @@
 				if ( has_custom_logo() ) {
 					the_custom_logo();
 				} else {
-					echo '<img src="' . esc_url( get_template_directory_uri() . '/assets/images/ibanint-logo-band-light.png' ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" class="ib-logo" width="952" height="424" loading="eager">';
+					echo '<img src="' . esc_url( get_template_directory_uri() . '/assets/images/ibanint-logo-band-dark.png' ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" class="ib-logo ib-logo-overlay" width="952" height="424" loading="eager">';
+					echo '<img src="' . esc_url( get_template_directory_uri() . '/assets/images/ibanint-logo-band-light.png' ) . '" alt="" aria-hidden="true" class="ib-logo ib-logo-solid" width="952" height="424" loading="eager">';
 				}
 				?>
 			</a>

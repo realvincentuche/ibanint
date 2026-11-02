@@ -21,6 +21,16 @@ $ibanint_hero_slides = array(
 	array( 'image' => 'banner-infrastructure.jpg', 'alt' => 'Infrastructure development project', 'kicker' => 'Connected expertise', 'title' => 'Where sectors meet, progress begins.', 'text' => 'Our work connects infrastructure, logistics and investment opportunities across borders.', 'cta' => 'How we work', 'url' => $ibanint_about_url ),
 	array( 'image' => 'banner-agriculture.jpg', 'alt' => 'Agricultural production landscape', 'kicker' => 'Partnerships with purpose', 'title' => 'The right partners change what is possible.', 'text' => 'We look across the value chain to find the people and capabilities that move projects forward.', 'cta' => 'Start a conversation', 'url' => $ibanint_contact_url ),
 );
+$ibanint_marquee = array(
+	'Connecting producers with markets',
+	'Advancing viable energy projects',
+	'Strengthening food value chains',
+	'Moving goods across borders',
+	'Guiding infrastructure investment',
+	'Developing commercial places',
+	'Turning waste into resources',
+	'Creating responsible resource value',
+);
 ?>
 
 	<section class="ib-hero" id="ib-hero" aria-label="<?php esc_attr_e( 'Featured Iban International stories', 'ibanint' ); ?>" tabindex="0">
@@ -32,7 +42,7 @@ $ibanint_hero_slides = array(
 				<div class="ib-wrap ib-slide-inner">
 					<div class="ib-slide-content">
 						<p class="ib-slide-kicker"><?php echo esc_html( $ibanint_slide['kicker'] ); ?></p>
-						<?php if ( 0 === $ibanint_index ) : ?><h1 class="ib-slide-title"><?php echo esc_html( $ibanint_slide['title'] ); ?></h1><?php else : ?><h2 class="ib-slide-title"><?php echo esc_html( $ibanint_slide['title'] ); ?></h2><?php endif; ?>
+						<?php if ( 0 === $ibanint_index ) : ?><h1 class="ib-slide-title"><?php echo ibanint_highlight_heading( $ibanint_slide['title'], 'Developing opportunity.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h1><?php else : ?><h2 class="ib-slide-title"><?php echo ibanint_highlight_heading( $ibanint_slide['title'], 1 === $ibanint_index ? 'progress begins.' : 'change what is possible.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2><?php endif; ?>
 						<p class="ib-slide-text"><?php echo esc_html( $ibanint_slide['text'] ); ?></p>
 						<a href="<?php echo esc_url( $ibanint_slide['url'] ); ?>" class="ib-btn ib-btn-gold"><?php echo esc_html( $ibanint_slide['cta'] ); ?><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
 					</div>
@@ -41,9 +51,6 @@ $ibanint_hero_slides = array(
 		<?php endforeach; ?>
 	</div>
 	<div class="ib-hero-controls ib-wrap">
-		<div class="ib-hero-dots" aria-label="<?php esc_attr_e( 'Choose a slide', 'ibanint' ); ?>">
-			<?php foreach ( $ibanint_hero_slides as $ibanint_index => $ibanint_slide ) : ?><button type="button" class="ib-hero-dot<?php echo 0 === $ibanint_index ? ' is-active' : ''; ?>" aria-label="<?php echo esc_attr( sprintf( __( 'Show slide %d', 'ibanint' ), $ibanint_index + 1 ) ); ?>" aria-current="<?php echo 0 === $ibanint_index ? 'true' : 'false'; ?>"></button><?php endforeach; ?>
-		</div>
 		<div class="ib-hero-arrows"><button type="button" id="ib-hero-prev" aria-label="<?php esc_attr_e( 'Previous slide', 'ibanint' ); ?>"><i class="ph ph-arrow-left" aria-hidden="true"></i></button><button type="button" id="ib-hero-next" aria-label="<?php esc_attr_e( 'Next slide', 'ibanint' ); ?>"><i class="ph ph-arrow-right" aria-hidden="true"></i></button><button type="button" id="ib-hero-pause" aria-label="<?php esc_attr_e( 'Pause slides', 'ibanint' ); ?>"><i class="ph ph-pause" aria-hidden="true"></i></button></div>
 	</div>
 </section>
@@ -51,7 +58,7 @@ $ibanint_hero_slides = array(
 	<div class="ib-service-marquee-track">
 		<?php for ( $ibanint_repeat = 0; $ibanint_repeat < 2; $ibanint_repeat++ ) : ?>
 			<div class="ib-service-marquee-group" <?php echo 1 === $ibanint_repeat ? 'aria-hidden="true"' : ''; ?>>
-				<?php foreach ( $ibanint_sectors as $ibanint_sector ) : ?><span><?php echo esc_html( $ibanint_sector['short'] ); ?></span><?php endforeach; ?>
+				<?php foreach ( $ibanint_marquee as $ibanint_phrase ) : ?><span><?php echo esc_html( $ibanint_phrase ); ?></span><?php endforeach; ?>
 			</div>
 		<?php endfor; ?>
 	</div>
@@ -62,7 +69,7 @@ $ibanint_hero_slides = array(
 	<div class="ib-wrap ib-about-grid">
 		<div class="ib-about-copy">
 			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Who We Are', 'ibanint' ); ?></p>
-			<h2 class="ib-h2"><?php esc_html_e( 'One group, connected across sectors', 'ibanint' ); ?></h2>
+			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'One group, connected across sectors', 'ibanint' ), 'connected across sectors' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<p class="ib-lead">
 				<?php esc_html_e( 'Iban International works across eight business areas. We connect people, markets and projects so an opportunity in one sector can create value in another.', 'ibanint' ); ?>
 			</p>
@@ -92,7 +99,7 @@ $ibanint_hero_slides = array(
 			<div class="ib-sectors-head">
 				<div class="ib-sectors-heading">
 				<p class="ib-kicker ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'What We Do', 'ibanint' ); ?></p>
-				<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'Eight businesses. Shared perspective.', 'ibanint' ); ?></h2>
+				<h2 class="ib-h2 ib-h2-light"><?php echo ibanint_highlight_heading( __( 'Eight businesses. Shared perspective.', 'ibanint' ), 'Shared perspective.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 				</div>
 				<button class="ib-sector-next" id="ib-sector-next" type="button" aria-label="Show next businesses"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
 				<p class="ib-sector-intro">
@@ -144,7 +151,7 @@ $ibanint_hero_slides = array(
 		</div>
 		<div class="ib-why-copy">
 			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Why Iban International', 'ibanint' ); ?></p>
-			<h2 class="ib-h2"><?php esc_html_e( 'Built to see what connects', 'ibanint' ); ?></h2>
+			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'Built to see what connects', 'ibanint' ), 'what connects' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<p class="ib-lead">
 				<?php esc_html_e( 'A trade opportunity may need logistics. An agricultural project may need processing and distribution. We look across sectors to identify the partners and capabilities each project needs.', 'ibanint' ); ?>
 			</p>
@@ -168,7 +175,7 @@ $ibanint_hero_slides = array(
 			<div class="ib-steps-grid">
 				<div class="ib-steps-main">
 					<p class="ib-kicker ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Our Approach', 'ibanint' ); ?></p>
-					<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'How we move an opportunity forward', 'ibanint' ); ?></h2>
+					<h2 class="ib-h2 ib-h2-light"><?php echo ibanint_highlight_heading( __( 'How we move an opportunity forward', 'ibanint' ), 'opportunity forward' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 					<div class="ib-step-list">
 						<?php
 						$ibanint_steps = array(
@@ -220,7 +227,7 @@ $ibanint_hero_slides = array(
 	<div class="ib-wrap">
 		<div class="ib-head-center">
 			<p class="ib-kicker ib-kicker-center ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Our Reach', 'ibanint' ); ?></p>
-			<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'Who we work with', 'ibanint' ); ?></h2>
+			<h2 class="ib-h2 ib-h2-light"><?php echo ibanint_highlight_heading( __( 'Who we work with', 'ibanint' ), 'work with' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<p class="ib-audience-sub">
 				<?php esc_html_e( 'They are not always in a boardroom. They are not always on the map. Sometimes, they are you.', 'ibanint' ); ?>
 			</p>

@@ -19,7 +19,7 @@ $ibanint_sub   = get_query_var( 'ibanint_banner_sub' );
 	<div class="ib-banner-shade"></div>
 	<div class="ib-wrap ib-banner-inner">
 		<p class="ib-kicker ib-kicker-light"><span class="ib-kicker-dash"></span><?php echo esc_html( get_bloginfo( 'name' ) ); ?></p>
-		<h1 class="ib-banner-title"><?php echo esc_html( $ibanint_title ); ?></h1>
+		<h1 class="ib-banner-title"><?php echo ibanint_highlight_heading( $ibanint_title ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h1>
 		<?php if ( $ibanint_sub ) : ?>
 			<p class="ib-banner-sub"><?php echo esc_html( $ibanint_sub ); ?></p>
 		<?php endif; ?>
