@@ -12,9 +12,9 @@
 	<?php /* Unsplash free tier: team meeting at table 1716703432455 (cta-banner.jpg) */ ?>
 	<div class="ib-cta-shade"></div>
 	<div class="ib-wrap ib-cta-inner ib-reveal">
-		<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'A door can begin with one conversation', 'ibanint' ); ?></h2>
+		<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'Tell us what you are working on', 'ibanint' ); ?></h2>
 		<p>
-			<?php esc_html_e( 'You bring the ambition; we bring the cross-border expertise, the network, and the doors. The conversation is free.', 'ibanint' ); ?>
+			<?php esc_html_e( 'Share the sector, market or partnership you are exploring. We will help identify the right starting point.', 'ibanint' ); ?>
 		</p>
 		<div class="ib-slide-actions">
 			<?php $ibanint_services_page = get_page_by_path( 'services' ); ?>
@@ -126,8 +126,6 @@
 <button type="button" class="ib-totop" id="ib-totop" aria-label="<?php esc_attr_e( 'Back to top', 'ibanint' ); ?>">
 	<i class="ph ph-arrow-up" aria-hidden="true"></i>
 </button>
-
-<script>document.documentElement.classList.add('ib-js');</script>
 
 <?php wp_footer(); ?>
 </body>

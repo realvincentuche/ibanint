@@ -19,9 +19,9 @@ get_template_part( 'template-parts/page-banner' );
 	<div class="ib-wrap ib-intro-grid">
 		<div class="ib-intro-copy">
 			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Start Here', 'ibanint' ); ?></p>
-			<h2 class="ib-h2"><?php esc_html_e( 'We would love to hear what is next for you', 'ibanint' ); ?></h2>
+			<h2 class="ib-h2"><?php esc_html_e( 'Start a conversation about your project', 'ibanint' ); ?></h2>
 			<p class="ib-lead">
-				<?php esc_html_e( 'Iban International will be part of it, whatever it is. Whether you face a challenge at work or have ambitions to start your own business, this will be a conversation worth having.', 'ibanint' ); ?>
+				<?php esc_html_e( 'Tell us which business area and market you are interested in. Call us directly to start the conversation.', 'ibanint' ); ?>
 			</p>
 		</div>
 

@@ -15,10 +15,6 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<div class="ib-preloader" id="ib-preloader" aria-hidden="true">
-	<span class="ib-preloader-spinner" aria-hidden="true"></span>
-</div>
-
 <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ibanint' ); ?></a>
 
 <header class="ib-header" id="ib-header">

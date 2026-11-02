@@ -1,27 +1,12 @@
 /* =========================================================
    Iban International - front-end behaviour
-   Ported mechanisms: hero slider with autoplay + dots,
-   offcanvas nav, dropdown tap fallback, reveal-on-scroll,
-   audience carousel, back-to-top, sticky header shadow.
+   Ported mechanisms: offcanvas nav, dropdown tap fallback, audience carousel,
+   back-to-top, sticky header shadow.
    ========================================================= */
 (function () {
 	'use strict';
 
 	var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-	/* Preloader */
-	var preloader = document.getElementById('ib-preloader');
-	var hidePreloader = function () {
-		if (preloader) {
-			window.setTimeout(function () { preloader.classList.add('done'); }, 350);
-		}
-	};
-	if (document.readyState === 'complete') {
-		hidePreloader();
-	} else {
-		window.addEventListener('load', hidePreloader, { once: true });
-	}
-	window.setTimeout(hidePreloader, 3500);
 
 	/* -------------------------------------------------------
 	   Sticky header shadow
@@ -37,108 +22,6 @@
 		};
 		window.addEventListener('scroll', onScrollHeader, { passive: true });
 		onScrollHeader();
-	}
-
-	/* -------------------------------------------------------
-	   Hero slider (autoplay only, no visible controls)
-	   ------------------------------------------------------- */
-	var hero = document.getElementById('ib-hero');
-	if (hero) {
-		var slides = Array.prototype.slice.call(hero.querySelectorAll('.ib-slide'));
-		var activeIndex = slides.findIndex(function (s) { return s.classList.contains('active'); });
-		var current = activeIndex >= 0 ? activeIndex : 0;
-		var timer = null;
-		var DELAY = 9000;
-
-		var go = function (index) {
-			if (!slides.length) { return; }
-			current = ((index % slides.length) + slides.length) % slides.length;
-			slides.forEach(function (slide, slideIndex) {
-				slide.classList.toggle('active', slideIndex === current);
-			});
-		};
-
-		var step = function (direction) {
-			go(current + direction);
-			restart();
-		};
-
-		var restart = function () {
-			if (timer) { window.clearInterval(timer); }
-			if (slides.length > 1) {
-				timer = window.setInterval(function () { go(current + 1); }, DELAY);
-			}
-		};
-
-		if (document.visibilityState) {
-			document.addEventListener('visibilitychange', function () {
-				if (document.visibilityState === 'visible') { restart(); }
-				else if (timer) { window.clearInterval(timer); timer = null; }
-			});
-		}
-
-		/* Touch swipe and visible-hero keyboard navigation. */
-		var touchX = null;
-		hero.addEventListener('touchstart', function (e) {
-			if (e.changedTouches && e.changedTouches.length) { touchX = e.changedTouches[0].clientX; }
-		}, { passive: true });
-		hero.addEventListener('touchend', function (e) {
-			if (null === touchX || !e.changedTouches || !e.changedTouches.length) { return; }
-			var dx = e.changedTouches[0].clientX - touchX;
-			touchX = null;
-			if (Math.abs(dx) >= 40) { step(dx < 0 ? 1 : -1); }
-		}, { passive: true });
-		hero.addEventListener('touchcancel', function () { touchX = null; }, { passive: true });
-		document.addEventListener('keydown', function (e) {
-			if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') { return; }
-			var tag = e.target && e.target.tagName ? e.target.tagName.toLowerCase() : '';
-			if (['input', 'textarea', 'select'].indexOf(tag) !== -1 || (e.target && e.target.isContentEditable)) { return; }
-			var rect = hero.getBoundingClientRect();
-			if (rect.bottom < 0 || rect.top > window.innerHeight) { return; }
-			e.preventDefault();
-			step(e.key === 'ArrowRight' ? 1 : -1);
-		});
-
-		restart();
-	}
-
-	/* -------------------------------------------------------
-	   Counters (count up once visible)
-	   ------------------------------------------------------- */
-	var counters = Array.prototype.slice.call(document.querySelectorAll('.ib-stat-num[data-count]'));
-	var runCounter = function (el) {
-		var target = parseInt(el.getAttribute('data-count'), 10);
-		var suffix = el.getAttribute('data-suffix') || '';
-		if (reducedMotion || isNaN(target)) {
-			el.textContent = String(target) + suffix;
-			return;
-		}
-		var started = null;
-		var DURATION = 1600;
-		var step = function (ts) {
-			if (started === null) { started = ts; }
-			var p = Math.min(1, (ts - started) / DURATION);
-			var eased = 1 - Math.pow(1 - p, 3);
-			el.textContent = String(Math.round(eased * target)) + suffix;
-			if (p < 1) { window.requestAnimationFrame(step); }
-		};
-		window.requestAnimationFrame(step);
-	};
-
-	if (counters.length) {
-		if ('IntersectionObserver' in window) {
-			var ioCount = new IntersectionObserver(function (entries) {
-				entries.forEach(function (entry) {
-					if (entry.isIntersecting) {
-						runCounter(entry.target);
-						ioCount.unobserve(entry.target);
-					}
-				});
-			}, { threshold: 0.4 });
-			counters.forEach(function (el) { ioCount.observe(el); });
-		} else {
-			counters.forEach(runCounter);
-		}
 	}
 
 	/* -------------------------------------------------------
@@ -277,25 +160,6 @@
 		}
 		document.addEventListener('keydown', function (e) {
 			if (e.key === 'Escape' && document.body.classList.contains('ib-offcanvas-open')) { setOffcanvas(false); }
-		});
-	}
-
-	/* -------------------------------------------------------
-	   Reveal on scroll
-	   ------------------------------------------------------- */
-	if ('IntersectionObserver' in window && !reducedMotion) {
-		document.documentElement.classList.add('ib-js');
-		var io = new IntersectionObserver(function (entries) {
-			entries.forEach(function (entry) {
-				if (entry.isIntersecting) {
-					entry.target.classList.add('ib-revealed');
-					io.unobserve(entry.target);
-				}
-			});
-		}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-		Array.prototype.slice.call(document.querySelectorAll('.ib-reveal')).forEach(function (el) {
-			io.observe(el);
 		});
 	}
 

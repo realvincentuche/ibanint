@@ -196,40 +196,6 @@ function ibanint_sectors() {
 }
 
 /**
- * Front sliding hero copy.
- *
- * @return array
- */
-function ibanint_slides() {
-	return array(
-		array(
-			'kicker' => 'Iban International Ltd',
-			'title'  => 'Global opportunities, arranged with intent',
-			'text'   => 'This is not capacity building. It is a strategic partnership approach to business development.',
-			'cta'    => 'Explore Our Businesses',
-			'link'   => '/services/',
-			'image'  => 'hero-1.jpg',
-		),
-		array(
-			'kicker' => 'Our Focus',
-			'title'  => 'Eight industries. One integrated approach.',
-			'text'   => 'From trade flows to waste streams, we open and operate the doors others stop at.',
-			'cta'    => 'What We Do',
-			'link'   => '/services/',
-			'image'  => 'hero-2.jpg',
-		),
-		array(
-			'kicker' => 'The Difference',
-			'title'  => 'We look at the bigger picture',
-			'text'   => 'Where others see separate markets, we see connections. That is how an agricultural deal opens a logistics door.',
-			'cta'    => 'Partner With Us',
-			'link'   => '/contact/',
-			'image'  => 'hero-3.jpg',
-		),
-	);
-}
-
-/**
  * Structured pages: slug => [title, template, parent-slug, is-front, is-posts].
  *
  * @return array

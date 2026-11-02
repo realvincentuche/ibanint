@@ -1,6 +1,6 @@
 <?php
 /**
- * Homepage: hero slider (with floating trust strip), counters, about,
+ * Homepage: hero, about,
  * sector panel, why-choose, approach panel, audience carousel.
  * CTA banner lives in footer.php so it appears on every page.
  *
@@ -9,7 +9,6 @@
 
 get_header();
 
-$ibanint_slides   = ibanint_slides();
 $ibanint_sectors  = ibanint_sectors();
 $ibanint_about_id = get_page_by_path( 'about' );
 $ibanint_about_url = $ibanint_about_id ? get_permalink( $ibanint_about_id ) : home_url( '/about/' );
@@ -17,69 +16,29 @@ $ibanint_services_id = get_page_by_path( 'services' );
 $ibanint_services_url = $ibanint_services_id ? get_permalink( $ibanint_services_id ) : home_url( '/services/' );
 $ibanint_contact_url = home_url( '/contact/' );
 
-/* Image attribution. Unsplash free tier:
- * hero-1  https://unsplash.com/photos/handshake-business-meeting-0639174cdfac (1752159684779)
- * hero-2  https://unsplash.com/photos/containers-port-1770710195407 (1770710195407)
- * hero-3  https://unsplash.com/photos/boardroom-meeting-5d608ba3abdf (1758518732175)
- */
+/* Hero image: Unsplash containers port 1770710195407 (hero-2.jpg). */
 ?>
 
-<section class="ib-hero" id="ib-hero" tabindex="0">
-	<?php foreach ( $ibanint_slides as $ibanint_index => $ibanint_slide ) : ?>
-		<div class="ib-slide ib-slide-<?php echo (int) $ibanint_index + 1; ?><?php echo 0 === $ibanint_index ? ' active' : ''; ?>" style="background-image:url('<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . $ibanint_slide['image'] ); ?>');">
-			<div class="ib-slide-shade"></div>
-			<div class="ib-wrap ib-slide-inner">
-				<div class="ib-slide-content">
-					<p class="ib-slide-kicker"><span class="ib-slide-dash"></span><?php echo esc_html( $ibanint_slide['kicker'] ); ?></p>
-					<h2 class="ib-slide-title"><?php echo esc_html( $ibanint_slide['title'] ); ?></h2>
-					<p class="ib-slide-text"><?php echo esc_html( $ibanint_slide['text'] ); ?></p>
-					<div class="ib-slide-actions">
-						<a href="<?php echo esc_url( home_url( $ibanint_slide['link'] ) ); ?>" class="ib-btn ib-btn-gold">
-							<?php echo esc_html( $ibanint_slide['cta'] ); ?>
-							<i class="ph ph-arrow-right" aria-hidden="true"></i>
-						</a>
-						<a href="<?php echo esc_url( $ibanint_about_url ); ?>" class="ib-btn ib-btn-ghost-light">
-							<?php esc_html_e( 'Who We Are', 'ibanint' ); ?>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	<?php endforeach; ?>
-
-<?php /* Counter panel overlaps the lower edge of the slider. */ ?>
-<section class="ib-stats" id="ib-stats" aria-label="<?php esc_attr_e( 'Iban International at a glance', 'ibanint' ); ?>">
-	<div class="ib-wrap ib-stats-grid">
-		<div class="ib-stat">
-			<i class="ph ph-strategy ib-stat-icon" aria-hidden="true"></i>
-			<div class="ib-stat-copy">
-				<span class="ib-stat-num" data-count="8">8</span>
-				<span class="ib-stat-label"><?php esc_html_e( 'Practice areas, one group', 'ibanint' ); ?></span>
-			</div>
-		</div>
-		<div class="ib-stat">
-			<i class="ph ph-globe-hemisphere-west ib-stat-icon" aria-hidden="true"></i>
-			<div class="ib-stat-copy">
-				<span class="ib-stat-num" data-count="5">5</span>
-				<span class="ib-stat-label"><?php esc_html_e( 'Regions, from Africa to North America', 'ibanint' ); ?></span>
-			</div>
-		</div>
-		<div class="ib-stat">
-			<i class="ph ph-calendar-check ib-stat-icon" aria-hidden="true"></i>
-			<div class="ib-stat-copy">
-				<span class="ib-stat-num" data-count="10" data-suffix="+">10+</span>
-				<span class="ib-stat-label"><?php esc_html_e( 'Years opening doors across borders', 'ibanint' ); ?></span>
-			</div>
-		</div>
-		<div class="ib-stat">
-			<i class="ph ph-infinity ib-stat-icon" aria-hidden="true"></i>
-			<div class="ib-stat-copy">
-				<span class="ib-stat-num ib-stat-inf">&infin;</span>
-				<span class="ib-stat-label"><?php esc_html_e( 'Possibilities next door', 'ibanint' ); ?></span>
+<section class="ib-hero" id="ib-hero" style="background-image:url('<?php echo esc_url( get_template_directory_uri() . '/assets/images/hero-2.jpg' ); ?>');">
+	<div class="ib-slide-shade"></div>
+	<div class="ib-wrap ib-slide-inner">
+		<div class="ib-slide-content">
+			<p class="ib-slide-kicker"><?php esc_html_e( 'Iban International Ltd', 'ibanint' ); ?></p>
+			<h1 class="ib-slide-title"><?php esc_html_e( 'Connecting markets. Developing opportunity.', 'ibanint' ); ?></h1>
+			<p class="ib-slide-text"><?php esc_html_e( 'We bring partners together across trade, infrastructure, energy and five other business areas.', 'ibanint' ); ?></p>
+			<div class="ib-slide-actions">
+				<a href="<?php echo esc_url( $ibanint_services_url ); ?>" class="ib-btn ib-btn-gold"><?php esc_html_e( 'Explore our businesses', 'ibanint' ); ?><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+				<a href="<?php echo esc_url( $ibanint_about_url ); ?>" class="ib-btn ib-btn-ghost-light"><?php esc_html_e( 'About Iban', 'ibanint' ); ?></a>
 			</div>
 		</div>
 	</div>
-</section>
+	<div class="ib-hero-foot">
+		<div class="ib-wrap">
+			<span><?php esc_html_e( 'Trade', 'ibanint' ); ?></span>
+			<span><?php esc_html_e( 'Development', 'ibanint' ); ?></span>
+			<span><?php esc_html_e( 'Cross-border partnerships', 'ibanint' ); ?></span>
+		</div>
+	</div>
 </section>
 
 <!-- Who we are -->
@@ -87,9 +46,9 @@ $ibanint_contact_url = home_url( '/contact/' );
 	<div class="ib-wrap ib-about-grid">
 		<div class="ib-about-copy">
 			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Who We Are', 'ibanint' ); ?></p>
-			<h2 class="ib-h2"><?php esc_html_e( 'The business is connecting', 'ibanint' ); ?></h2>
+			<h2 class="ib-h2"><?php esc_html_e( 'One group, connected across sectors', 'ibanint' ); ?></h2>
 			<p class="ib-lead">
-				<?php esc_html_e( 'Iban International is not bound by a single business. We are a growth business with a global scope, and our expertise is built on four pillars: we keep you ahead with global perspectives, cross-border relationships, wide-reaching insight, and system thinking.', 'ibanint' ); ?>
+				<?php esc_html_e( 'Iban International works across eight business areas. We connect people, markets and projects so an opportunity in one sector can create value in another.', 'ibanint' ); ?>
 			</p>
 			<ul class="ib-check-list">
 				<li><i class="ph ph-check-circle" aria-hidden="true"></i><?php esc_html_e( 'Global perspective, local focus', 'ibanint' ); ?></li>
@@ -106,10 +65,6 @@ $ibanint_contact_url = home_url( '/contact/' );
 		<div class="ib-about-media ib-reveal">
 			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-tease.jpg' ); ?>" alt="<?php esc_attr_e( 'Business people closing a deal with a handshake', 'ibanint' ); ?>" width="700" height="880" loading="lazy">
 			<?php /* Unsplash free tier: handshake deal 1582213782179 (about-tease.jpg) */ ?>
-			<div class="ib-about-badge">
-				<span class="ib-about-badge-num">10+</span>
-				<span class="ib-about-badge-label"><?php echo esc_html( __( 'Years opening doors across borders', 'ibanint' ) ); ?></span>
-			</div>
 		</div>
 	</div>
 </section>
@@ -121,7 +76,7 @@ $ibanint_contact_url = home_url( '/contact/' );
 			<div class="ib-sectors-head">
 				<div class="ib-sectors-heading">
 				<p class="ib-kicker ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'What We Do', 'ibanint' ); ?></p>
-				<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'Eight doors, one connected group', 'ibanint' ); ?></h2>
+				<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'Eight businesses. Shared perspective.', 'ibanint' ); ?></h2>
 				</div>
 				<button class="ib-sector-next" id="ib-sector-next" type="button" aria-label="Show next businesses"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
 				<p class="ib-sector-intro">
@@ -173,9 +128,9 @@ $ibanint_contact_url = home_url( '/contact/' );
 		</div>
 		<div class="ib-why-copy">
 			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Why Iban International', 'ibanint' ); ?></p>
-			<h2 class="ib-h2"><?php esc_html_e( 'Others see the market. We see the picture.', 'ibanint' ); ?></h2>
+			<h2 class="ib-h2"><?php esc_html_e( 'Built to see what connects', 'ibanint' ); ?></h2>
 			<p class="ib-lead">
-				<?php esc_html_e( 'Be it unlocking trade opportunities, creating cross-border value, or driving sustainable projects, we operate with industry expertise and an unparalleled network across all our business sectors.', 'ibanint' ); ?>
+				<?php esc_html_e( 'A trade opportunity may need logistics. An agricultural project may need processing and distribution. We look across sectors to identify the partners and capabilities each project needs.', 'ibanint' ); ?>
 			</p>
 			<ul class="ib-check-list">
 				<li><i class="ph ph-check-circle" aria-hidden="true"></i><?php esc_html_e( 'Depth in every sector we touch', 'ibanint' ); ?></li>
@@ -197,7 +152,7 @@ $ibanint_contact_url = home_url( '/contact/' );
 			<div class="ib-steps-grid">
 				<div class="ib-steps-main">
 					<p class="ib-kicker ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Our Approach', 'ibanint' ); ?></p>
-					<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'We build the staircase, opening every door on the way', 'ibanint' ); ?></h2>
+					<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'How we move an opportunity forward', 'ibanint' ); ?></h2>
 					<div class="ib-step-list">
 						<?php
 						$ibanint_steps = array(
@@ -249,7 +204,7 @@ $ibanint_contact_url = home_url( '/contact/' );
 	<div class="ib-wrap">
 		<div class="ib-head-center">
 			<p class="ib-kicker ib-kicker-center ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Our Reach', 'ibanint' ); ?></p>
-			<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'Built for people who open doors', 'ibanint' ); ?></h2>
+			<h2 class="ib-h2 ib-h2-light"><?php esc_html_e( 'Who we work with', 'ibanint' ); ?></h2>
 			<p class="ib-audience-sub">
 				<?php esc_html_e( 'They are not always in a boardroom. They are not always on the map. Sometimes, they are you.', 'ibanint' ); ?>
 			</p>

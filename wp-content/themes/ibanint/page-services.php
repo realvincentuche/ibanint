@@ -23,7 +23,7 @@ get_template_part( 'template-parts/page-banner' );
 			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'What We Do', 'ibanint' ); ?></p>
 			<h2 class="ib-h2"><?php esc_html_e( 'Everything from commerce to recycling', 'ibanint' ); ?></h2>
 			<p class="ib-lead">
-				<?php esc_html_e( 'We are a robust business that is not afraid of the challenges that the growth of any market might bring. Our services cover everything that helps you open and operate as many doors as possible.', 'ibanint' ); ?>
+				<?php esc_html_e( 'Our eight business areas span trade, energy, agriculture, logistics, infrastructure, real estate, waste management and mining.', 'ibanint' ); ?>
 			</p>
 			<p>
 				<?php esc_html_e( 'This broad experience gives us a unique depth, and a wide range of practice areas helps us support your ambitions from many directions at once.', 'ibanint' ); ?>
