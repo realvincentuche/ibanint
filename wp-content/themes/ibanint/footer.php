@@ -8,8 +8,7 @@
 </main>
 
 <!-- CTA banner (all pages, just before the footer) -->
-<section class="ib-cta" style="background-image:url('<?php echo esc_url( get_template_directory_uri() . '/assets/images/cta-banner.jpg' ); ?>');">
-	<?php /* Unsplash free tier: team meeting at table 1716703432455 (cta-banner.jpg) */ ?>
+<section class="ib-cta" style="background-image:url('<?php echo esc_url( get_template_directory_uri() . '/assets/images/banner-about.jpg' ); ?>');">
 	<div class="ib-cta-shade"></div>
 	<div class="ib-wrap ib-cta-inner ib-reveal">
 		<h2 class="ib-h2 ib-h2-light"><?php echo ibanint_highlight_heading( __( 'Tell us what you are working on', 'ibanint' ), 'what you are working on' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
@@ -33,6 +32,13 @@
 
 <footer class="ib-footer" id="ib-footer">
 	<div class="ib-wrap">
+		<div class="ib-footer-masthead">
+			<div>
+				<p class="ib-footer-eyebrow"><?php esc_html_e( 'International business development', 'ibanint' ); ?></p>
+				<h2><?php esc_html_e( 'IBAN International', 'ibanint' ); ?></h2>
+			</div>
+			<p><?php esc_html_e( 'Connecting people, markets and projects across eight business areas.', 'ibanint' ); ?></p>
+		</div>
 		<div class="ib-footer-grid">
 
 			<div class="ib-footer-brand">
@@ -79,9 +85,6 @@
 						</a>
 					</li>
 					<li>
-						<i class="ph ph-map-pin" aria-hidden="true"></i><span><?php echo esc_html( $ibanint_contact['regions'] ); ?></span>
-					</li>
-					<li>
 						<a href="<?php echo esc_url( $ibanint_contact['website_href'] ); ?>">
 							<i class="ph ph-globe" aria-hidden="true"></i><span><?php echo esc_html( $ibanint_contact['website'] ); ?></span>
 						</a>
@@ -100,6 +103,14 @@
 				</a>
 			</div>
 
+		</div>
+		<div class="ib-footer-regions">
+			<p><?php esc_html_e( 'Our regions', 'ibanint' ); ?></p>
+			<ul>
+				<?php foreach ( array_map( 'trim', explode( '|', $ibanint_contact['regions'] ) ) as $ibanint_region ) : ?>
+					<li><?php echo esc_html( $ibanint_region ); ?></li>
+				<?php endforeach; ?>
+			</ul>
 		</div>
 	</div>
 

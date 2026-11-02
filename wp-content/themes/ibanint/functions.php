@@ -1,11 +1,19 @@
 <?php
 /**
- * Iban International theme setup, helpers and seeder.
+ * IBAN International theme setup, helpers and seeder.
  *
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.2.7' );
+define( 'IBANINT_VERSION', '0.2.8' );
+
+/** Keep the brand capitalized in older WordPress content and site settings. */
+function ibanint_capitalize_brand( $name ) {
+	return preg_replace( '/\biban\b/i', 'IBAN', $name );
+}
+add_filter( 'option_blogname', 'ibanint_capitalize_brand' );
+add_filter( 'the_title', 'ibanint_capitalize_brand' );
+add_filter( 'the_content', 'ibanint_capitalize_brand' );
 
 /**
  * Escape a heading and color one meaningful phrase.
@@ -127,7 +135,7 @@ add_action( 'wp_head', 'ibanint_site_icon', 2 );
  */
 function ibanint_contact() {
 	return array(
-		'name'        => 'Iban International Ltd',
+		'name'        => 'IBAN International Ltd',
 		'tagline'     => 'Global Opportunities. Strategic Solutions. Lasting Value.',
 		'phone'       => '+255 762 199 712',
 		'phone_href'  => 'tel:+255762199712',
@@ -333,7 +341,7 @@ function ibanint_seed_site() {
 	}
 
 	// Site identity.
-	update_option( 'blogname', 'Iban International Ltd' );
+	update_option( 'blogname', 'IBAN International Ltd' );
 	update_option( 'blogdescription', 'Global Opportunities. Strategic Solutions. Lasting Value.' );
 
 	// Publish the existing privacy draft.
@@ -355,7 +363,7 @@ function ibanint_seed_site() {
 				'post_name'    => 'terms-of-use',
 				'post_status'  => 'publish',
 				'post_type'    => 'page',
-				'post_content' => "<p>This page will carry our terms of use. For questions about how you may use the content of this site, or about any agreement with Iban International Ltd, please contact us.</p>\n<p><a href=\"" . esc_url( home_url( '/contact/' ) ) . '">Contact Iban International</a></p>',
+				'post_content' => "<p>This page will carry our terms of use. For questions about how you may use the content of this site, or about any agreement with IBAN International Ltd, please contact us.</p>\n<p><a href=\"" . esc_url( home_url( '/contact/' ) ) . '">Contact IBAN International</a></p>',
 			)
 		);
 	}
@@ -587,7 +595,7 @@ function ibanint_setup_notice() {
 	}
 
 	printf(
-		'<div class="notice notice-warning"><p><strong>Iban International setup:</strong> missing pages: %s</p><p><a class="button button-primary" href="%s">Create pages now</a></p></div>',
+		'<div class="notice notice-warning"><p><strong>IBAN International setup:</strong> missing pages: %s</p><p><a class="button button-primary" href="%s">Create pages now</a></p></div>',
 		esc_html( implode( ', ', $missing ) ),
 		esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=ibanint_seed' ), 'ibanint_seed' ) )
 	);

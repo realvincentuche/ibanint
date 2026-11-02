@@ -11,7 +11,7 @@ $ibanint_contact_url = home_url( '/contact/' );
 $ibanint_services_id = get_page_by_path( 'services' );
 $ibanint_services_url = $ibanint_services_id ? get_permalink( $ibanint_services_id ) : home_url( '/services/' );
 
-set_query_var( 'ibanint_banner_title', __( 'About Iban International', 'ibanint' ) );
+set_query_var( 'ibanint_banner_title', __( 'About IBAN International', 'ibanint' ) );
 set_query_var( 'ibanint_banner_image', 'banner-about.jpg' );
 set_query_var( 'ibanint_banner_sub', '' );
 get_template_part( 'template-parts/page-banner' );
@@ -24,7 +24,7 @@ get_template_part( 'template-parts/page-banner' );
 			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Who We Are', 'ibanint' ); ?></p>
 			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'Growth is what we do. Connecting is how we do it.', 'ibanint' ), 'Connecting is how we do it.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<p class="ib-lead">
-				<?php esc_html_e( 'Iban International has been opening doors for over a decade. We keep you ahead by knowing where the next door is, when to knock, and how to bring the right partners with you.', 'ibanint' ); ?>
+				<?php esc_html_e( 'IBAN International has been opening doors for over a decade. We keep you ahead by knowing where the next door is, when to knock, and how to bring the right partners with you.', 'ibanint' ); ?>
 			</p>
 			<p>
 				<?php esc_html_e( 'We are not bound by a single business. We are a growth business with a global scope: a group of practice areas that opens doors between markets, regions, and partners.', 'ibanint' ); ?>

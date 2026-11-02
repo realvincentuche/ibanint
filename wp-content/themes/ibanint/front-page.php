@@ -33,7 +33,7 @@ $ibanint_marquee = array(
 );
 ?>
 
-	<section class="ib-hero" id="ib-hero" aria-label="<?php esc_attr_e( 'Featured Iban International stories', 'ibanint' ); ?>" tabindex="0">
+	<section class="ib-hero" id="ib-hero" aria-label="<?php esc_attr_e( 'Featured IBAN International stories', 'ibanint' ); ?>" tabindex="0">
 	<div class="ib-hero-slides">
 		<?php foreach ( $ibanint_hero_slides as $ibanint_index => $ibanint_slide ) : ?>
 			<article class="ib-hero-slide<?php echo 0 === $ibanint_index ? ' is-active' : ''; ?>" aria-hidden="<?php echo 0 === $ibanint_index ? 'false' : 'true'; ?>" <?php echo 0 === $ibanint_index ? '' : 'inert'; ?>>
@@ -71,7 +71,7 @@ $ibanint_marquee = array(
 			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Who We Are', 'ibanint' ); ?></p>
 			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'One group, connected across sectors', 'ibanint' ), 'connected across sectors' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<p class="ib-lead">
-				<?php esc_html_e( 'Iban International works across eight business areas. We connect people, markets and projects so an opportunity in one sector can create value in another.', 'ibanint' ); ?>
+				<?php esc_html_e( 'IBAN International works across eight business areas. We connect people, markets and projects so an opportunity in one sector can create value in another.', 'ibanint' ); ?>
 			</p>
 			<ul class="ib-check-list">
 				<li><i class="ph ph-check-circle" aria-hidden="true"></i><?php esc_html_e( 'Global perspective, local focus', 'ibanint' ); ?></li>
@@ -146,7 +146,7 @@ $ibanint_marquee = array(
 	</div>
 </section>
 
-<!-- Why Iban International -->
+<!-- Why IBAN International -->
 <section class="ib-why" id="ib-why">
 	<div class="ib-wrap ib-why-grid">
 		<div class="ib-why-media ib-reveal">
@@ -154,7 +154,7 @@ $ibanint_marquee = array(
 			<?php /* Unsplash free tier: construction site aerial 1712693600525 (why-choose.jpg) */ ?>
 		</div>
 		<div class="ib-why-copy">
-			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Why Iban International', 'ibanint' ); ?></p>
+			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Why IBAN International', 'ibanint' ); ?></p>
 			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'Built to see what connects', 'ibanint' ), 'what connects' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<p class="ib-lead">
 				<?php esc_html_e( 'A trade opportunity may need logistics. An agricultural project may need processing and distribution. We look across sectors to identify the partners and capabilities each project needs.', 'ibanint' ); ?>
@@ -250,7 +250,8 @@ $ibanint_marquee = array(
 			<?php foreach ( $ibanint_audience as $ibanint_aud ) : ?>
 				<li class="ib-audience-item ib-reveal">
 					<span class="ib-audience-icon"><i class="ph <?php echo esc_attr( $ibanint_aud[0] ); ?>" aria-hidden="true"></i></span>
-					<div><h3><?php echo esc_html( $ibanint_aud[1] ); ?></h3><p><?php echo esc_html( $ibanint_aud[2] ); ?></p></div>
+					<h3><?php echo esc_html( $ibanint_aud[1] ); ?></h3>
+					<p><?php echo esc_html( $ibanint_aud[2] ); ?></p>
 				</li>
 			<?php endforeach; ?>
 		</ul>
