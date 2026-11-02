@@ -204,8 +204,7 @@ $ibanint_marquee = array(
 				</div>
 
 				<aside class="ib-steps-card ib-reveal">
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/showcase-card.jpg' ); ?>" alt="<?php esc_attr_e( 'Business professional', 'ibanint' ); ?>" loading="lazy">
-					<?php /* Unsplash free tier: businesswoman portrait 1758518727888 (showcase-card.jpg) */ ?>
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/approach-partnership.jpg' ); ?>" alt="<?php esc_attr_e( 'Business partners discussing a project around a table', 'ibanint' ); ?>" loading="lazy">
 					<div class="ib-steps-card-body">
 						<div class="ib-steps-card-badge">
 							<span class="ib-eight-count">8</span>

@@ -23,6 +23,14 @@ get_template_part( 'template-parts/page-banner' );
 			<p class="ib-lead">
 				<?php esc_html_e( 'If you have a project, market, resource or partnership in mind, tell us the business area and region. Investors, producers, developers and institutions are welcome to get in touch.', 'ibanint' ); ?>
 			</p>
+			<?php
+			$ibanint_contact_content = get_post_field( 'post_content', get_queried_object_id() );
+			if ( trim( $ibanint_contact_content ) ) :
+				?>
+				<div class="ib-contact-form ib-prose">
+					<?php echo apply_filters( 'the_content', $ibanint_contact_content ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				</div>
+			<?php endif; ?>
 		</div>
 
 		<div class="ib-contact-cards">
@@ -57,8 +65,6 @@ get_template_part( 'template-parts/page-banner' );
 		</div>
 	</div>
 </section>
-
-<?php get_template_part( 'template-parts/dynamic-content' ); ?>
 
 <?php
 get_footer();

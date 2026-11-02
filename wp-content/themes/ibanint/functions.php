@@ -5,7 +5,7 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.2.20' );
+define( 'IBANINT_VERSION', '0.2.21' );
 
 /** Keep the brand capitalized in older WordPress content and site settings. */
 function ibanint_capitalize_brand( $name ) {
@@ -107,10 +107,99 @@ function ibanint_site_icon() {
 }
 add_action( 'wp_head', 'ibanint_site_icon', 2 );
 
+/** Page-specific summary and image for search and link previews. */
+function ibanint_seo_page_data() {
+	$default = array(
+		'description' => 'IBAN International connects businesses, investors and project partners across trade, energy, food, logistics, infrastructure, real estate, waste and mining.',
+		'image'       => 'hero-2.jpg',
+	);
+
+	if ( is_front_page() ) {
+		return $default;
+	}
+	if ( is_home() ) {
+		return array( 'description' => 'News, updates and events from IBAN International Ltd.', 'image' => 'banner-news.jpg' );
+	}
+	if ( is_singular( 'post' ) ) {
+		$excerpt = get_the_excerpt( get_queried_object_id() );
+		return array(
+			'description' => $excerpt ? wp_trim_words( wp_strip_all_tags( $excerpt ), 28, '' ) : $default['description'],
+			'image'       => has_post_thumbnail( get_queried_object_id() ) ? get_the_post_thumbnail_url( get_queried_object_id(), 'full' ) : 'banner-news.jpg',
+		);
+	}
+
+	$slug    = get_post_field( 'post_name', get_queried_object_id() );
+	$sectors = ibanint_sectors();
+	if ( isset( $sectors[ $slug ] ) ) {
+		return array( 'description' => $sectors[ $slug ]['blurb'], 'image' => $sectors[ $slug ]['banner'] );
+	}
+
+	$pages = array(
+		'about'          => array( 'description' => 'Learn how IBAN International connects markets, resources and expertise through partnerships across eight business areas.', 'image' => 'banner-about.jpg' ),
+		'services'       => array( 'description' => 'Explore the eight business areas of IBAN International, from trade and energy to agriculture, logistics and natural resources.', 'image' => 'banner-services.jpg' ),
+		'contact'        => array( 'description' => 'Contact IBAN International Ltd about a project, market or partnership. Email info@ibanint.com or call +255 762 199 712.', 'image' => 'banner-contact.jpg' ),
+		'privacy-policy' => array( 'description' => 'How IBAN International Ltd handles website inquiries, technical data and privacy requests.', 'image' => 'banner-privacy.jpg' ),
+		'terms-of-use'   => array( 'description' => 'The terms that apply when using the IBAN International Ltd website.', 'image' => 'banner-terms.jpg' ),
+	);
+	return $pages[ $slug ] ?? $default;
+}
+
+/** Avoid duplicate metadata if a dedicated SEO plugin takes over. */
+function ibanint_has_seo_plugin() {
+	return defined( 'WPSEO_VERSION' ) || defined( 'RANK_MATH_VERSION' ) || defined( 'AIOSEO_VERSION' );
+}
+
+/** Basic search and social preview metadata. WordPress supplies singular canonicals. */
+function ibanint_seo_head() {
+	if ( is_admin() || is_search() || is_404() || ibanint_has_seo_plugin() ) {
+		return;
+	}
+
+	$data  = ibanint_seo_page_data();
+	$title = wp_get_document_title();
+	if ( is_front_page() ) {
+		$url = home_url( '/' );
+	} elseif ( is_home() ) {
+		$url = get_permalink( get_option( 'page_for_posts' ) );
+	} elseif ( is_singular() ) {
+		$url = get_permalink( get_queried_object_id() );
+	} else {
+		$url = get_pagenum_link( max( 1, (int) get_query_var( 'paged' ) ) );
+	}
+	$image = 0 === strpos( $data['image'], 'http' ) ? $data['image'] : get_template_directory_uri() . '/assets/images/' . $data['image'];
+
+	printf( '<meta name="description" content="%s">' . "\n", esc_attr( $data['description'] ) );
+	printf( '<meta property="og:type" content="%s">' . "\n", is_singular( 'post' ) ? 'article' : 'website' );
+	printf( '<meta property="og:title" content="%s">' . "\n", esc_attr( $title ) );
+	printf( '<meta property="og:description" content="%s">' . "\n", esc_attr( $data['description'] ) );
+	printf( '<meta property="og:url" content="%s">' . "\n", esc_url( $url ) );
+	printf( '<meta property="og:site_name" content="%s">' . "\n", esc_attr( get_bloginfo( 'name' ) ) );
+	printf( '<meta property="og:image" content="%s">' . "\n", esc_url( $image ) );
+	printf( '<meta name="twitter:card" content="summary_large_image">' . "\n" );
+	printf( '<meta name="twitter:title" content="%s">' . "\n", esc_attr( $title ) );
+	printf( '<meta name="twitter:description" content="%s">' . "\n", esc_attr( $data['description'] ) );
+
+	if ( ! is_singular() ) {
+		printf( '<link rel="canonical" href="%s">' . "\n", esc_url( $url ) );
+	}
+
+	if ( is_front_page() ) {
+		$organization = array(
+			'@context' => 'https://schema.org',
+			'@type'    => 'Organization',
+			'name'     => 'IBAN International Ltd',
+			'url'      => home_url( '/' ),
+			'logo'     => get_template_directory_uri() . '/assets/images/ibanint-logo-transparent.png',
+			'email'    => ibanint_contact()['email'],
+			'telephone'=> ibanint_contact()['phone'],
+		);
+		printf( '<script type="application/ld+json">%s</script>' . "\n", wp_json_encode( $organization, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) );
+	}
+}
+add_action( 'wp_head', 'ibanint_seo_head', 5 );
+
 /**
  * Site contact details.
- *
- * Email left empty until the corporate address is confirmed.
  *
  * @return array
  */
@@ -123,7 +212,7 @@ function ibanint_contact() {
 		'website'     => 'ibanint.com',
 		'website_href'=> 'https://ibanint.com',
 		'regions'     => 'Africa | Europe | Asia | Middle East | North America',
-		'email'       => '',
+		'email'       => 'info@ibanint.com',
 	);
 }
 
@@ -348,19 +437,6 @@ function ibanint_seed_site() {
 		);
 	}
 
-	// Terms of Use stub if missing.
-	if ( ! get_page_by_path( 'terms-of-use' ) ) {
-		wp_insert_post(
-			array(
-				'post_title'   => 'Terms of Use',
-				'post_name'    => 'terms-of-use',
-				'post_status'  => 'publish',
-				'post_type'    => 'page',
-				'post_content' => "<p>This page will carry our terms of use. For questions about how you may use the content of this site, or about any agreement with IBAN International Ltd, please contact us.</p>\n<p><a href=\"" . esc_url( home_url( '/contact/' ) ) . '">Contact IBAN International</a></p>',
-			)
-		);
-	}
-
 	// Trash default content.
 	$hello = get_page_by_path( 'hello-world', OBJECT, 'post' );
 	if ( ! $hello ) {
@@ -567,6 +643,55 @@ function ibanint_seed_on_activate() {
 	ibanint_seed_site();
 }
 add_action( 'after_switch_theme', 'ibanint_seed_on_activate' );
+
+/**
+ * Replace only the WordPress tutorial and the theme's old terms stub.
+ * Existing custom legal text remains editable and is left alone.
+ */
+function ibanint_sync_legal_pages() {
+	if ( '2' === get_option( 'ibanint_legal_content_version' ) ) {
+		return;
+	}
+
+	$pages = array(
+		'privacy-policy' => array( 'Privacy Policy', 'privacy-policy.html', 'privacy-policy-tutorial' ),
+		'terms-of-use'  => array( 'Terms of Use', 'terms-of-use.html', 'This page will carry our terms of use' ),
+	);
+
+	foreach ( $pages as $slug => $data ) {
+		$file = get_template_directory() . '/content/' . $data[1];
+		if ( ! is_readable( $file ) ) {
+			return;
+		}
+		$content = file_get_contents( $file );
+		if ( false === $content ) {
+			return;
+		}
+
+		$page = get_page_by_path( $slug );
+		if ( $page ) {
+			$is_starter = false !== strpos( $page->post_content, $data[2] ) || ( 'privacy-policy' === $slug && false !== strpos( $page->post_content, 'The current website does not use advertising or analytics cookies.' ) );
+			if ( $is_starter ) {
+				wp_update_post( array( 'ID' => $page->ID, 'post_content' => $content, 'post_status' => 'publish' ) );
+			} elseif ( false !== strpos( $page->post_content, 'ibanint.test' ) ) {
+				wp_update_post( array( 'ID' => $page->ID, 'post_content' => str_replace( 'ibanint.test', 'ibanint.com', $page->post_content ) ) );
+			}
+		} else {
+			$id = wp_insert_post( array( 'post_title' => $data[0], 'post_name' => $slug, 'post_status' => 'publish', 'post_type' => 'page', 'post_content' => $content ) );
+			if ( is_wp_error( $id ) || ! $id ) {
+				return;
+			}
+			$page = get_post( $id );
+		}
+
+		if ( 'privacy-policy' === $slug && $page && ! get_option( 'wp_page_for_privacy_policy' ) ) {
+			update_option( 'wp_page_for_privacy_policy', (int) $page->ID );
+		}
+	}
+
+	update_option( 'ibanint_legal_content_version', '2', false );
+}
+add_action( 'init', 'ibanint_sync_legal_pages', 20 );
 
 /**
  * One-click setup notice for FTP-deployed installs.

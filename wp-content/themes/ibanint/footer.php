@@ -39,6 +39,12 @@
 				<p class="ib-footer-tagline">
 					<?php echo esc_html( get_bloginfo( 'description' ) ); ?>
 				</p>
+				<nav class="ib-footer-social" aria-label="<?php esc_attr_e( 'Social media', 'ibanint' ); ?>">
+					<a href="#" aria-label="<?php esc_attr_e( 'Facebook', 'ibanint' ); ?>"><i class="ph ph-facebook-logo" aria-hidden="true"></i></a>
+					<a href="#" aria-label="<?php esc_attr_e( 'LinkedIn', 'ibanint' ); ?>"><i class="ph ph-linkedin-logo" aria-hidden="true"></i></a>
+					<a href="#" aria-label="<?php esc_attr_e( 'Instagram', 'ibanint' ); ?>"><i class="ph ph-instagram-logo" aria-hidden="true"></i></a>
+					<a href="#" aria-label="<?php esc_attr_e( 'X', 'ibanint' ); ?>"><i class="ph ph-x-logo" aria-hidden="true"></i></a>
+				</nav>
 				<div class="ib-footer-regions">
 					<h2 class="ib-footer-h"><?php esc_html_e( 'Our Regions', 'ibanint' ); ?></h2>
 					<ul>

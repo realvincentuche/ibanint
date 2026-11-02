@@ -8,7 +8,13 @@
 get_header();
 
 set_query_var( 'ibanint_banner_title', get_the_title() );
-set_query_var( 'ibanint_banner_image', '' );
+$ibanint_page_banner = 'banner-about.jpg';
+if ( is_page( 'privacy-policy' ) ) {
+	$ibanint_page_banner = 'banner-privacy.jpg';
+} elseif ( is_page( 'terms-of-use' ) ) {
+	$ibanint_page_banner = 'banner-terms.jpg';
+}
+set_query_var( 'ibanint_banner_image', $ibanint_page_banner );
 set_query_var( 'ibanint_banner_sub', '' );
 get_template_part( 'template-parts/page-banner' );
 ?>
