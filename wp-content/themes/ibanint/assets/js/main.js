@@ -158,20 +158,112 @@
 
 	buildCarousel('ib-audience-carousel', 'ib-audience-track', 'ib-audience-dots', 3);
 
+	var sectorShell = document.getElementById('ib-sector-carousel');
 	var sectorTrack = document.getElementById('ib-sector-track');
+	var sectorPrev = document.getElementById('ib-sector-prev');
 	var sectorNext = document.getElementById('ib-sector-next');
-	if (sectorTrack && sectorNext && sectorTrack.children.length) {
-		var sectorIndex = 0;
+	var sectorPlayback = document.getElementById('ib-sector-playback');
+	if (sectorShell && sectorTrack && sectorPrev && sectorNext) {
 		var sectorCards = Array.prototype.slice.call(sectorTrack.children);
-		var moveSector = function () {
-			var visible = window.innerWidth < 640 ? 1 : (window.innerWidth < 1120 ? 2 : 3);
-			var max = Math.max(0, sectorCards.length - visible);
-			sectorIndex = sectorIndex >= max ? 0 : sectorIndex + 1;
+		var sectorIndex = 0;
+		var sectorVisible = 0;
+		var sectorTimer = null;
+		var sectorMoving = false;
+		var sectorPaused = reducedMotion;
+		var sectorTouchX = null;
+		var getSectorVisible = function () { return window.innerWidth < 640 ? 1 : (window.innerWidth < 1120 ? 2 : 3); };
+		var sectorPosition = function () {
 			var gap = parseFloat(window.getComputedStyle(sectorTrack).gap) || 0;
 			sectorTrack.style.transform = 'translateX(' + (-(sectorCards[0].getBoundingClientRect().width + gap) * sectorIndex) + 'px)';
 		};
-		sectorNext.addEventListener('click', moveSector);
-		window.addEventListener('resize', function () { sectorIndex = 0; sectorTrack.style.transform = 'translateX(0)'; });
+		var stopSector = function () { if (sectorTimer) { window.clearInterval(sectorTimer); sectorTimer = null; } };
+		var startSector = function () {
+			if (sectorTimer || sectorPaused || document.hidden || sectorCards.length <= sectorVisible || sectorShell.matches(':hover') || sectorShell.contains(document.activeElement)) { return; }
+			sectorTimer = window.setInterval(function () { moveSector(1); }, 6000);
+		};
+		var moveSector = function (direction) {
+			if (sectorMoving || sectorCards.length <= sectorVisible) { return; }
+			if (reducedMotion) {
+				sectorIndex += direction;
+				if (sectorIndex >= sectorCards.length + sectorVisible) { sectorIndex = sectorVisible; }
+				if (sectorIndex < sectorVisible) { sectorIndex = sectorCards.length + sectorVisible - 1; }
+				sectorPosition();
+				return;
+			}
+			sectorMoving = true;
+			sectorIndex += direction;
+			sectorPosition();
+		};
+		var rebuildSector = function () {
+			stopSector();
+			Array.prototype.slice.call(sectorTrack.querySelectorAll('.ib-sector-clone')).forEach(function (clone) { clone.remove(); });
+			sectorVisible = getSectorVisible();
+			for (var i = sectorVisible - 1; i >= 0; i--) {
+				var before = sectorCards[sectorCards.length - sectorVisible + i].cloneNode(true);
+				before.classList.add('ib-sector-clone'); before.setAttribute('aria-hidden', 'true'); before.inert = true;
+				sectorTrack.prepend(before);
+			}
+			for (var j = 0; j < sectorVisible; j++) {
+				var after = sectorCards[j].cloneNode(true);
+				after.classList.add('ib-sector-clone'); after.setAttribute('aria-hidden', 'true'); after.inert = true;
+				sectorTrack.appendChild(after);
+			}
+			sectorIndex = sectorVisible;
+			sectorMoving = false;
+			sectorTrack.style.transition = 'none';
+			sectorPosition();
+			window.requestAnimationFrame(function () { sectorTrack.style.transition = ''; startSector(); });
+		};
+		sectorTrack.addEventListener('transitionend', function (event) {
+			if (event.propertyName !== 'transform') { return; }
+			if (sectorIndex >= sectorCards.length + sectorVisible) { sectorIndex = sectorVisible; }
+			if (sectorIndex < sectorVisible) { sectorIndex = sectorCards.length + sectorVisible - 1; }
+			sectorTrack.style.transition = 'none';
+			sectorPosition();
+			window.requestAnimationFrame(function () { sectorTrack.style.transition = ''; sectorMoving = false; });
+		});
+		sectorPrev.addEventListener('click', function () { moveSector(-1); });
+		sectorNext.addEventListener('click', function () { moveSector(1); });
+		if (sectorPlayback) {
+			var updatePlayback = function () {
+				sectorPlayback.setAttribute('aria-pressed', sectorPaused ? 'true' : 'false');
+				sectorPlayback.querySelector('i').className = sectorPaused ? 'ph ph-play' : 'ph ph-pause';
+				sectorPlayback.querySelector('span').textContent = sectorPaused ? 'Play carousel' : 'Pause carousel';
+			};
+			sectorPlayback.addEventListener('click', function () {
+				sectorPaused = !sectorPaused;
+				updatePlayback();
+				if (sectorPaused) { stopSector(); } else { startSector(); }
+			});
+			updatePlayback();
+		}
+		sectorShell.addEventListener('mouseenter', stopSector);
+		sectorShell.addEventListener('mouseleave', startSector);
+		sectorShell.addEventListener('focusin', stopSector);
+		sectorShell.addEventListener('focusout', function () { window.setTimeout(startSector, 0); });
+		sectorShell.addEventListener('touchstart', function (event) { if (event.touches.length === 1) { sectorTouchX = event.touches[0].clientX; stopSector(); } }, { passive: true });
+		sectorShell.addEventListener('touchend', function (event) {
+			if (sectorTouchX !== null && event.changedTouches.length) {
+				var dx = event.changedTouches[0].clientX - sectorTouchX;
+				if (Math.abs(dx) > 55) { moveSector(dx < 0 ? 1 : -1); }
+			}
+			sectorTouchX = null;
+			startSector();
+		}, { passive: true });
+		document.addEventListener('visibilitychange', function () { if (document.hidden) { stopSector(); } else { startSector(); } });
+		window.addEventListener('resize', rebuildSector);
+		if (sectorCards.length) { rebuildSector(); }
+	}
+
+	/* Animate sections when they enter view without hiding their content beforehand. */
+	if (!reducedMotion && 'IntersectionObserver' in window) {
+		var motionTargets = document.querySelectorAll('.ib-reveal, .ib-about-copy, .ib-why-copy, .ib-sectors-heading, .ib-audience .ib-head-center, .ib-intro-copy, .ib-sector-detail-copy, .ib-contact-cards');
+		var motionObserver = new IntersectionObserver(function (entries) {
+			entries.forEach(function (entry) {
+				if (entry.isIntersecting) { entry.target.classList.add('ib-entered'); motionObserver.unobserve(entry.target); }
+			});
+		}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+		Array.prototype.forEach.call(motionTargets, function (target) { motionObserver.observe(target); });
 	}
 
 	/* -------------------------------------------------------

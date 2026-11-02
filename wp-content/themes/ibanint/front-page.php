@@ -92,7 +92,7 @@ $ibanint_marquee = array(
 	</div>
 </section>
 
-<!-- What we do (overlapping panel with photo cards) -->
+<!-- What we do -->
 <section class="ib-sectors" id="ib-sectors">
 	<div class="ib-sectors-panel ib-reveal">
 		<div class="ib-wrap">
@@ -101,7 +101,6 @@ $ibanint_marquee = array(
 				<p class="ib-kicker ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'What We Do', 'ibanint' ); ?></p>
 				<h2 class="ib-h2 ib-h2-light"><?php echo ibanint_highlight_heading( __( 'Eight businesses. Shared perspective.', 'ibanint' ), 'Shared perspective.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 				</div>
-				<button class="ib-sector-next" id="ib-sector-next" type="button" aria-label="Show next businesses"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
 				<p class="ib-sector-intro">
 					<?php esc_html_e( 'Everything from commerce to recycling. Each practice runs on its own experience, and every one is connected to the others.', 'ibanint' ); ?>
 				</p>
@@ -111,7 +110,9 @@ $ibanint_marquee = array(
 				</a>
 			</div>
 
-			<div class="ib-sector-viewport" id="ib-sector-carousel">
+			<div class="ib-sector-carousel-shell" id="ib-sector-carousel">
+			<button class="ib-sector-control ib-sector-prev" id="ib-sector-prev" type="button" aria-label="<?php esc_attr_e( 'Previous businesses', 'ibanint' ); ?>"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
+			<div class="ib-sector-viewport">
 			<div class="ib-sector-grid" id="ib-sector-track">
 				<?php foreach ( $ibanint_sectors as $ib_slug => $ib_sector ) : ?>
 					<?php
@@ -138,6 +139,9 @@ $ibanint_marquee = array(
 				<?php endforeach; ?>
 			</div>
 			</div>
+			<button class="ib-sector-control ib-sector-next" id="ib-sector-next" type="button" aria-label="<?php esc_attr_e( 'Next businesses', 'ibanint' ); ?>"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
+			</div>
+			<div class="ib-sector-playback"><button id="ib-sector-playback" type="button" aria-pressed="false"><i class="ph ph-pause" aria-hidden="true"></i><span><?php esc_html_e( 'Pause carousel', 'ibanint' ); ?></span></button></div>
 		</div>
 	</div>
 </section>

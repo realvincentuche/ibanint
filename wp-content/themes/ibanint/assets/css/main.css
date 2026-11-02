@@ -512,7 +512,6 @@ body.ib-offcanvas-open .ib-scrim { opacity: 1; }
 }
 .ib-sectors-panel .ib-wrap { padding: 0 clamp(16px, 4vw, 70px); }
 .ib-sectors-head { margin-bottom: 44px; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 20px; }
-.ib-sector-next { width: 54px; height: 54px; border: 1px solid rgba(255,255,255,.42); border-radius: 50%; color: var(--navy); background: var(--gold-2); display: grid; place-items: center; font-size: 1.35rem; cursor: pointer; }
 .ib-sector-viewport { overflow: hidden; }
 .ib-sector-intro { color: rgba(255, 255, 255, 0.82); max-width: 620px; margin: 0 0 24px; }
 
