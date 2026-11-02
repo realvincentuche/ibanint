@@ -71,13 +71,13 @@ $ibanint_marquee = array(
 			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Who We Are', 'ibanint' ); ?></p>
 			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'One group, connected across sectors', 'ibanint' ), 'connected across sectors' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<p class="ib-lead">
-				<?php esc_html_e( 'IBAN International works across eight business areas. We connect people, markets and projects so an opportunity in one sector can create value in another.', 'ibanint' ); ?>
+				<?php esc_html_e( 'IBAN International works across eight business areas. We connect businesses, investors and project partners across regions, so an opportunity in one sector can open another.', 'ibanint' ); ?>
 			</p>
 			<ul class="ib-check-list">
-				<li><i class="ph ph-check-circle" aria-hidden="true"></i><?php esc_html_e( 'Global perspective, local focus', 'ibanint' ); ?></li>
-				<li><i class="ph ph-check-circle" aria-hidden="true"></i><?php esc_html_e( 'Strong cross-border network', 'ibanint' ); ?></li>
-				<li><i class="ph ph-check-circle" aria-hidden="true"></i><?php esc_html_e( 'Wide-reaching insight', 'ibanint' ); ?></li>
-				<li><i class="ph ph-check-circle" aria-hidden="true"></i><?php esc_html_e( 'System thinking', 'ibanint' ); ?></li>
+				<li><i class="ph ph-check-circle" aria-hidden="true"></i><?php esc_html_e( 'International outlook', 'ibanint' ); ?></li>
+				<li><i class="ph ph-check-circle" aria-hidden="true"></i><?php esc_html_e( 'Local relationships', 'ibanint' ); ?></li>
+				<li><i class="ph ph-check-circle" aria-hidden="true"></i><?php esc_html_e( 'Opportunities across sectors', 'ibanint' ); ?></li>
+				<li><i class="ph ph-check-circle" aria-hidden="true"></i><?php esc_html_e( 'Long-term thinking', 'ibanint' ); ?></li>
 			</ul>
 			<a href="<?php echo esc_url( $ibanint_about_url ); ?>" class="ib-btn ib-btn-dark">
 				<?php esc_html_e( 'More About Us', 'ibanint' ); ?>
@@ -86,7 +86,7 @@ $ibanint_marquee = array(
 		</div>
 
 		<div class="ib-about-media ib-reveal">
-			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-tease.jpg' ); ?>" alt="<?php esc_attr_e( 'Team members placing their hands together', 'ibanint' ); ?>" width="700" height="880" loading="lazy">
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-tease.jpg' ); ?>" alt="<?php esc_attr_e( 'People placing their hands together', 'ibanint' ); ?>" width="700" height="880" loading="lazy">
 			<?php /* Unsplash free tier: handshake deal 1582213782179 (about-tease.jpg) */ ?>
 		</div>
 	</div>
@@ -102,7 +102,7 @@ $ibanint_marquee = array(
 				<h2 class="ib-h2 ib-h2-light"><?php echo ibanint_highlight_heading( __( 'Eight businesses. Shared perspective.', 'ibanint' ), 'Shared perspective.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 				</div>
 				<p class="ib-sector-intro">
-					<?php esc_html_e( 'Everything from commerce to recycling. Each practice runs on its own experience, and every one is connected to the others.', 'ibanint' ); ?>
+					<?php esc_html_e( 'Our work spans trade, energy, food, logistics, infrastructure, real estate, waste management and mining. A project in one area may call for partners in another.', 'ibanint' ); ?>
 				</p>
 				<a href="<?php echo esc_url( $ibanint_services_url ); ?>" class="ib-btn ib-btn-gold">
 					<?php esc_html_e( 'See our businesses', 'ibanint' ); ?>
@@ -120,7 +120,7 @@ $ibanint_marquee = array(
 					$ib_sector_url  = $ib_sector_page ? get_permalink( $ib_sector_page ) : home_url( '/services/' . $ib_slug . '/' );
 					?>
 					<article class="ib-sector-card">
-						<div class="ib-sector-card-media" style="background-image:url('<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . $ib_sector['banner'] ); ?>');" role="img" aria-label="<?php echo esc_attr( $ib_sector['title'] ); ?>"></div>
+						<div class="ib-sector-card-media" style="background-image:url('<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . ( $ib_sector['listing_image'] ?? $ib_sector['banner'] ) ); ?>');" role="img" aria-label="<?php echo esc_attr( $ib_sector['title'] ); ?>"></div>
 						<div class="ib-sector-card-body">
 							<h3><?php echo esc_html( $ib_sector['title'] ); ?></h3>
 							<p><?php echo esc_html( $ib_sector['blurb'] ); ?></p>
@@ -156,12 +156,13 @@ $ibanint_marquee = array(
 			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Why IBAN International', 'ibanint' ); ?></p>
 			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'Built to see what connects', 'ibanint' ), 'what connects' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<p class="ib-lead">
-				<?php esc_html_e( 'A trade opportunity may need logistics. An agricultural project may need processing and distribution. We look across sectors to identify the partners and capabilities each project needs.', 'ibanint' ); ?>
+					<?php esc_html_e( 'A trade opportunity may need logistics. An agricultural project may need processing and distribution. We look across sectors to identify the partners each project needs.', 'ibanint' ); ?>
 			</p>
 			<ul class="ib-check-list">
-				<li><i class="ph ph-check-circle" aria-hidden="true"></i><?php esc_html_e( 'Depth in every sector we touch', 'ibanint' ); ?></li>
-				<li><i class="ph ph-check-circle" aria-hidden="true"></i><?php esc_html_e( 'A strong cross-border network', 'ibanint' ); ?></li>
-				<li><i class="ph ph-check-circle" aria-hidden="true"></i><?php esc_html_e( 'Sector expertise that compounds', 'ibanint' ); ?></li>
+				<li><i class="ph ph-check-circle" aria-hidden="true"></i><?php esc_html_e( 'Markets viewed across borders', 'ibanint' ); ?></li>
+				<li><i class="ph ph-check-circle" aria-hidden="true"></i><?php esc_html_e( 'Room for cross-sector collaboration', 'ibanint' ); ?></li>
+				<li><i class="ph ph-check-circle" aria-hidden="true"></i><?php esc_html_e( 'Relationships built for the long term', 'ibanint' ); ?></li>
+				<li><i class="ph ph-check-circle" aria-hidden="true"></i><?php esc_html_e( 'Local market knowledge', 'ibanint' ); ?></li>
 			</ul>
 			<a href="<?php echo esc_url( $ibanint_contact_url ); ?>" class="ib-btn ib-btn-dark">
 				<?php esc_html_e( 'Get in Touch', 'ibanint' ); ?>
@@ -182,11 +183,11 @@ $ibanint_marquee = array(
 					<div class="ib-step-list">
 						<?php
 						$ibanint_steps = array(
-							array( 'ph-binoculars', 'Identify', 'We research the proverbial backdoor: the opportunity and partnership you cannot see from your side of the border.' ),
-							array( 'ph-users-three', 'Connect', 'We do not just see the door; we are a bridge between opportunities and partnerships.' ),
-							array( 'ph-strategy', 'Develop', 'We blend new perspectives into the recipe of success and position your business for each market.' ),
-							array( 'ph-rocket-launch', 'Execute', 'We keep it simple: define your goal, know each step, time every action, and position for the win.' ),
-							array( 'ph-trend-up', 'Grow', 'We are passionate about success and ready to build the layers of growth together.' ),
+							array( 'ph-binoculars', 'Identify', 'We identify opportunities, market needs, resources and gaps across our business areas.' ),
+							array( 'ph-users-three', 'Connect', 'We bring together partners with the expertise, resources and market access a project needs.' ),
+							array( 'ph-strategy', 'Develop', 'We shape opportunities into initiatives with clear commercial objectives.' ),
+							array( 'ph-rocket-launch', 'Execute', 'We work with partners to move agreed plans into action.' ),
+							array( 'ph-trend-up', 'Grow', 'We look for value that lasts beyond a single transaction.' ),
 						);
 						foreach ( $ibanint_steps as $ibanint_num => $ibanint_step ) :
 							?>
@@ -203,16 +204,16 @@ $ibanint_marquee = array(
 				</div>
 
 				<aside class="ib-steps-card ib-reveal">
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/showcase-card.jpg' ); ?>" alt="<?php esc_attr_e( 'IBAN debriefing with a partner', 'ibanint' ); ?>" loading="lazy">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/showcase-card.jpg' ); ?>" alt="<?php esc_attr_e( 'Business professional', 'ibanint' ); ?>" loading="lazy">
 					<?php /* Unsplash free tier: businesswoman portrait 1758518727888 (showcase-card.jpg) */ ?>
 					<div class="ib-steps-card-body">
 						<div class="ib-steps-card-badge">
 							<span class="ib-eight-count">8</span>
 							<span class="ib-eight-word"><?php esc_html_e( 'Practice areas', 'ibanint' ); ?></span>
 						</div>
-						<h3><?php esc_html_e( 'The debriefing session for the ambitious', 'ibanint' ); ?></h3>
+							<h3><?php esc_html_e( 'One conversation can connect several opportunities', 'ibanint' ); ?></h3>
 						<p class="ib-quote">
-							<?php esc_html_e( 'A commodity opportunity can create a logistics opportunity. That is the IBAN difference.', 'ibanint' ); ?>
+							<?php esc_html_e( 'A commodity opportunity can create a logistics opportunity.', 'ibanint' ); ?>
 						</p>
 						<a href="<?php echo esc_url( $ibanint_contact_url ); ?>" class="ib-btn ib-btn-gold ib-btn-block">
 							<?php esc_html_e( 'Talk to IBAN', 'ibanint' ); ?>
@@ -237,12 +238,12 @@ $ibanint_marquee = array(
 		</div>
 		<?php
 		$ibanint_audience = array(
-			array( 'ph-basket', 'Producers & farmers', 'Production and processing opportunities connected to stronger routes to market.' ),
-			array( 'ph-arrows-left-right', 'Importers & exporters', 'Trade connections for buyers, suppliers and distributors across borders.' ),
-			array( 'ph-gear', 'Manufacturers', 'Partners, supply chains and market access around commercial production.' ),
-			array( 'ph-trend-up', 'Investors', 'Opportunities across connected sectors and regions.' ),
-			array( 'ph-users-three', 'Institutions & NGOs', 'Collaborations that connect business activity with community priorities.' ),
-			array( 'ph-globe-hemisphere-west', 'Governments & regions', 'Partnerships aligned with development priorities and regional opportunity.' ),
+			array( 'ph-trend-up', 'Investors', 'Capital partners seeking opportunities across our business areas.' ),
+			array( 'ph-basket', 'Producers & suppliers', 'Businesses looking for new markets and commercial relationships.' ),
+			array( 'ph-buildings', 'Developers', 'Organizations developing projects across strategic sectors.' ),
+			array( 'ph-bank', 'Financial institutions', 'Institutions looking for credible projects and commercial partners.' ),
+			array( 'ph-globe-hemisphere-west', 'Governments & public-sector organizations', 'Partners working toward trade, infrastructure and development objectives.' ),
+			array( 'ph-users-three', 'International organizations', 'Organizations seeking local relationships and cross-border capabilities.' ),
 		);
 		?>
 		<ul class="ib-audience-list">

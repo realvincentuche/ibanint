@@ -14,6 +14,16 @@ $ibanint_slug   = $post->post_name;
 $ibanint_sectors = ibanint_sectors();
 $ibanint_sector  = isset( $ibanint_sectors[ $ibanint_slug ] ) ? $ibanint_sectors[ $ibanint_slug ] : null;
 $ibanint_contact_url = home_url( '/contact/' );
+$ibanint_is_food = 'agriculture-food' === $ibanint_slug;
+$ibanint_is_logistics = 'transportation-logistics' === $ibanint_slug;
+$ibanint_is_mining = 'mining-natural-resources' === $ibanint_slug;
+$ibanint_is_real_estate = 'real-estate-development' === $ibanint_slug;
+$ibanint_intro_alt = $ibanint_sector ? $ibanint_sector['title'] : '';
+if ( $ibanint_is_logistics ) {
+	$ibanint_intro_alt = __( 'White Volvo truck viewed from the front', 'ibanint' );
+} elseif ( $ibanint_is_mining ) {
+	$ibanint_intro_alt = __( 'People at an open excavation site', 'ibanint' );
+}
 
 if ( $ibanint_sector ) {
 	set_query_var( 'ibanint_banner_title', $ibanint_sector['title'] );
@@ -28,7 +38,7 @@ if ( $ibanint_sector ) {
 				<h2 class="ib-h2"><?php echo ibanint_highlight_heading( $ibanint_sector['title'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 				<p class="ib-lead"><?php echo esc_html( $ibanint_sector['blurb'] ); ?></p>
 				<p>
-					<?php esc_html_e( 'Every market looks different from the inside. We bring the cross-border view: the partners, the timing, and the doors that make this practice area work in your favour.', 'ibanint' ); ?>
+					<?php echo esc_html( $ibanint_sector['detail'] ); ?>
 				</p>
 				<div class="ib-connection ib-connection-block">
 					<i class="ph ph-arrows-clockwise" aria-hidden="true"></i>
@@ -46,10 +56,127 @@ if ( $ibanint_sector ) {
 				</div>
 			</div>
 			<div class="ib-intro-media ib-reveal">
-				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . $ibanint_sector['banner'] ); ?>" alt="<?php echo esc_attr( $ibanint_sector['title'] ); ?>" loading="lazy">
+				<?php if ( $ibanint_is_food ) : ?>
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/food-hibiscus.jpg' ); ?>" alt="<?php esc_attr_e( 'Dried hibiscus flowers being handled over a sack', 'ibanint' ); ?>" width="1200" height="1800" loading="lazy">
+					<p class="ib-food-image-note"><?php esc_html_e( 'Hibiscus (roselle) · Illustrative photograph', 'ibanint' ); ?></p>
+				<?php else : ?>
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . ( $ibanint_sector['intro_image'] ?? $ibanint_sector['banner'] ) ); ?>" alt="<?php echo esc_attr( $ibanint_intro_alt ); ?>" loading="lazy">
+				<?php endif; ?>
 			</div>
 		</div>
 	</section>
+
+	<?php if ( $ibanint_is_food ) : ?>
+	<section class="ib-food-media" id="ib-food-media" aria-labelledby="ib-food-media-title">
+		<div class="ib-wrap">
+			<div class="ib-food-media-head">
+				<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Product perspectives', 'ibanint' ); ?></p>
+				<h2 class="ib-h2" id="ib-food-media-title"><?php echo ibanint_highlight_heading( __( 'Agriculture in focus', 'ibanint' ), 'in focus' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
+				<p><?php esc_html_e( 'A closer view of dried hibiscus handling and cashew kernels.', 'ibanint' ); ?></p>
+			</div>
+			<div class="ib-food-media-grid">
+				<figure class="ib-food-media-item ib-food-media-video ib-reveal">
+					<div class="ib-food-media-visual">
+						<video controls playsinline preload="none" poster="<?php echo esc_url( get_template_directory_uri() . '/assets/images/food-hibiscus-video-poster.jpg' ); ?>" width="352" height="624" aria-label="<?php esc_attr_e( 'Dried hibiscus product footage', 'ibanint' ); ?>">
+							<source src="<?php echo esc_url( get_template_directory_uri() . '/assets/video/food-hibiscus.mp4' ); ?>" type="video/mp4">
+							<a href="<?php echo esc_url( get_template_directory_uri() . '/assets/video/food-hibiscus.mp4' ); ?>"><?php esc_html_e( 'Download the hibiscus video', 'ibanint' ); ?></a>
+						</video>
+					</div>
+					<figcaption>
+						<span class="ib-food-media-label"><?php esc_html_e( '01 / Product footage', 'ibanint' ); ?></span>
+						<h3><?php esc_html_e( 'Dried hibiscus', 'ibanint' ); ?></h3>
+						<p><?php esc_html_e( 'A closer look at hibiscus (roselle) handling and packed stock.', 'ibanint' ); ?></p>
+					</figcaption>
+				</figure>
+				<figure class="ib-food-media-item ib-food-media-photo ib-reveal">
+					<div class="ib-food-media-visual">
+						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/food-cashews.jpg' ); ?>" alt="<?php esc_attr_e( 'Packaged cashew kernels with a W240 sample label', 'ibanint' ); ?>" width="607" height="1080" loading="lazy">
+					</div>
+					<figcaption>
+						<span class="ib-food-media-label"><?php esc_html_e( '02 / Product image', 'ibanint' ); ?></span>
+						<h3><?php esc_html_e( 'Cashew kernels', 'ibanint' ); ?></h3>
+						<p><?php esc_html_e( 'A close view of a cashew product sample.', 'ibanint' ); ?></p>
+					</figcaption>
+				</figure>
+			</div>
+		</div>
+	</section>
+	<?php endif; ?>
+
+	<?php if ( $ibanint_is_real_estate ) : ?>
+	<section class="ib-estate-media" id="ib-estate-media" aria-labelledby="ib-estate-media-title">
+		<div class="ib-wrap ib-estate-media-grid">
+			<div class="ib-estate-media-copy ib-reveal">
+				<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Location perspective', 'ibanint' ); ?></p>
+				<h2 class="ib-h2" id="ib-estate-media-title"><?php echo ibanint_highlight_heading( __( 'See the setting', 'ibanint' ), 'the setting' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
+				<p><?php esc_html_e( 'A short view of a coastal setting, captured during a location visit.', 'ibanint' ); ?></p>
+				<div class="ib-estate-media-rule" aria-hidden="true"></div>
+				<span class="ib-estate-media-meta"><?php esc_html_e( '01 / Location footage', 'ibanint' ); ?></span>
+			</div>
+			<div class="ib-estate-media-player ib-reveal">
+				<video controls playsinline preload="none" poster="<?php echo esc_url( get_template_directory_uri() . '/assets/images/real-estate-visit-poster.jpg' ); ?>" width="464" height="832" aria-label="<?php esc_attr_e( 'Video of a coastal location visit', 'ibanint' ); ?>">
+					<source src="<?php echo esc_url( get_template_directory_uri() . '/assets/video/real-estate-visit.mp4' ); ?>" type="video/mp4">
+					<a href="<?php echo esc_url( get_template_directory_uri() . '/assets/video/real-estate-visit.mp4' ); ?>"><?php esc_html_e( 'Download the location video', 'ibanint' ); ?></a>
+				</video>
+			</div>
+		</div>
+	</section>
+	<?php endif; ?>
+
+	<?php if ( $ibanint_is_mining ) : ?>
+	<section class="ib-mining-media" id="ib-mining-media" aria-labelledby="ib-mining-media-title">
+		<div class="ib-wrap">
+			<div class="ib-mining-media-head">
+				<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'From the field', 'ibanint' ); ?></p>
+				<h2 class="ib-h2" id="ib-mining-media-title"><?php echo ibanint_highlight_heading( __( 'Mining in motion', 'ibanint' ), 'in motion' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
+				<p><?php esc_html_e( 'Watch excavation footage and see a gold sample photograph.', 'ibanint' ); ?></p>
+			</div>
+			<div class="ib-mining-media-grid">
+				<figure class="ib-mining-media-video ib-reveal">
+					<div class="ib-mining-media-video-frame">
+						<video controls playsinline preload="none" poster="<?php echo esc_url( get_template_directory_uri() . '/assets/images/mining-operation-poster.jpg' ); ?>" width="848" height="480" aria-label="<?php esc_attr_e( 'Excavator loading a truck at a mining site', 'ibanint' ); ?>">
+							<source src="<?php echo esc_url( get_template_directory_uri() . '/assets/video/mining-operation.mp4' ); ?>" type="video/mp4">
+							<a href="<?php echo esc_url( get_template_directory_uri() . '/assets/video/mining-operation.mp4' ); ?>"><?php esc_html_e( 'Download the mining operation video', 'ibanint' ); ?></a>
+						</video>
+					</div>
+					<figcaption><span>01 / <?php esc_html_e( 'Field footage', 'ibanint' ); ?></span><strong><?php esc_html_e( 'On-site operations', 'ibanint' ); ?></strong><p><?php esc_html_e( 'Excavation and haulage equipment at work.', 'ibanint' ); ?></p></figcaption>
+				</figure>
+				<figure class="ib-mining-media-photo ib-reveal">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/mining-gold.jpg' ); ?>" alt="<?php esc_attr_e( 'Three gold-coloured metal bars on a table', 'ibanint' ); ?>" width="810" height="1080" loading="lazy">
+					<figcaption><span>02 / <?php esc_html_e( 'Material sample', 'ibanint' ); ?></span><strong><?php esc_html_e( 'Gold sample', 'ibanint' ); ?></strong><p><?php esc_html_e( 'A closer view of a supplied material photograph.', 'ibanint' ); ?></p></figcaption>
+				</figure>
+			</div>
+		</div>
+	</section>
+	<?php endif; ?>
+
+	<?php if ( $ibanint_is_logistics ) : ?>
+	<section class="ib-logistics-media" id="ib-logistics-media" aria-labelledby="ib-logistics-media-title">
+		<div class="ib-wrap">
+			<div class="ib-logistics-media-head">
+				<div>
+					<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Road transport', 'ibanint' ); ?></p>
+					<h2 class="ib-h2" id="ib-logistics-media-title"><?php echo ibanint_highlight_heading( __( 'A closer view of logistics', 'ibanint' ), 'logistics' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
+				</div>
+				<p><?php esc_html_e( 'Selected views of the vehicles and equipment behind road transport.', 'ibanint' ); ?></p>
+			</div>
+			<div class="ib-logistics-media-grid">
+				<figure class="ib-logistics-media-item ib-logistics-media-wide ib-reveal">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logistics-lineup.jpg' ); ?>" alt="<?php esc_attr_e( 'Several heavy trucks parked in a transport yard', 'ibanint' ); ?>" width="1600" height="738" loading="lazy">
+					<figcaption><span>01 / <?php esc_html_e( 'Fleet', 'ibanint' ); ?></span><?php esc_html_e( 'Road transport equipment', 'ibanint' ); ?></figcaption>
+				</figure>
+				<figure class="ib-logistics-media-item ib-reveal">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logistics-scania.jpg' ); ?>" alt="<?php esc_attr_e( 'White Scania truck photographed in a vehicle yard', 'ibanint' ); ?>" width="1600" height="738" loading="lazy">
+					<figcaption><span>02 / <?php esc_html_e( 'Vehicle', 'ibanint' ); ?></span><?php esc_html_e( 'Heavy-duty truck', 'ibanint' ); ?></figcaption>
+				</figure>
+				<figure class="ib-logistics-media-item ib-reveal">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logistics-chassis.jpg' ); ?>" alt="<?php esc_attr_e( 'Rear view of a heavy truck chassis', 'ibanint' ); ?>" width="1600" height="1200" loading="lazy">
+					<figcaption><span>03 / <?php esc_html_e( 'Detail', 'ibanint' ); ?></span><?php esc_html_e( 'Truck chassis', 'ibanint' ); ?></figcaption>
+				</figure>
+			</div>
+		</div>
+	</section>
+	<?php endif; ?>
 
 	<section class="ib-sector-nav-section" id="ib-sector-nav">
 		<div class="ib-wrap">

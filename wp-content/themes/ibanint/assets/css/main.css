@@ -1366,6 +1366,60 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 .ib-btn .ph { transition: transform .25s ease; }
 .ib-btn:hover .ph { transform: translateX(4px); }
 
+/* Agriculture & Food: a focused view of the supplied product media. */
+.ib-food-image-note { margin: 10px 0 0; color: var(--muted); font-size: .78rem; letter-spacing: .02em; }
+.ib-food-media { padding: 90px 0 104px; background: #f1f0eb; }
+.ib-food-media-head { max-width: 680px; margin-bottom: 36px; }
+.ib-food-media-head > p:last-child { margin: 0; color: var(--muted); font-size: 1.08rem; }
+.ib-food-media-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(24px, 3vw, 44px); }
+.ib-food-media-item { min-width: 0; margin: 0; }
+.ib-food-media-visual { position: relative; height: 620px; overflow: hidden; }
+.ib-food-media-video .ib-food-media-visual { display: grid; place-items: center; background: #291d29; }
+.ib-food-media-video .ib-food-media-visual::before { content: ''; position: absolute; inset: -24px; background: url('../images/food-hibiscus-video-poster.jpg') center / cover; filter: blur(22px) brightness(.5); }
+.ib-food-media-video video { position: absolute; z-index: 1; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; background: transparent; }
+.ib-food-media-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 43%; }
+.ib-food-media-item figcaption { padding-top: 19px; }
+.ib-food-media-label { display: block; margin-bottom: 6px; color: #a47724; font-size: .76rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.ib-food-media-item h3 { margin: 0 0 7px; font-size: clamp(1.55rem, 2.3vw, 2.1rem); }
+.ib-food-media-item figcaption p { margin: 0; color: var(--muted); line-height: 1.6; }
+
+/* Transportation & Logistics: supplied imagery in an editorial grid. */
+.ib-logistics-media { padding: 90px 0 104px; background: #f1f0eb; }
+.ib-logistics-media-head { display: flex; align-items: end; justify-content: space-between; gap: 36px; margin-bottom: 36px; }
+.ib-logistics-media-head .ib-h2 { margin-bottom: 0; }
+.ib-logistics-media-head > p { max-width: 330px; margin: 0 0 5px; color: var(--muted); font-size: 1.08rem; line-height: 1.6; }
+.ib-logistics-media-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.ib-logistics-media-item { min-width: 0; margin: 0; }
+.ib-logistics-media-wide { grid-column: 1 / -1; }
+.ib-logistics-media-item img { display: block; width: 100%; height: 390px; object-fit: cover; }
+.ib-logistics-media-wide img { height: 510px; object-position: center 48%; }
+.ib-logistics-media-item figcaption { display: flex; align-items: baseline; gap: 14px; padding-top: 16px; font-size: 1.28rem; font-weight: 600; }
+.ib-logistics-media-item figcaption span { color: #a47724; font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+
+/* Mining: landscape field footage paired with the supplied material photograph. */
+.ib-mining-media { padding: 90px 0 104px; background: #f1f0eb; }
+.ib-mining-media-head { max-width: 720px; margin-bottom: 36px; }
+.ib-mining-media-head > p:last-child { margin: 0; color: var(--muted); font-size: 1.08rem; }
+.ib-mining-media-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, .7fr); gap: clamp(24px, 3vw, 44px); align-items: start; }
+.ib-mining-media-grid figure { min-width: 0; margin: 0; }
+.ib-mining-media-video-frame { position: relative; aspect-ratio: 848 / 480; background: #1a2631; }
+.ib-mining-media-video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.ib-mining-media-photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 48%; }
+.ib-mining-media-grid figcaption { padding-top: 18px; }
+.ib-mining-media-grid figcaption span { display: block; margin-bottom: 6px; color: #a47724; font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.ib-mining-media-grid figcaption strong { display: block; font-size: clamp(1.4rem, 2vw, 1.8rem); font-weight: 600; }
+.ib-mining-media-grid figcaption p { margin: 5px 0 0; color: var(--muted); line-height: 1.6; }
+
+/* Real Estate: a single supplied portrait video, given room to breathe. */
+.ib-estate-media { padding: 90px 0 104px; background: #f1f0eb; }
+.ib-estate-media-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: clamp(42px, 8vw, 140px); align-items: center; }
+.ib-estate-media-copy { max-width: 520px; }
+.ib-estate-media-copy > p:not(.ib-kicker) { max-width: 420px; color: var(--muted); font-size: 1.15rem; line-height: 1.7; }
+.ib-estate-media-rule { width: 90px; height: 2px; margin: 34px 0 20px; background: var(--gold-2); }
+.ib-estate-media-meta { color: #a47724; font-size: .76rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.ib-estate-media-player { position: relative; width: min(100%, 410px); margin-left: auto; aspect-ratio: 464 / 832; background: #172a31; overflow: hidden; }
+.ib-estate-media-player video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+
 @media (max-width: 1120px) {
 	.ib-nav { display: none; }
 	.ib-burger { display: block; }
@@ -1389,6 +1443,22 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 	.ib-audience-item { grid-template-columns: 42px minmax(190px, .8fr) minmax(0, 1fr); gap: 20px; }
 }
 @media (max-width: 640px) {
+	.ib-food-media { padding: 70px 0 82px; }
+	.ib-food-media-grid { grid-template-columns: 1fr; gap: 36px; }
+	.ib-food-media-visual { height: min(130vw, 540px); }
+	.ib-logistics-media { padding: 70px 0 82px; }
+	.ib-logistics-media-head { display: block; margin-bottom: 30px; }
+	.ib-logistics-media-head > p { margin-top: 16px; }
+	.ib-logistics-media-grid { grid-template-columns: 1fr; gap: 30px; }
+	.ib-logistics-media-wide { grid-column: auto; }
+	.ib-logistics-media-item img, .ib-logistics-media-wide img { height: min(72vw, 330px); }
+	.ib-logistics-media-item figcaption { flex-direction: column; gap: 5px; font-size: 1.12rem; }
+	.ib-mining-media { padding: 70px 0 82px; }
+	.ib-mining-media-grid { grid-template-columns: 1fr; gap: 36px; }
+	.ib-mining-media-photo img { aspect-ratio: 4 / 3; }
+	.ib-estate-media { padding: 70px 0 82px; }
+	.ib-estate-media-grid { grid-template-columns: 1fr; gap: 30px; }
+	.ib-estate-media-player { margin: 0 auto; max-height: 610px; }
 	.ib-header { top: 14px; left: 14px; right: 14px; background: transparent; border-bottom: 0; }
 	.ib-header-inner { min-height: 72px; }
 	.ib-header-overlay .ib-header-inner { background: rgba(7,23,43,.72); }

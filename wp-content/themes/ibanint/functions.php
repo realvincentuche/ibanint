@@ -5,7 +5,7 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.2.15' );
+define( 'IBANINT_VERSION', '0.2.20' );
 
 /** Keep the brand capitalized in older WordPress content and site settings. */
 function ibanint_capitalize_brand( $name ) {
@@ -130,8 +130,8 @@ function ibanint_contact() {
 /**
  * The eight practice areas.
  *
- * Title, icon, profile blurb (verbatim), banner image and the
- * cross-practice "connection" line from the profile.
+ * Title, icon, sector summary, supporting detail, imagery and a
+ * cross-sector connection drawn from the company profile.
  *
  * @return array
  */
@@ -141,7 +141,8 @@ function ibanint_sectors() {
 			'title'      => 'International & Commodity Trade',
 			'short'      => 'Trade',
 			'icon'       => 'ph-arrows-left-right',
-			'blurb'      => 'Connecting producers, suppliers, buyers, and markets across borders to facilitate strategic trade opportunities.',
+			'blurb'      => 'We connect producers and suppliers with buyers in other markets, helping partners develop workable cross-border trade.',
+			'detail'     => 'We consider the product, the buyer, the route to market and the relationships needed to make a trade work.',
 			'banner'     => 'banner-trade.jpg',
 			'connection' => 'A commodity opportunity can create a logistics opportunity.',
 		),
@@ -149,39 +150,46 @@ function ibanint_sectors() {
 			'title'      => 'Energy',
 			'short'      => 'Energy',
 			'icon'       => 'ph-lightning',
-			'blurb'      => 'Pursuing strategic opportunities across the energy landscape while supporting the development of commercially viable solutions.',
+			'blurb'      => 'We pursue energy projects with a clear commercial case and the partners needed to develop them.',
+			'detail'     => 'Our focus is on opportunities where demand, resources and development partners can come together.',
 			'banner'     => 'banner-energy.jpg',
-			'connection' => 'Rather than work in silos, we pursue opportunities across all our business sectors.',
+			'connection' => 'Energy can support production and processing.',
 		),
 		'agriculture-food'              => array(
 			'title'      => 'Agriculture & Food',
 			'short'      => 'Agriculture',
 			'icon'       => 'ph-basket',
 			'blurb'      => 'From agricultural production and food processing to packaging and distribution, we support opportunities across the food value chain.',
+			'detail'     => 'We consider production, processing, packaging and distribution as connected parts of the same opportunity.',
 			'banner'     => 'banner-agriculture.jpg',
+			'listing_image' => 'food-hibiscus.jpg',
 			'connection' => 'An agricultural project can create processing and distribution opportunities.',
 		),
 		'transportation-logistics'      => array(
 			'title'      => 'Transportation & Logistics',
 			'short'      => 'Logistics',
 			'icon'       => 'ph-truck',
-			'blurb'      => 'Connecting markets and strengthening supply chains through transportation, logistics, distribution, and strategic infrastructure opportunities.',
-			'banner'     => 'banner-logistics.jpg',
-			'connection' => 'Infrastructure can unlock trade.',
+			'blurb'      => 'We connect transport, distribution and infrastructure partners to help goods move between markets.',
+			'detail'     => 'Transport plans need to reflect the routes, partners and markets involved.',
+			'banner'     => 'logistics-banner.jpg',
+			'intro_image' => 'logistics-intro.jpg',
+			'connection' => 'Transport connects producers with buyers.',
 		),
 		'infrastructure-advisory'       => array(
 			'title'      => 'Infrastructure Advisory',
 			'short'      => 'Infrastructure',
 			'icon'       => 'ph-bridge',
-			'blurb'      => 'Driving investments and development in large and small infrastructure projects, guiding them from concept to profitable reality.',
+			'blurb'      => 'We advise on infrastructure opportunities, helping partners shape projects and find the resources to develop them.',
+			'detail'     => 'We help clarify a project early, when the right partners and resources can still change the outcome.',
 			'banner'     => 'banner-infrastructure.jpg',
-			'connection' => 'A commodity opportunity can create a logistics opportunity.',
+			'connection' => 'Infrastructure can unlock trade.',
 		),
 		'real-estate-development'       => array(
 			'title'      => 'Real Estate Development',
 			'short'      => 'Real Estate',
 			'icon'       => 'ph-house-line',
 			'blurb'      => 'Identifying and developing commercially valuable real estate opportunities with a focus on sustainable, long-term growth.',
+			'detail'     => 'We look for developments with a sound commercial case and room for long-term value.',
 			'banner'     => 'banner-realestate.jpg',
 			'connection' => 'Real estate can support commercial growth.',
 		),
@@ -189,7 +197,8 @@ function ibanint_sectors() {
 			'title'      => 'Waste Management',
 			'short'      => 'Waste',
 			'icon'       => 'ph-recycle',
-			'blurb'      => 'Transforming waste challenges into opportunities through responsible collection, recovery, recycling, resource management, and circular-economy solutions.',
+			'blurb'      => 'We work across collection, recovery and recycling to turn waste into usable resources and commercial opportunities.',
+			'detail'     => 'Collection and recovery plans work best when there is a clear use or market for the material.',
 			'banner'     => 'banner-waste.jpg',
 			'connection' => 'Waste can become a resource.',
 		),
@@ -197,9 +206,12 @@ function ibanint_sectors() {
 			'title'      => 'Mining & Natural Resources',
 			'short'      => 'Mining',
 			'icon'       => 'ph-mountains',
-			'blurb'      => 'Exploring strategic opportunities in mining and natural-resource development while emphasizing responsible and sustainable value creation.',
+			'blurb'      => 'We explore mining and natural resource projects with attention to responsible development and long-term value.',
+			'detail'     => 'We consider the resource, the development plan and the partners needed to move a project forward.',
 			'banner'     => 'banner-mining.jpg',
-			'connection' => 'Rather than work in silos, we pursue opportunities across all our business sectors.',
+			'intro_image' => 'mining-site.jpg',
+			'listing_image' => 'mining-site.jpg',
+			'connection' => 'Resource projects may call for infrastructure and transport.',
 		),
 	);
 }

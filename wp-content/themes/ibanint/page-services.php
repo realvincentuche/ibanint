@@ -26,7 +26,7 @@ get_template_part( 'template-parts/page-banner' );
 				<?php esc_html_e( 'Our eight business areas span trade, energy, agriculture, logistics, infrastructure, real estate, waste management and mining.', 'ibanint' ); ?>
 			</p>
 			<p>
-				<?php esc_html_e( 'This broad experience gives us a unique depth, and a wide range of practice areas helps us support your ambitions from many directions at once.', 'ibanint' ); ?>
+				<?php esc_html_e( 'These areas connect. A trade project may need transport; an agricultural project may need processing and distribution.', 'ibanint' ); ?>
 			</p>
 		</div>
 		<div class="ib-intro-stat ib-reveal">
@@ -38,18 +38,6 @@ get_template_part( 'template-parts/page-banner' );
 
 <section class="ib-sector-details" id="ib-sector-details">
 	<div class="ib-wrap">
-		<?php
-		$ibanint_extras = array(
-			'international-commodity-trade' => 'From producers and suppliers to buyers and new markets, we know what a border crossing is worth by the time you ask.',
-			'energy'                        => 'The energy landscape shifts by the season. We track where it is commercially viable and who is ready to move.',
-			'agriculture-food'              => 'Value chains eat margins for breakfast. We look along the chain, not just at the farm gate.',
-			'transportation-logistics'      => 'A supply chain is only as strong as its weakest border. We design around it.',
-			'infrastructure-advisory'       => 'From concept to profitable reality takes more than drawings. It takes a pathway and partners who have walked it.',
-			'real-estate-development'       => 'Lasting growth only comes from projects that make sense on both ends of the deal.',
-			'waste-management'              => 'Circular-economy solutions begin where most players stop looking.',
-			'mining-natural-resources'      => 'Responsible value creation is the only kind that lasts.',
-		);
-		?>
 		<?php foreach ( ibanint_sectors() as $ib_slug => $ib_sector ) : ?>
 			<?php
 			$ib_sector_page = get_page_by_path( 'services/' . $ib_slug );
@@ -57,13 +45,13 @@ get_template_part( 'template-parts/page-banner' );
 			?>
 			<article class="ib-sector-detail ib-reveal" id="<?php echo esc_attr( $ib_slug ); ?>">
 				<div class="ib-sector-detail-media">
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . $ib_sector['banner'] ); ?>" alt="" width="900" height="650" loading="lazy">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . ( $ib_sector['listing_image'] ?? $ib_sector['banner'] ) ); ?>" alt="" width="900" height="650" loading="lazy">
 					<i class="ph <?php echo esc_attr( $ib_sector['icon'] ); ?>" aria-hidden="true"></i>
 				</div>
 				<div class="ib-sector-detail-copy">
 					<h3><?php echo ibanint_highlight_heading( $ib_sector['title'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h3>
 					<p><?php echo esc_html( $ib_sector['blurb'] ); ?></p>
-					<p class="ib-detail-extra"><?php echo esc_html( $ibanint_extras[ $ib_slug ] ); ?></p>
+					<p class="ib-detail-extra"><?php echo esc_html( $ib_sector['detail'] ); ?></p>
 					<p class="ib-connection">
 						<i class="ph ph-arrows-clockwise" aria-hidden="true"></i>
 						<?php echo esc_html( $ib_sector['connection'] ); ?>
@@ -88,7 +76,7 @@ get_template_part( 'template-parts/page-banner' );
 
 <section class="ib-intro-cta">
 	<div class="ib-wrap ib-intro-cta-inner">
-		<p><?php esc_html_e( 'Not sure which door fits your next step? Start with one conversation.', 'ibanint' ); ?></p>
+		<p><?php esc_html_e( 'Working across more than one sector? Tell us where the opportunity starts.', 'ibanint' ); ?></p>
 		<div class="ib-slide-actions">
 			<a href="<?php echo esc_url( $ibanint_contact_url ); ?>" class="ib-btn ib-btn-gold">
 				<?php esc_html_e( 'Partner With Us', 'ibanint' ); ?>

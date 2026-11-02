@@ -22,16 +22,16 @@ get_template_part( 'template-parts/page-banner' );
 	<div class="ib-wrap ib-intro-grid">
 		<div class="ib-intro-copy">
 			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Who We Are', 'ibanint' ); ?></p>
-			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'Growth is what we do. Connecting is how we do it.', 'ibanint' ), 'Connecting is how we do it.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
+			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'Connecting markets, resources and expertise', 'ibanint' ), 'resources and expertise' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<p class="ib-lead">
-				<?php esc_html_e( 'IBAN International has been opening doors for over a decade. We keep you ahead by knowing where the next door is, when to knock, and how to bring the right partners with you.', 'ibanint' ); ?>
+				<?php esc_html_e( 'IBAN International is a diversified company pursuing opportunities across strategic industries and regions. We bring businesses together with investors, producers, developers and other partners.', 'ibanint' ); ?>
 			</p>
 			<p>
-				<?php esc_html_e( 'We are not bound by a single business. We are a growth business with a global scope: a group of practice areas that opens doors between markets, regions, and partners.', 'ibanint' ); ?>
+				<?php esc_html_e( 'Our work connects trade, infrastructure, resource development, food, logistics and other business areas. We look for opportunities that make commercial sense and create long-term value.', 'ibanint' ); ?>
 			</p>
 		</div>
 		<div class="ib-intro-media ib-reveal">
-			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-tease.jpg' ); ?>" alt="<?php esc_attr_e( 'Team members placing their hands together', 'ibanint' ); ?>" width="700" height="880" loading="lazy">
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-tease.jpg' ); ?>" alt="<?php esc_attr_e( 'People placing their hands together', 'ibanint' ); ?>" width="700" height="880" loading="lazy">
 		</div>
 	</div>
 </section>
@@ -40,18 +40,18 @@ get_template_part( 'template-parts/page-banner' );
 	<div class="ib-wrap">
 		<div class="ib-head-center">
 			<p class="ib-kicker ib-kicker-center"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Our Approach', 'ibanint' ); ?></p>
-			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'Four pillars hold every door we open', 'ibanint' ), 'every door we open' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
+			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'Four principles guide our work', 'ibanint' ), 'guide our work' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<p class="ib-lead ib-lead-center">
-				<?php esc_html_e( 'How we work is what sets us apart. Four ideas guide every opportunity we touch.', 'ibanint' ); ?>
+				<?php esc_html_e( 'We weigh each opportunity against the market, the partners involved and the value it can create over time.', 'ibanint' ); ?>
 			</p>
 		</div>
 		<div class="ib-pillar-grid">
 			<?php
 			$ibanint_pillars = array(
-				array( 'ph-globe-hemisphere-west', 'Global perspective', 'We look beyond individual markets. We identify connections and opportunities across borders.' ),
-				array( 'ph-handshake', 'Local relationships', 'We understand new cultures, network closely with the right partners, and look at things from a local angle.' ),
-				array( 'ph-binoculars', 'Wide-reaching insight', 'We never stop at the first opportunity. We look for the second, and the door behind it.' ),
-				array( 'ph-gear', 'System thinking', 'We build systems, not silos. One opportunity bigger, one connection deeper.' ),
+				array( 'ph-globe-hemisphere-west', 'Global perspective', 'We look across borders for connections between markets, resources and expertise.' ),
+				array( 'ph-handshake', 'Strategic partnerships', 'We build relationships around shared commercial interests and clear responsibilities.' ),
+				array( 'ph-leaf', 'Responsible growth', 'We consider long-term commercial value and the wider effects of the work we pursue.' ),
+				array( 'ph-check-circle', 'Excellence', 'We set clear objectives, bring the right knowledge to the table and follow through.' ),
 			);
 			foreach ( $ibanint_pillars as $ibanint_pillar ) :
 				?>
@@ -68,13 +68,13 @@ get_template_part( 'template-parts/page-banner' );
 <section class="ib-mindset" id="ib-mindset">
 	<div class="ib-wrap ib-mindset-grid">
 		<div class="ib-mindset-copy">
-			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'The Mindset', 'ibanint' ); ?></p>
-			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'This is not capacity building. It is partnership.', 'ibanint' ), 'It is partnership.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
+			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'The IBAN advantage', 'ibanint' ); ?></p>
+			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'One group. Connected opportunities.', 'ibanint' ), 'Connected opportunities.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<p class="ib-quote-big">
-				&ldquo;<?php esc_html_e( 'A connection is the surest road to what is next.', 'ibanint' ); ?>&rdquo;
+				&ldquo;<?php esc_html_e( 'A commodity opportunity can create a logistics opportunity.', 'ibanint' ); ?>&rdquo;
 			</p>
 			<p>
-				<?php esc_html_e( 'Every industry changes over time. We position ourselves accordingly: identifying and developing opportunities before the market dominates the conversation. A site without a market is a cost; a market without a partner is a risk. IBAN exists to close both gaps at once.', 'ibanint' ); ?>
+				<?php esc_html_e( 'Agricultural production may lead to processing and distribution. Infrastructure may help trade reach a new market. We look across our business areas to connect projects with the partners and resources they need.', 'ibanint' ); ?>
 			</p>
 		</div>
 		<div class="ib-mindset-media ib-reveal">
@@ -91,7 +91,7 @@ get_template_part( 'template-parts/page-banner' );
 			<?php
 			printf(
 				/* translators: %s: number of practical areas, here "Eight" */
-				esc_html__( '%s practice areas, one group. Where do we fit into your next step?', 'ibanint' ),
+				esc_html__( '%s business areas, one group. Tell us what you are working on.', 'ibanint' ),
 				esc_html__( 'Eight', 'ibanint' )
 			);
 			?>

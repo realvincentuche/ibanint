@@ -21,7 +21,7 @@ get_template_part( 'template-parts/page-banner' );
 			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Start Here', 'ibanint' ); ?></p>
 			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'Start a conversation about your project', 'ibanint' ), 'your project' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<p class="ib-lead">
-				<?php esc_html_e( 'Tell us which business area and market you are interested in. Call us directly to start the conversation.', 'ibanint' ); ?>
+				<?php esc_html_e( 'If you have a project, market, resource or partnership in mind, tell us the business area and region. Investors, producers, developers and institutions are welcome to get in touch.', 'ibanint' ); ?>
 			</p>
 		</div>
 
@@ -43,6 +43,11 @@ get_template_part( 'template-parts/page-banner' );
 				<i class="ph ph-map-pin" aria-hidden="true"></i>
 				<span class="ib-contact-label"><?php esc_html_e( 'Operating regions', 'ibanint' ); ?></span>
 				<span class="ib-contact-value"><?php echo esc_html( $ibanint_contact['regions'] ); ?></span>
+			</div>
+			<div class="ib-contact-card ib-reveal">
+				<i class="ph ph-globe-hemisphere-west" aria-hidden="true"></i>
+				<span class="ib-contact-label"><?php esc_html_e( 'Company locations', 'ibanint' ); ?></span>
+				<span class="ib-contact-value"><?php esc_html_e( 'Africa · United States', 'ibanint' ); ?></span>
 			</div>
 			<a class="ib-contact-card ib-reveal" href="<?php echo esc_url( $ibanint_contact['website_href'] ); ?>">
 				<i class="ph ph-globe" aria-hidden="true"></i>
