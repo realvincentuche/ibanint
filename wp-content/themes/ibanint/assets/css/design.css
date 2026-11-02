@@ -131,7 +131,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 .ib-pillar-grid { gap: 0; border: 1px solid var(--line); }
 .ib-pillar { border: 0; border-right: 1px solid var(--line); border-radius: 0; box-shadow: none; padding: 35px 30px 45px; }
 .ib-pillar:last-child { border-right: 0; }
-.ib-pillar .ph { font-size: 2.2rem; }
+.ib-pillar .ph { font-size: 3.2rem; }
 .ib-pillar h3 { font-size: 1.5rem; }
 .ib-mindset { padding: 92px 0; background: #e9eff1; }
 .ib-mindset-media img { border-radius: 0; box-shadow: none; }
