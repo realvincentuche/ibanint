@@ -5,7 +5,7 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.2.14' );
+define( 'IBANINT_VERSION', '0.2.15' );
 
 /** Keep the brand capitalized in older WordPress content and site settings. */
 function ibanint_capitalize_brand( $name ) {
@@ -73,44 +73,25 @@ function ibanint_content_width() {
 }
 add_action( 'after_setup_theme', 'ibanint_content_width', 0 );
 
-/**
- * Enqueue Google Fonts (CDN - mmbuss convention) and theme assets.
- */
+/** Enqueue theme assets. */
 function ibanint_assets() {
-	wp_enqueue_style(
-		'ibanint-fonts',
-		'https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap',
-		array(),
-		null
-	);
-
 	wp_enqueue_style( 'ibanint-style', get_stylesheet_uri(), array(), IBANINT_VERSION );
 	wp_enqueue_style( 'ibanint-phosphor', get_template_directory_uri() . '/assets/css/phosphor-icon-regular.css', array(), IBANINT_VERSION );
 	wp_enqueue_style( 'ibanint-main', get_template_directory_uri() . '/assets/css/main.css', array( 'ibanint-style', 'ibanint-phosphor' ), IBANINT_VERSION );
-	wp_enqueue_style( 'ibanint-design', get_template_directory_uri() . '/assets/css/design.css', array( 'ibanint-main' ), IBANINT_VERSION );
 
 	wp_enqueue_script( 'ibanint-main', get_template_directory_uri() . '/assets/js/main.js', array(), IBANINT_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'ibanint_assets' );
 
 /**
- * Preconnect for Google Fonts.
- *
- * @param array  $urls          URLs to print for resource hints.
- * @param string $relation_type The relation type.
- * @return array
+ * Preload the fonts used for the first screen of content.
  */
-function ibanint_resource_hints( $urls, $relation_type ) {
-	if ( 'preconnect' === $relation_type ) {
-		$urls[] = array(
-			'href'        => 'https://fonts.gstatic.com',
-			'crossorigin' => 'anonymous',
-		);
-		$urls[] = 'https://fonts.googleapis.com';
+function ibanint_preload_fonts() {
+	foreach ( array( 'barlow-semi-condensed-700-latin.woff2', 'barlow-semi-condensed-600-latin.woff2', 'dm-sans-400-700-latin.woff2' ) as $font ) {
+		printf( '<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n", esc_url( get_template_directory_uri() . '/assets/fonts/' . $font ) );
 	}
-	return $urls;
 }
-add_filter( 'wp_resource_hints', 'ibanint_resource_hints', 10, 2 );
+add_action( 'wp_head', 'ibanint_preload_fonts', 1 );
 
 /**
  * Favicon (theme asset, used when the site icon is not set).
