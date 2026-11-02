@@ -26,6 +26,8 @@ Create a form in Contact Form 7 and paste this into its **Form** tab. Copy the s
 <p>[submit "Send inquiry"]</p>
 ```
 
+Keep the standard CF7 submit tag. The theme gives it the same square gold style and right-arrow icon as the site buttons.
+
 In the **Mail** tab, use:
 
 ```text

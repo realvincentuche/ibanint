@@ -750,7 +750,6 @@ body.ib-offcanvas-open .ib-scrim { opacity: 1; }
 .ib-contact-form .wpcf7 textarea { min-height: 150px; resize: vertical; }
 .ib-contact-form .wpcf7 input:focus-visible, .ib-contact-form .wpcf7 select:focus-visible, .ib-contact-form .wpcf7 textarea:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .ib-contact-form .wpcf7 .wpcf7-list-item { margin-left: 0; }
-.ib-contact-form .wpcf7 input[type='submit'] { padding: 14px 24px; border: 0; background: var(--gold-2); color: var(--navy); font: inherit; font-weight: 700; cursor: pointer; }
 
 .ib-footer-social { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
 .ib-footer-social a { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid rgba(255,255,255,.28); color: var(--gold-2); font-size: 1.15rem; text-decoration: none; transition: color .2s ease, background .2s ease, border-color .2s ease; }
@@ -1103,19 +1102,25 @@ body.ib-offcanvas-open .ib-scrim { opacity: 1; }
 .wpcf7 textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(199, 161, 68, 0.18); }
 .wpcf7 textarea { min-height: 150px; resize: vertical; }
 .wpcf7 .wpcf7-submit {
-	background: linear-gradient(135deg, var(--gold-2), var(--gold));
-	color: var(--navy);
+	min-height: 50px;
+	background-color: var(--gold-2);
+	background-image: url('../images/arrow-right.svg');
+	background-position: right 20px center;
+	background-repeat: no-repeat;
+	background-size: 18px 18px;
+	color: var(--navy-deep);
 	border: 0;
-	border-radius: 999px;
-	padding: 14px 34px;
-	font-weight: 800;
+	border-radius: 2px;
+	padding: 12px 52px 12px 22px;
+	font-weight: 700;
 	font-family: var(--font);
-	font-size: 0.98rem;
+	font-size: .9rem;
 	cursor: pointer;
-	box-shadow: 0 10px 24px rgba(199, 161, 68, 0.35);
-	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	box-shadow: none;
+	transition: transform .2s ease, background-color .2s ease;
 }
-.wpcf7 .wpcf7-submit:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(199, 161, 68, 0.45); }
+.wpcf7 .wpcf7-submit:hover { transform: translateY(-2px); background-color: #f0cf83; box-shadow: none; }
+.wpcf7 .wpcf7-submit:focus-visible { outline: 3px solid var(--gold-2); outline-offset: 3px; }
 .wpcf7 .wpcf7-spinner { color: var(--gold); }
 .wpcf7 .wpcf7-not-valid-tip { font-size: 0.85rem; color: #b4373a; margin-top: 4px; }
 .wpcf7 input.wpcf7-not-valid { border-color: #b4373a; }
