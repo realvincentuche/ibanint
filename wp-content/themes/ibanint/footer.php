@@ -11,7 +11,7 @@
 <section class="ib-cta" style="background-image:url('<?php echo esc_url( get_template_directory_uri() . '/assets/images/banner-about.jpg' ); ?>');">
 	<div class="ib-cta-shade"></div>
 	<div class="ib-wrap ib-cta-inner ib-reveal">
-		<h2 class="ib-h2 ib-h2-light"><?php echo ibanint_highlight_heading( __( 'Tell us what you are working on', 'ibanint' ), 'what you are working on' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
+		<h2 class="ib-h2 ib-h2-light"><?php echo ibanint_highlight_heading( __( 'Let’s move your next opportunity forward', 'ibanint' ), 'opportunity forward' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 		<p>
 			<?php esc_html_e( 'Share the sector, market or partnership you are exploring. We will help identify the right starting point.', 'ibanint' ); ?>
 		</p>
