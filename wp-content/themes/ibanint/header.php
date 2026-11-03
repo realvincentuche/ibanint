@@ -17,7 +17,7 @@
 
 <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ibanint' ); ?></a>
 
-<header class="ib-header<?php echo ( is_front_page() || is_page() || is_home() ) ? ' ib-header-overlay' : ''; ?>" id="ib-header">
+<header class="ib-header<?php echo ( is_front_page() || is_page() || is_home() || is_singular( 'post' ) ) ? ' ib-header-overlay' : ''; ?>" id="ib-header">
 	<div class="ib-wrap ib-header-inner">
 
 		<div class="ib-brand">
