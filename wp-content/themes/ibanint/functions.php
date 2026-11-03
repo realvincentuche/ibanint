@@ -5,7 +5,7 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.2.32' );
+define( 'IBANINT_VERSION', '0.2.33' );
 
 /** Keep the brand capitalized in older WordPress content and site settings. */
 function ibanint_capitalize_brand( $name ) {
@@ -257,7 +257,7 @@ function ibanint_sectors() {
 			'blurb'      => 'From agricultural production and food processing to packaging and distribution, we support opportunities across the food value chain.',
 			'detail'     => 'We consider production, processing, packaging and distribution as connected parts of the same opportunity.',
 			'banner'     => 'banner-agriculture-grain.jpg',
-			'listing_image' => 'food-hibiscus.jpg',
+			'listing_image' => 'food-hibiscus-client.jpg',
 			'connection' => 'An agricultural project can create processing and distribution opportunities.',
 		),
 		'transportation-logistics'      => array(

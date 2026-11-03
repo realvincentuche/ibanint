@@ -57,8 +57,7 @@ if ( $ibanint_sector ) {
 			</div>
 			<div class="ib-intro-media ib-reveal">
 				<?php if ( $ibanint_is_food ) : ?>
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/food-hibiscus.jpg' ); ?>" alt="<?php esc_attr_e( 'Dried hibiscus flowers being handled over a sack', 'ibanint' ); ?>" width="1200" height="1800" loading="lazy">
-					<p class="ib-food-image-note"><?php esc_html_e( 'Hibiscus (roselle) · Illustrative photograph', 'ibanint' ); ?></p>
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/food-hibiscus-client.jpg' ); ?>" alt="<?php esc_attr_e( 'Close-up of dried hibiscus calyces', 'ibanint' ); ?>" width="769" height="1080" loading="lazy">
 				<?php else : ?>
 					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . ( $ibanint_sector['intro_image'] ?? $ibanint_sector['banner'] ) ); ?>" alt="<?php echo esc_attr( $ibanint_intro_alt ); ?>" loading="lazy">
 				<?php endif; ?>

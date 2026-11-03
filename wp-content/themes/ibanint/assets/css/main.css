@@ -1426,7 +1426,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 .ib-btn:hover .ph { transform: translateX(4px); }
 
 /* Agriculture & Food: a focused view of the supplied product media. */
-.ib-food-image-note { margin: 10px 0 0; color: var(--muted); font-size: .78rem; letter-spacing: .02em; }
 .ib-food-media { padding: 90px 0 104px; background: #f1f0eb; }
 .ib-food-media-head { max-width: 680px; margin-bottom: 36px; }
 .ib-food-media-head > p:last-child { margin: 0; color: var(--muted); font-size: 1.08rem; }
