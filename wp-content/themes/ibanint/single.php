@@ -11,9 +11,14 @@ get_header();
 <?php
 while ( have_posts() ) :
 	the_post();
+	set_query_var( 'ibanint_banner_title', get_the_title() );
+	set_query_var( 'ibanint_banner_image', 'banner-news.jpg' );
+	set_query_var( 'ibanint_banner_image_url', get_the_post_thumbnail_url( get_the_ID(), 'full' ) );
+	set_query_var( 'ibanint_banner_sub', '' );
 	?>
 	<article <?php post_class( 'ib-single' ); ?>>
-		<header class="ib-single-head">
+		<?php get_template_part( 'template-parts/page-banner' ); ?>
+		<div class="ib-single-meta">
 			<div class="ib-wrap">
 				<p class="ib-news-meta">
 					<?php echo esc_html( get_the_date() ); ?>
@@ -23,15 +28,8 @@ while ( have_posts() ) :
 						<a href="<?php echo esc_url( get_category_link( $ibanint_cat[0] ) ); ?>"><?php echo esc_html( $ibanint_cat[0]->name ); ?></a>
 					<?php endif; ?>
 				</p>
-				<h1 class="ib-single-title"><?php the_title(); ?></h1>
 			</div>
-		</header>
-
-		<?php if ( has_post_thumbnail() ) : ?>
-			<div class="ib-wrap ib-single-thumb">
-				<?php the_post_thumbnail( 'full', array( 'loading' => 'eager' ) ); ?>
-			</div>
-		<?php endif; ?>
+		</div>
 
 		<div class="ib-wrap">
 			<div class="ib-prose">
