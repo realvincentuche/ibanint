@@ -1529,3 +1529,53 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 	.ib-sector-grid { transition: none; }
 	.ib-entered { animation: none; }
 }
+
+/* Home page: brighter photographs and a lighter, more varied section rhythm. */
+.home {
+	--home-ink: #263b39;
+	--home-teal: #426b63;
+	--home-ivory: #f6f3ec;
+	--home-sage: #e1eae5;
+	--home-sand: #eee8dc;
+}
+.home .ib-hero-shade {
+	background: linear-gradient(90deg, rgba(18, 39, 43, .65) 0%, rgba(18, 39, 43, .39) 43%, rgba(18, 39, 43, .04) 83%),
+		linear-gradient(0deg, rgba(18, 39, 43, .22), transparent 34%);
+}
+.home .ib-about { background: var(--home-ivory); }
+.home .ib-sectors { background: var(--home-sage); }
+.home .ib-sectors-panel { background: var(--home-sage); border-top: 4px solid #b7c9bc; }
+.home .ib-sectors .ib-h2,
+.home .ib-steps .ib-h2 { color: var(--home-ink); }
+.home .ib-sector-intro { color: #425653; }
+.home .ib-sector-card { background: var(--home-ivory); border: 1px solid #c9d7d0; }
+.home .ib-sector-card-body h3 { color: var(--home-ink); }
+.home .ib-sector-card-body p { color: #52625d; }
+.home .ib-sector-control { background: var(--home-teal); border-color: var(--home-teal); }
+.home .ib-sector-control:hover { background: #2b504a; color: #fff; }
+.home .ib-card-link { color: #346a60; }
+.home .ib-why { background: #f7f4ed; }
+.home .ib-steps { background: var(--home-sand); }
+.home .ib-steps-panel { background: var(--home-sand); border-top: 4px solid #d0b980; }
+.home .ib-step { border-color: #d7d2c6; }
+.home .ib-step-num { background: #e2eee7; border-color: #b9d0c1; color: #315d54; }
+.home .ib-step .ph { color: #427469; }
+.home .ib-step h3 { color: var(--home-ink); }
+.home .ib-step p { color: #52625d; }
+.home .ib-steps-card { background: var(--home-ivory); border-color: #d7d1c3; }
+.home .ib-steps-card-badge { background: #e6eee7; border-color: #c4d5c8; color: #315d54; }
+.home .ib-steps-card h3 { color: var(--home-ink); }
+.home .ib-quote { color: #52625d; }
+.home .ib-audience { background: #edf1eb; }
+.home .ib-audience-list,
+.home .ib-audience-item { border-color: #c5d3c9; }
+.home .ib-btn-dark { background: #315d54; }
+.home .ib-btn-dark:hover { background: #244a43; }
+.home .ib-cta-shade { background: linear-gradient(90deg, rgba(25, 50, 50, .66), rgba(25, 50, 50, .18) 75%); }
+
+@media (max-width: 767px) {
+	.home .ib-hero-shade {
+		background: linear-gradient(90deg, rgba(18, 39, 43, .66), rgba(18, 39, 43, .23)),
+			linear-gradient(0deg, rgba(18, 39, 43, .37), transparent 58%);
+	}
+}

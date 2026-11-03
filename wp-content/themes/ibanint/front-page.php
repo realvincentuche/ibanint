@@ -97,8 +97,8 @@ $ibanint_marquee = array(
 		<div class="ib-wrap">
 			<div class="ib-sectors-head">
 				<div class="ib-sectors-heading">
-				<p class="ib-kicker ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'What We Do', 'ibanint' ); ?></p>
-				<h2 class="ib-h2 ib-h2-light"><?php echo ibanint_highlight_heading( __( 'Eight businesses. Shared perspective.', 'ibanint' ), 'Shared perspective.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
+					<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'What We Do', 'ibanint' ); ?></p>
+					<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'Eight businesses. Shared perspective.', 'ibanint' ), 'Shared perspective.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 				</div>
 				<p class="ib-sector-intro">
 					<?php esc_html_e( 'Our work spans trade, energy, food, logistics, infrastructure, real estate, waste management and mining. A project in one area may call for partners in another.', 'ibanint' ); ?>
@@ -177,8 +177,8 @@ $ibanint_marquee = array(
 		<div class="ib-wrap">
 			<div class="ib-steps-grid">
 				<div class="ib-steps-main">
-					<p class="ib-kicker ib-kicker-light"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Our Approach', 'ibanint' ); ?></p>
-					<h2 class="ib-h2 ib-h2-light"><?php echo ibanint_highlight_heading( __( 'How we move an opportunity forward', 'ibanint' ), 'opportunity forward' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
+					<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Our Approach', 'ibanint' ); ?></p>
+					<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'How we move an opportunity forward', 'ibanint' ), 'opportunity forward' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 					<div class="ib-step-list">
 						<?php
 						$ibanint_steps = array(
