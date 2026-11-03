@@ -205,12 +205,41 @@ if ( $ibanint_sector ) {
 	<?php if ( $ibanint_is_logistics ) : ?>
 	<section class="ib-logistics-media" id="ib-logistics-media" aria-labelledby="ib-logistics-media-title">
 		<div class="ib-wrap">
+			<div class="ib-logistics-buses">
+				<div class="ib-logistics-buses-head">
+					<div>
+						<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Passenger transport', 'ibanint' ); ?></p>
+						<h2 id="ib-logistics-media-title"><?php echo ibanint_highlight_heading( __( 'Commercial buses', 'ibanint' ), 'buses' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
+					</div>
+					<p><?php esc_html_e( 'Chinese-built commercial bus designs offer options for city routes and longer-distance travel.', 'ibanint' ); ?></p>
+				</div>
+				<div class="ib-logistics-buses-grid">
+					<figure class="ib-logistics-media-item ib-reveal">
+						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logistics-yutong-double-decker.jpg' ); ?>" alt="<?php esc_attr_e( 'Red Yutong double-deck commercial bus on display', 'ibanint' ); ?>" width="1920" height="2560" loading="lazy">
+						<figcaption><span>04 / <?php esc_html_e( 'City travel', 'ibanint' ); ?></span><?php esc_html_e( 'Double-deck bus', 'ibanint' ); ?></figcaption>
+					</figure>
+					<figure class="ib-logistics-media-item ib-reveal">
+						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logistics-yutong-coach.jpg' ); ?>" alt="<?php esc_attr_e( 'Silver Yutong commercial coach on display', 'ibanint' ); ?>" width="1920" height="1440" loading="lazy">
+						<figcaption><span>05 / <?php esc_html_e( 'Intercity travel', 'ibanint' ); ?></span><?php esc_html_e( 'Commercial coach', 'ibanint' ); ?></figcaption>
+					</figure>
+				</div>
+				<details class="ib-logistics-buses-credit">
+					<summary><?php esc_html_e( 'Image credits', 'ibanint' ); ?></summary>
+					<p>
+						<a href="https://commons.wikimedia.org/wiki/File:Busworld_Europe_2025,_Brussels_(20251003-P1052212).jpg">Matti Blume</a>
+						<?php esc_html_e( 'and', 'ibanint' ); ?>
+						<a href="https://commons.wikimedia.org/wiki/File:Busworld_Europe_2025,_Brussels_(P1210645).jpg">Celestinesucess</a>,
+						<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. <?php esc_html_e( 'Cropped for display.', 'ibanint' ); ?>
+					</p>
+				</details>
+			</div>
+			<div class="ib-logistics-freight">
 			<div class="ib-logistics-media-head">
 				<div>
 					<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Road transport', 'ibanint' ); ?></p>
-					<h2 class="ib-h2" id="ib-logistics-media-title"><?php echo ibanint_highlight_heading( __( 'A closer view of logistics', 'ibanint' ), 'logistics' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
+					<h3 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'Road freight in focus', 'ibanint' ), 'freight' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h3>
 				</div>
-				<p><?php esc_html_e( 'Selected views of the vehicles and equipment behind road transport.', 'ibanint' ); ?></p>
+				<p><?php esc_html_e( 'Selected views of the trucks and equipment behind road freight.', 'ibanint' ); ?></p>
 			</div>
 			<div class="ib-logistics-media-grid">
 				<figure class="ib-logistics-media-item ib-logistics-media-wide ib-reveal">
@@ -225,6 +254,7 @@ if ( $ibanint_sector ) {
 					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logistics-chassis.jpg' ); ?>" alt="<?php esc_attr_e( 'Rear view of a heavy truck chassis', 'ibanint' ); ?>" width="1600" height="1200" loading="lazy">
 					<figcaption><span>03 / <?php esc_html_e( 'Detail', 'ibanint' ); ?></span><?php esc_html_e( 'Truck chassis', 'ibanint' ); ?></figcaption>
 				</figure>
+			</div>
 			</div>
 		</div>
 	</section>

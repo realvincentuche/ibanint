@@ -5,7 +5,7 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.2.39' );
+define( 'IBANINT_VERSION', '0.2.40' );
 
 /** Keep the brand capitalized in older WordPress content and site settings. */
 function ibanint_capitalize_brand( $name ) {
@@ -265,7 +265,7 @@ function ibanint_sectors() {
 			'title'      => 'Transportation & Logistics',
 			'short'      => 'Logistics',
 			'icon'       => 'ph-truck',
-			'blurb'      => 'We connect transport, distribution and infrastructure partners to help goods move between markets.',
+			'blurb'      => 'We connect transport, distribution and infrastructure partners to help goods and people move between markets.',
 			'detail'     => 'Transport plans need to reflect the routes, partners and markets involved.',
 			'banner'     => 'banner-logistics-freight.jpg',
 			'intro_image' => 'logistics-intro.jpg',

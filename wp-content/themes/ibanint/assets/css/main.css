@@ -1451,6 +1451,17 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 .ib-logistics-media-wide img { height: 510px; object-position: center 48%; }
 .ib-logistics-media-item figcaption { display: flex; align-items: baseline; gap: 14px; padding-top: 16px; font-size: 1.28rem; font-weight: 600; }
 .ib-logistics-media-item figcaption span { color: #a47724; font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.ib-logistics-buses { margin-top: 0; }
+.ib-logistics-freight { margin-top: 76px; padding-top: 52px; border-top: 1px solid var(--line); }
+.ib-logistics-buses-head { display: flex; align-items: end; justify-content: space-between; gap: 36px; margin-bottom: 30px; }
+.ib-logistics-buses-head h2 { margin: 0; font-size: clamp(2.15rem, 3vw, 3rem); line-height: 1.08; }
+.ib-logistics-buses-head > p { max-width: 370px; margin: 0 0 5px; color: var(--muted); font-size: 1.05rem; line-height: 1.6; }
+.ib-logistics-buses-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 32px; }
+.ib-logistics-buses-grid img { height: 550px; object-position: center; }
+.ib-logistics-buses-credit { margin: 28px 0 0; color: var(--muted); font-size: .8rem; line-height: 1.5; }
+.ib-logistics-buses-credit summary { width: fit-content; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.ib-logistics-buses-credit p { margin: 10px 0 0; }
+.ib-logistics-buses-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 
 /* Mining: landscape field footage paired with the supplied material photograph. */
 .ib-mining-media { padding: 90px 0 104px; background: #f1f0eb; }
@@ -1516,6 +1527,11 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 	.ib-logistics-media-wide { grid-column: auto; }
 	.ib-logistics-media-item img, .ib-logistics-media-wide img { height: min(72vw, 330px); }
 	.ib-logistics-media-item figcaption { flex-direction: column; gap: 5px; font-size: 1.12rem; }
+	.ib-logistics-freight { margin-top: 56px; padding-top: 42px; }
+	.ib-logistics-buses-head { display: block; }
+	.ib-logistics-buses-head > p { margin-top: 14px; }
+	.ib-logistics-buses-grid { grid-template-columns: 1fr; gap: 30px; }
+	.ib-logistics-buses-grid img { height: min(95vw, 500px); }
 	.ib-mining-media { padding: 70px 0 82px; }
 	.ib-mining-media-grid { grid-template-columns: 1fr; gap: 36px; }
 	.ib-mining-media-grid-secondary { margin-top: 36px; }
