@@ -189,7 +189,7 @@
 			li.classList.remove('submenu-open');
 			var link = li.querySelector(':scope > a');
 			var toggle = li.querySelector(':scope > .ib-sub-toggle');
-			if (link) { link.setAttribute('aria-expanded', 'false'); }
+			if (link && !li.closest('.ib-offcanvas')) { link.setAttribute('aria-expanded', 'false'); }
 			if (toggle) {
 				toggle.setAttribute('aria-expanded', 'false');
 				toggle.setAttribute('aria-label', 'Show ' + link.textContent.trim() + ' submenu');
@@ -210,21 +210,13 @@
 			toggle.setAttribute('aria-controls', submenu.id);
 			toggle.setAttribute('aria-expanded', 'false');
 			toggle.setAttribute('aria-label', 'Show ' + label + ' submenu');
-			link.setAttribute('aria-expanded', 'false');
 			var setExpanded = function (open) {
 				if (open) { closeAll(); }
 				li.classList.toggle('submenu-open', open);
-				link.setAttribute('aria-expanded', open ? 'true' : 'false');
 				toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
 				toggle.setAttribute('aria-label', (open ? 'Hide ' : 'Show ') + label + ' submenu');
 			};
 			toggle.addEventListener('click', function () { setExpanded(!li.classList.contains('submenu-open')); });
-			link.addEventListener('click', function (e) {
-				if (!li.classList.contains('submenu-open')) {
-					e.preventDefault();
-					setExpanded(true);
-				}
-			});
 			li.insertBefore(toggle, submenu);
 			return;
 		}

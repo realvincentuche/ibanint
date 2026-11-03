@@ -384,9 +384,18 @@ body.ib-offcanvas-open .ib-offcanvas { transform: translateX(0); }
 	display: none;
 }
 .ib-offcanvas .ib-menu-mobile > li.submenu-open > .sub-menu { display: block; }
-.ib-menu-mobile .sub-menu a { color: rgba(255, 255, 255, 0.85); padding: 10px 8px; font-size: 0.98rem; }
-.ib-menu-mobile .sub-menu a:hover { background: transparent; color: var(--gold-2); }
+.ib-offcanvas .ib-menu-mobile .sub-menu a {
+	color: rgba(255, 255, 255, 0.85);
+	padding: 9px 8px;
+	font-size: .84rem;
+	font-weight: 600;
+	line-height: 1.35;
+	white-space: normal;
+	overflow-wrap: break-word;
+}
+.ib-offcanvas .ib-menu-mobile .sub-menu a:hover { background: transparent; color: var(--gold-2); }
 .ib-offcanvas .ib-menu-mobile > li.menu-item-has-children { position: relative; }
+.ib-offcanvas .ib-menu-mobile > li > a { font-size: .96rem; }
 .ib-offcanvas .ib-menu-mobile > li.menu-item-has-children > a { padding-right: 54px; }
 .ib-offcanvas .ib-menu-mobile > li.menu-item-has-children > a::after { display: none; }
 .ib-offcanvas .ib-menu-mobile > li > .ib-sub-toggle {
