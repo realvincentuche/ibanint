@@ -31,7 +31,7 @@ get_template_part( 'template-parts/page-banner' );
 			</p>
 		</div>
 		<div class="ib-intro-media ib-reveal">
-			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-tease.jpg' ); ?>" alt="<?php esc_attr_e( 'People placing their hands together', 'ibanint' ); ?>" width="700" height="880" loading="lazy">
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-planning.jpg' ); ?>" alt="<?php esc_attr_e( 'Business team reviewing project documents together', 'ibanint' ); ?>" width="1280" height="1920" loading="lazy">
 		</div>
 	</div>
 </section>

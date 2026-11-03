@@ -86,8 +86,7 @@ $ibanint_marquee = array(
 		</div>
 
 		<div class="ib-about-media ib-reveal">
-			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-tease.jpg' ); ?>" alt="<?php esc_attr_e( 'People placing their hands together', 'ibanint' ); ?>" width="700" height="880" loading="lazy">
-			<?php /* Unsplash free tier: handshake deal 1582213782179 (about-tease.jpg) */ ?>
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-home-conversation.jpg' ); ?>" alt="<?php esc_attr_e( 'Two business professionals reviewing a project document', 'ibanint' ); ?>" width="1400" height="933" loading="lazy">
 		</div>
 	</div>
 </section>
