@@ -216,11 +216,11 @@ if ( $ibanint_sector ) {
 				<div class="ib-logistics-buses-grid">
 					<figure class="ib-logistics-media-item ib-reveal">
 						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logistics-yutong-double-decker.jpg' ); ?>" alt="<?php esc_attr_e( 'Red Yutong double-deck commercial bus on display', 'ibanint' ); ?>" width="1920" height="2560" loading="lazy">
-						<figcaption><span>04 / <?php esc_html_e( 'City travel', 'ibanint' ); ?></span><?php esc_html_e( 'Double-deck bus', 'ibanint' ); ?></figcaption>
+						<figcaption><span>01 / <?php esc_html_e( 'City travel', 'ibanint' ); ?></span><?php esc_html_e( 'Double-deck bus', 'ibanint' ); ?></figcaption>
 					</figure>
 					<figure class="ib-logistics-media-item ib-reveal">
 						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logistics-yutong-coach.jpg' ); ?>" alt="<?php esc_attr_e( 'Silver Yutong commercial coach on display', 'ibanint' ); ?>" width="1920" height="1440" loading="lazy">
-						<figcaption><span>05 / <?php esc_html_e( 'Intercity travel', 'ibanint' ); ?></span><?php esc_html_e( 'Commercial coach', 'ibanint' ); ?></figcaption>
+						<figcaption><span>02 / <?php esc_html_e( 'Intercity travel', 'ibanint' ); ?></span><?php esc_html_e( 'Commercial coach', 'ibanint' ); ?></figcaption>
 					</figure>
 				</div>
 				<details class="ib-logistics-buses-credit">
@@ -253,6 +253,14 @@ if ( $ibanint_sector ) {
 				<figure class="ib-logistics-media-item ib-reveal">
 					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logistics-chassis.jpg' ); ?>" alt="<?php esc_attr_e( 'Rear view of a heavy truck chassis', 'ibanint' ); ?>" width="1600" height="1200" loading="lazy">
 					<figcaption><span>03 / <?php esc_html_e( 'Detail', 'ibanint' ); ?></span><?php esc_html_e( 'Truck chassis', 'ibanint' ); ?></figcaption>
+				</figure>
+				<figure class="ib-logistics-media-item ib-logistics-media-item-portrait ib-reveal">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logistics-truck-red.jpg' ); ?>" alt="<?php esc_attr_e( 'Red container truck parked in a cargo yard', 'ibanint' ); ?>" width="960" height="1280" loading="lazy">
+					<figcaption><span>04 / <?php esc_html_e( 'Freight vehicle', 'ibanint' ); ?></span><?php esc_html_e( 'Container truck', 'ibanint' ); ?></figcaption>
+				</figure>
+				<figure class="ib-logistics-media-item ib-logistics-media-item-portrait ib-reveal">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logistics-truck-container.jpg' ); ?>" alt="<?php esc_attr_e( 'Container trailer photographed from behind in a freight yard', 'ibanint' ); ?>" width="960" height="1280" loading="lazy">
+					<figcaption><span>05 / <?php esc_html_e( 'Cargo movement', 'ibanint' ); ?></span><?php esc_html_e( 'Container trailer', 'ibanint' ); ?></figcaption>
 				</figure>
 			</div>
 			</div>
