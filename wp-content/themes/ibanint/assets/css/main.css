@@ -827,7 +827,7 @@ body.ib-offcanvas-open .ib-scrim { opacity: 1; }
 	gap: 56px;
 	align-items: center;
 }
-.ib-mindset-media img { border-radius: var(--radius); box-shadow: var(--shadow); }
+.ib-mindset-media img { width: 100%; height: clamp(360px, 42vw, 510px); object-fit: cover; object-position: center 68%; border-radius: var(--radius); box-shadow: var(--shadow); }
 .ib-quote-big {
 	font-family: var(--font-heading);
 	font-size: clamp(1.6rem, 3vw, 2.2rem);

@@ -78,7 +78,7 @@ get_template_part( 'template-parts/page-banner' );
 			</p>
 		</div>
 		<div class="ib-mindset-media ib-reveal">
-			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/why-choose.jpg' ); ?>" alt="<?php esc_attr_e( 'Site works and equipment at an infrastructure project', 'ibanint' ); ?>" width="700" height="880" loading="lazy">
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-advantage-workshop.jpg' ); ?>" alt="<?php esc_attr_e( 'Engineers reviewing work together in a production workshop', 'ibanint' ); ?>" width="1800" height="2699" loading="lazy">
 		</div>
 	</div>
 </section>
