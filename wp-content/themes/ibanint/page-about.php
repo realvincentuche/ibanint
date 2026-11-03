@@ -24,7 +24,7 @@ get_template_part( 'template-parts/page-banner' );
 			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Who We Are', 'ibanint' ); ?></p>
 			<h2 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'Connecting markets, resources and expertise', 'ibanint' ), 'resources and expertise' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<p class="ib-lead">
-				<?php esc_html_e( 'IBAN International is a diversified company creating networking opportunities across strategic industries and regions. We connect businesses with investors, producers, developers and other partners.', 'ibanint' ); ?>
+				<?php esc_html_e( 'IBAN International is a diversified company active across strategic industries and regions. We connect businesses with investors, producers, developers and other partners.', 'ibanint' ); ?>
 			</p>
 			<p>
 				<?php esc_html_e( 'Our work connects trade, infrastructure, resource development, food, logistics and other business areas. We look for opportunities that make commercial sense and create long-term value.', 'ibanint' ); ?>
