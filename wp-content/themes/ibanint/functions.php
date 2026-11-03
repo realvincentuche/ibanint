@@ -5,7 +5,7 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.2.36' );
+define( 'IBANINT_VERSION', '0.2.37' );
 
 /** Keep the brand capitalized in older WordPress content and site settings. */
 function ibanint_capitalize_brand( $name ) {
@@ -239,7 +239,7 @@ function ibanint_sectors() {
 			'icon'       => 'ph-arrows-left-right',
 			'blurb'      => 'We connect producers and suppliers with buyers in other markets, helping partners develop workable cross-border trade.',
 			'detail'     => 'We consider the product, the buyer, the route to market and the relationships needed to make a trade work.',
-			'banner'     => 'banner-trade-cargo.jpg',
+			'banner'     => 'banner-trade-terminal.jpg',
 			'connection' => 'A commodity opportunity can create a logistics opportunity.',
 		),
 		'energy'                        => array(
@@ -295,7 +295,7 @@ function ibanint_sectors() {
 			'icon'       => 'ph-recycle',
 			'blurb'      => 'We work across collection, recovery and recycling to turn waste into usable resources and commercial opportunities.',
 			'detail'     => 'Collection and recovery plans work best when there is a clear use or market for the material.',
-			'banner'     => 'banner-waste-recovery.jpg',
+			'banner'     => 'banner-waste-sorting.jpg',
 			'connection' => 'Waste can become a resource.',
 		),
 		'mining-natural-resources'      => array(

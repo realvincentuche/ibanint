@@ -31,7 +31,7 @@ get_template_part( 'template-parts/page-banner' );
 			</p>
 		</div>
 		<div class="ib-intro-media ib-reveal">
-			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-markets-port.jpg' ); ?>" alt="<?php esc_attr_e( 'Cargo terminal and cranes seen from above', 'ibanint' ); ?>" width="2200" height="3302" loading="lazy">
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-markets-harbor.jpg' ); ?>" alt="<?php esc_attr_e( 'Cargo vessel docked beside a harbor crane', 'ibanint' ); ?>" width="2200" height="3300" loading="lazy">
 		</div>
 	</div>
 </section>
