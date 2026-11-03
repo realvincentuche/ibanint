@@ -1463,10 +1463,15 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 .ib-mining-media-video-portrait .ib-mining-media-video-frame { aspect-ratio: 480 / 848; }
 .ib-mining-media-video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 .ib-mining-media-photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 48%; }
-.ib-mining-media-grid figcaption { padding-top: 18px; }
-.ib-mining-media-grid figcaption span { display: block; margin-bottom: 6px; color: #a47724; font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-.ib-mining-media-grid figcaption strong { display: block; font-size: clamp(1.4rem, 2vw, 1.8rem); font-weight: 600; }
-.ib-mining-media-grid figcaption p { margin: 5px 0 0; color: var(--muted); line-height: 1.6; }
+.ib-mining-media figcaption { padding-top: 18px; }
+.ib-mining-media figcaption span { display: block; margin-bottom: 6px; color: #a47724; font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.ib-mining-media figcaption strong { display: block; font-size: clamp(1.4rem, 2vw, 1.8rem); font-weight: 600; }
+.ib-mining-media figcaption p { margin: 5px 0 0; color: var(--muted); line-height: 1.6; }
+.ib-mining-diamond { margin-top: 72px; padding-top: 54px; border-top: 1px solid var(--line); }
+.ib-mining-diamond-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: clamp(24px, 3vw, 44px); align-items: start; }
+.ib-mining-diamond-grid figure { min-width: 0; margin: 0; }
+.ib-mining-diamond-photos { display: grid; gap: 28px; }
+.ib-mining-diamond-photos img { aspect-ratio: 16 / 9; object-position: center 43%; }
 
 /* Real Estate: a single supplied portrait video, given room to breathe. */
 .ib-estate-media { padding: 90px 0 104px; background: #f1f0eb; }
@@ -1515,6 +1520,10 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 	.ib-mining-media-grid { grid-template-columns: 1fr; gap: 36px; }
 	.ib-mining-media-grid-secondary { margin-top: 36px; }
 	.ib-mining-media-photo img { aspect-ratio: 4 / 3; }
+	.ib-mining-diamond { margin-top: 52px; padding-top: 42px; }
+	.ib-mining-diamond-grid { grid-template-columns: 1fr; gap: 36px; }
+	.ib-mining-diamond-photos img { aspect-ratio: 16 / 9; }
+	.ib-mining-diamond-grid > .ib-mining-media-video { max-width: 480px; }
 	.ib-estate-media { padding: 70px 0 82px; }
 	.ib-estate-media-grid { grid-template-columns: 1fr; gap: 30px; }
 	.ib-estate-media-player { margin: 0 auto; max-height: 610px; }

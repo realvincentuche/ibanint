@@ -170,6 +170,34 @@ if ( $ibanint_sector ) {
 					<figcaption><span>04 / <?php esc_html_e( 'Processing footage', 'ibanint' ); ?></span><strong><?php esc_html_e( 'Metal processing', 'ibanint' ); ?></strong><p><?php esc_html_e( 'Molten metal being handled at high temperature.', 'ibanint' ); ?></p></figcaption>
 				</figure>
 			</div>
+			<div class="ib-mining-diamond">
+				<div class="ib-mining-media-head">
+					<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Material detail', 'ibanint' ); ?></p>
+					<h3 class="ib-h2"><?php echo ibanint_highlight_heading( __( 'Diamond samples', 'ibanint' ), 'samples' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h3>
+					<p><?php esc_html_e( 'Two views of rough stones and a short examination video supplied by our partner.', 'ibanint' ); ?></p>
+				</div>
+				<div class="ib-mining-diamond-grid">
+					<div class="ib-mining-diamond-photos">
+						<figure class="ib-mining-media-photo ib-reveal">
+							<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/mining-diamond-1.jpg' ); ?>" alt="<?php esc_attr_e( 'Close view of rough diamond samples on a light surface', 'ibanint' ); ?>" width="1112" height="1600" loading="lazy">
+							<figcaption><span>05 / <?php esc_html_e( 'Sample photograph', 'ibanint' ); ?></span><strong><?php esc_html_e( 'Rough stones', 'ibanint' ); ?></strong></figcaption>
+						</figure>
+						<figure class="ib-mining-media-photo ib-reveal">
+							<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/mining-diamond-2.jpg' ); ?>" alt="<?php esc_attr_e( 'Groups of rough diamond samples arranged on a light surface', 'ibanint' ); ?>" width="1600" height="1340" loading="lazy">
+							<figcaption><span>06 / <?php esc_html_e( 'Sample photograph', 'ibanint' ); ?></span><strong><?php esc_html_e( 'A second view', 'ibanint' ); ?></strong></figcaption>
+						</figure>
+					</div>
+					<figure class="ib-mining-media-video ib-mining-media-video-portrait ib-reveal">
+						<div class="ib-mining-media-video-frame">
+							<video controls playsinline preload="none" poster="<?php echo esc_url( get_template_directory_uri() . '/assets/images/mining-diamond-poster.jpg' ); ?>" width="478" height="850" aria-label="<?php esc_attr_e( 'A person examining rough stones at a table', 'ibanint' ); ?>">
+								<source src="<?php echo esc_url( get_template_directory_uri() . '/assets/video/mining-diamond.mp4' ); ?>" type="video/mp4">
+								<a href="<?php echo esc_url( get_template_directory_uri() . '/assets/video/mining-diamond.mp4' ); ?>"><?php esc_html_e( 'Download the diamond examination video', 'ibanint' ); ?></a>
+							</video>
+						</div>
+						<figcaption><span>07 / <?php esc_html_e( 'Sample footage', 'ibanint' ); ?></span><strong><?php esc_html_e( 'Examining the stones', 'ibanint' ); ?></strong></figcaption>
+					</figure>
+				</div>
+			</div>
 		</div>
 	</section>
 	<?php endif; ?>
