@@ -17,9 +17,9 @@ $ibanint_services_url = $ibanint_services_id ? get_permalink( $ibanint_services_
 $ibanint_contact_url = home_url( '/contact/' );
 
 $ibanint_hero_slides = array(
-	array( 'image' => 'hero-2.jpg', 'alt' => 'Shipping containers at an international port', 'kicker' => 'International business development', 'title' => 'Connecting markets. Developing opportunity.', 'text' => 'We bring partners together across trade, infrastructure, energy and five other business areas.', 'cta' => 'Explore our businesses', 'url' => $ibanint_services_url ),
-	array( 'image' => 'banner-infrastructure.jpg', 'alt' => 'Infrastructure development project', 'kicker' => 'Connected expertise', 'title' => 'Where sectors meet, progress begins.', 'text' => 'Our work connects infrastructure, logistics and investment opportunities across borders.', 'cta' => 'How we work', 'url' => $ibanint_about_url ),
-	array( 'image' => 'banner-agriculture.jpg', 'alt' => 'Agricultural production landscape', 'kicker' => 'Partnerships with purpose', 'title' => 'The right partners change what is possible.', 'text' => 'We look across the value chain to find the people and capabilities that move projects forward.', 'cta' => 'Start a conversation', 'url' => $ibanint_contact_url ),
+	array( 'image' => 'logistics-banner.jpg', 'width' => 1600, 'height' => 1200, 'alt' => 'Volvo truck at a transport yard', 'kicker' => 'International business development', 'title' => 'Connecting markets. Developing opportunity.', 'text' => 'We bring partners together across trade, infrastructure, energy and five other business areas.', 'cta' => 'Explore our businesses', 'url' => $ibanint_services_url ),
+	array( 'image' => 'mining-operation-poster.jpg', 'width' => 848, 'height' => 480, 'alt' => 'Excavator loading a haul truck at a mining site', 'kicker' => 'Connected expertise', 'title' => 'Where sectors meet, progress begins.', 'text' => 'Our work connects infrastructure, logistics and investment opportunities across borders.', 'cta' => 'How we work', 'url' => $ibanint_about_url ),
+	array( 'image' => 'food-hibiscus-client.jpg', 'width' => 769, 'height' => 1080, 'alt' => 'Dried hibiscus calyces', 'kicker' => 'Partnerships with purpose', 'title' => 'The right partners change what is possible.', 'text' => 'We look across the value chain to find the people and capabilities that move projects forward.', 'cta' => 'Start a conversation', 'url' => $ibanint_contact_url ),
 );
 $ibanint_marquee = array(
 	'Connecting producers with markets',
@@ -37,7 +37,7 @@ $ibanint_marquee = array(
 	<div class="ib-hero-slides">
 		<?php foreach ( $ibanint_hero_slides as $ibanint_index => $ibanint_slide ) : ?>
 			<article class="ib-hero-slide<?php echo 0 === $ibanint_index ? ' is-active' : ''; ?>" aria-hidden="<?php echo 0 === $ibanint_index ? 'false' : 'true'; ?>" <?php echo 0 === $ibanint_index ? '' : 'inert'; ?>>
-				<img class="ib-hero-image" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . $ibanint_slide['image'] ); ?>" alt="<?php echo esc_attr( $ibanint_slide['alt'] ); ?>" width="1600" height="1000" <?php echo 0 === $ibanint_index ? 'fetchpriority="high"' : 'loading="lazy"'; ?>>
+				<img class="ib-hero-image" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . $ibanint_slide['image'] ); ?>" alt="<?php echo esc_attr( $ibanint_slide['alt'] ); ?>" width="<?php echo esc_attr( $ibanint_slide['width'] ); ?>" height="<?php echo esc_attr( $ibanint_slide['height'] ); ?>" <?php echo 0 === $ibanint_index ? 'fetchpriority="high"' : 'loading="lazy"'; ?>>
 				<div class="ib-hero-shade"></div>
 				<div class="ib-wrap ib-slide-inner">
 					<div class="ib-slide-content">
@@ -86,7 +86,7 @@ $ibanint_marquee = array(
 		</div>
 
 		<div class="ib-about-media ib-reveal">
-			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-home-conversation.jpg' ); ?>" alt="<?php esc_attr_e( 'Two business professionals reviewing a project document', 'ibanint' ); ?>" width="1400" height="933" loading="lazy">
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/mining-site.jpg' ); ?>" alt="<?php esc_attr_e( 'People working at a mining site', 'ibanint' ); ?>" width="1200" height="1600" loading="lazy">
 		</div>
 	</div>
 </section>
@@ -148,8 +148,7 @@ $ibanint_marquee = array(
 <section class="ib-why" id="ib-why">
 	<div class="ib-wrap ib-why-grid">
 		<div class="ib-why-media ib-reveal">
-			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/why-choose.jpg' ); ?>" alt="<?php esc_attr_e( 'Site works and equipment at an infrastructure project', 'ibanint' ); ?>" width="700" height="880" loading="lazy">
-			<?php /* Unsplash free tier: construction site aerial 1712693600525 (why-choose.jpg) */ ?>
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logistics-intro.jpg' ); ?>" alt="<?php esc_attr_e( 'Volvo truck in a transport yard', 'ibanint' ); ?>" width="1200" height="1600" loading="lazy">
 		</div>
 		<div class="ib-why-copy">
 			<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Why IBAN International', 'ibanint' ); ?></p>

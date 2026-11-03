@@ -5,7 +5,7 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.2.26' );
+define( 'IBANINT_VERSION', '0.2.27' );
 
 /** Keep the brand capitalized in older WordPress content and site settings. */
 function ibanint_capitalize_brand( $name ) {
@@ -111,7 +111,7 @@ add_action( 'wp_head', 'ibanint_site_icon', 2 );
 function ibanint_seo_page_data() {
 	$default = array(
 		'description' => 'IBAN International connects businesses, investors and project partners across trade, energy, food, logistics, infrastructure, real estate, waste and mining.',
-		'image'       => 'hero-2.jpg',
+		'image'       => 'logistics-banner.jpg',
 	);
 
 	if ( is_front_page() ) {
