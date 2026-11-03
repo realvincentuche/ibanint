@@ -1551,7 +1551,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 	.ib-header.ib-scrolled { background: transparent; backdrop-filter: none; }
 	.ib-header.ib-scrolled .ib-header-inner { background: rgba(255,255,255,.5); backdrop-filter: blur(7px); }
 	.ib-header-inner { min-height: 72px; }
-	.ib-header-overlay .ib-header-inner { background: rgba(7,23,43,.72); }
+	.ib-header-overlay .ib-header-inner { background: rgba(7, 23, 43, .5); }
 	.ib-header-overlay.ib-scrolled { top: 14px; background: transparent; }
 	.ib-header-overlay.ib-scrolled .ib-header-inner { background: rgba(7,23,43,.5); backdrop-filter: blur(7px); }
 	.ib-logo { height: 42px; }
