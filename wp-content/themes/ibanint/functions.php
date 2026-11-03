@@ -245,7 +245,7 @@ function ibanint_sectors() {
 			'title'      => 'Energy',
 			'short'      => 'Energy',
 			'icon'       => 'ph-lightning',
-			'blurb'      => 'We pursue energy projects with a clear commercial case and the partners needed to develop them.',
+			'blurb'      => 'We network with partners to develop energy projects with a clear commercial case.',
 			'detail'     => 'Our focus is on opportunities where demand, resources and development partners can come together.',
 			'banner'     => 'banner-energy.jpg',
 			'connection' => 'Energy can support production and processing.',
