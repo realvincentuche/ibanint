@@ -5,7 +5,7 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.2.28' );
+define( 'IBANINT_VERSION', '0.2.29' );
 
 /** Keep the brand capitalized in older WordPress content and site settings. */
 function ibanint_capitalize_brand( $name ) {
@@ -111,7 +111,7 @@ add_action( 'wp_head', 'ibanint_site_icon', 2 );
 function ibanint_seo_page_data() {
 	$default = array(
 		'description' => 'IBAN International connects businesses, investors and project partners across trade, energy, food, logistics, infrastructure, real estate, waste and mining.',
-		'image'       => 'logistics-banner.jpg',
+		'image'       => 'hero-markets-port.jpg',
 	);
 
 	if ( is_front_page() ) {
@@ -136,7 +136,7 @@ function ibanint_seo_page_data() {
 
 	$pages = array(
 		'about'          => array( 'description' => 'Learn how IBAN International connects markets, resources and expertise through partnerships across eight business areas.', 'image' => 'banner-about.jpg' ),
-		'services'       => array( 'description' => 'Explore the eight business areas of IBAN International, from trade and energy to agriculture, logistics and natural resources.', 'image' => 'banner-services.jpg' ),
+		'services'       => array( 'description' => 'Explore the eight business areas of IBAN International, from trade and energy to agriculture, logistics and natural resources.', 'image' => 'banner-businesses-port.jpg' ),
 		'contact'        => array( 'description' => 'Contact IBAN International Ltd about a project, market or partnership. Email info@ibanint.com or call +255 762 199 712.', 'image' => 'banner-contact.jpg' ),
 		'privacy-policy' => array( 'description' => 'How IBAN International Ltd handles website inquiries, technical data and privacy requests.', 'image' => 'banner-privacy.jpg' ),
 		'terms-of-use'   => array( 'description' => 'The terms that apply when using the IBAN International Ltd website.', 'image' => 'banner-terms.jpg' ),
@@ -238,7 +238,7 @@ function ibanint_sectors() {
 			'icon'       => 'ph-arrows-left-right',
 			'blurb'      => 'We connect producers and suppliers with buyers in other markets, helping partners develop workable cross-border trade.',
 			'detail'     => 'We consider the product, the buyer, the route to market and the relationships needed to make a trade work.',
-			'banner'     => 'banner-trade.jpg',
+			'banner'     => 'banner-trade-cargo.jpg',
 			'connection' => 'A commodity opportunity can create a logistics opportunity.',
 		),
 		'energy'                        => array(
@@ -247,7 +247,7 @@ function ibanint_sectors() {
 			'icon'       => 'ph-lightning',
 			'blurb'      => 'We network with partners to develop energy projects with a clear commercial case.',
 			'detail'     => 'Our focus is on opportunities where demand, resources and development partners can come together.',
-			'banner'     => 'banner-energy.jpg',
+			'banner'     => 'banner-energy-renewables.jpg',
 			'connection' => 'Energy can support production and processing.',
 		),
 		'agriculture-food'              => array(
@@ -256,7 +256,7 @@ function ibanint_sectors() {
 			'icon'       => 'ph-basket',
 			'blurb'      => 'From agricultural production and food processing to packaging and distribution, we support opportunities across the food value chain.',
 			'detail'     => 'We consider production, processing, packaging and distribution as connected parts of the same opportunity.',
-			'banner'     => 'banner-agriculture.jpg',
+			'banner'     => 'banner-agriculture-grain.jpg',
 			'listing_image' => 'food-hibiscus.jpg',
 			'connection' => 'An agricultural project can create processing and distribution opportunities.',
 		),
@@ -266,7 +266,7 @@ function ibanint_sectors() {
 			'icon'       => 'ph-truck',
 			'blurb'      => 'We connect transport, distribution and infrastructure partners to help goods move between markets.',
 			'detail'     => 'Transport plans need to reflect the routes, partners and markets involved.',
-			'banner'     => 'logistics-banner.jpg',
+			'banner'     => 'banner-logistics-freight.jpg',
 			'intro_image' => 'logistics-intro.jpg',
 			'connection' => 'Transport connects producers with buyers.',
 		),
@@ -276,7 +276,7 @@ function ibanint_sectors() {
 			'icon'       => 'ph-bridge',
 			'blurb'      => 'We advise on infrastructure opportunities, helping partners shape projects and find the resources to develop them.',
 			'detail'     => 'We help clarify a project early, when the right partners and resources can still change the outcome.',
-			'banner'     => 'banner-infrastructure.jpg',
+			'banner'     => 'banner-infrastructure-build.jpg',
 			'connection' => 'Infrastructure can unlock trade.',
 		),
 		'real-estate-development'       => array(
@@ -285,7 +285,7 @@ function ibanint_sectors() {
 			'icon'       => 'ph-house-line',
 			'blurb'      => 'Identifying and developing commercially valuable real estate opportunities with a focus on sustainable, long-term growth.',
 			'detail'     => 'We look for developments with a sound commercial case and room for long-term value.',
-			'banner'     => 'banner-realestate.jpg',
+			'banner'     => 'banner-realestate-development.jpg',
 			'connection' => 'Real estate can support commercial growth.',
 		),
 		'waste-management'              => array(
@@ -294,7 +294,7 @@ function ibanint_sectors() {
 			'icon'       => 'ph-recycle',
 			'blurb'      => 'We work across collection, recovery and recycling to turn waste into usable resources and commercial opportunities.',
 			'detail'     => 'Collection and recovery plans work best when there is a clear use or market for the material.',
-			'banner'     => 'banner-waste.jpg',
+			'banner'     => 'banner-waste-recovery.jpg',
 			'connection' => 'Waste can become a resource.',
 		),
 		'mining-natural-resources'      => array(
@@ -303,7 +303,7 @@ function ibanint_sectors() {
 			'icon'       => 'ph-mountains',
 			'blurb'      => 'We explore mining and natural resource projects with attention to responsible development and long-term value.',
 			'detail'     => 'We consider the resource, the development plan and the partners needed to move a project forward.',
-			'banner'     => 'banner-mining.jpg',
+			'banner'     => 'banner-mining-excavation.jpg',
 			'intro_image' => 'mining-site.jpg',
 			'listing_image' => 'mining-site.jpg',
 			'connection' => 'Resource projects may call for infrastructure and transport.',

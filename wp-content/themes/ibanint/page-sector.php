@@ -233,7 +233,7 @@ if ( $ibanint_sector ) {
 	<?php
 } else {
 	set_query_var( 'ibanint_banner_title', get_the_title() );
-	set_query_var( 'ibanint_banner_image', 'banner-services.jpg' );
+	set_query_var( 'ibanint_banner_image', 'banner-businesses-port.jpg' );
 	set_query_var( 'ibanint_banner_sub', '' );
 	get_template_part( 'template-parts/page-banner' );
 }

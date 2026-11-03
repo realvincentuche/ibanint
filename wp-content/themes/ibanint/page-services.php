@@ -11,10 +11,9 @@ get_header();
 $ibanint_contact_url = home_url( '/contact/' );
 
 set_query_var( 'ibanint_banner_title', __( 'Our Businesses', 'ibanint' ) );
-set_query_var( 'ibanint_banner_image', 'banner-services.jpg' );
+set_query_var( 'ibanint_banner_image', 'banner-businesses-port.jpg' );
 set_query_var( 'ibanint_banner_sub', '' );
 get_template_part( 'template-parts/page-banner' );
-/* Unsplash free tier: Hong Kong skyline 1759162995281 (banner-services.jpg) */
 ?>
 
 <section class="ib-intro" id="ib-services-intro">

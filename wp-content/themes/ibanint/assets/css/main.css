@@ -370,21 +370,21 @@ body.ib-offcanvas-open .ib-offcanvas { transform: translateX(0); }
 	border-radius: 0;
 }
 .ib-menu-mobile .current-menu-item > a { color: var(--gold-2); }
-.ib-menu-mobile .sub-menu {
+.ib-offcanvas .ib-menu-mobile > li > .sub-menu {
 	position: static;
 	min-width: 0;
 	background: transparent;
 	border: 0;
 	box-shadow: none;
+	border-radius: 0;
 	padding: 0 0 8px 16px;
 	opacity: 1;
 	visibility: visible;
 	transform: none;
 	display: none;
 }
-.submenu-open > .ib-sub-static,
-body:not(.ib-js) .ib-menu-mobile .sub-menu,
-.submenu-open > .sub-menu { display: block; }
+.ib-offcanvas .ib-menu-mobile > li.submenu-open > .sub-menu,
+body:not(.ib-js) .ib-offcanvas .ib-menu-mobile > li > .sub-menu { display: block; }
 .ib-menu-mobile .sub-menu a { color: rgba(255, 255, 255, 0.85); padding: 10px 8px; font-size: 0.98rem; }
 .ib-menu-mobile .sub-menu a:hover { background: transparent; color: var(--gold-2); }
 .menu-item-has-children > .ib-sub-toggle { display: none; }
