@@ -31,7 +31,7 @@ get_template_part( 'template-parts/page-banner' );
 			</p>
 		</div>
 		<div class="ib-intro-media ib-reveal">
-			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-planning.jpg' ); ?>" alt="<?php esc_attr_e( 'Business team reviewing project documents together', 'ibanint' ); ?>" width="1280" height="1920" loading="lazy">
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-markets-port.jpg' ); ?>" alt="<?php esc_attr_e( 'Cargo terminal and cranes seen from above', 'ibanint' ); ?>" width="2200" height="3302" loading="lazy">
 		</div>
 	</div>
 </section>
@@ -78,7 +78,7 @@ get_template_part( 'template-parts/page-banner' );
 			</p>
 		</div>
 		<div class="ib-mindset-media ib-reveal">
-			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-advantage-workshop.jpg' ); ?>" alt="<?php esc_attr_e( 'Engineers reviewing work together in a production workshop', 'ibanint' ); ?>" width="1800" height="2699" loading="lazy">
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-advantage-freight.jpg' ); ?>" alt="<?php esc_attr_e( 'Freight containers crossing a road on an elevated route', 'ibanint' ); ?>" width="2200" height="1469" loading="lazy">
 		</div>
 	</div>
 </section>
