@@ -5,7 +5,7 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.2.29' );
+define( 'IBANINT_VERSION', '0.2.30' );
 
 /** Keep the brand capitalized in older WordPress content and site settings. */
 function ibanint_capitalize_brand( $name ) {

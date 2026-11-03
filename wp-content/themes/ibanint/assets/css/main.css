@@ -383,11 +383,46 @@ body.ib-offcanvas-open .ib-offcanvas { transform: translateX(0); }
 	transform: none;
 	display: none;
 }
-.ib-offcanvas .ib-menu-mobile > li.submenu-open > .sub-menu,
-body:not(.ib-js) .ib-offcanvas .ib-menu-mobile > li > .sub-menu { display: block; }
+.ib-offcanvas .ib-menu-mobile > li.submenu-open > .sub-menu { display: block; }
 .ib-menu-mobile .sub-menu a { color: rgba(255, 255, 255, 0.85); padding: 10px 8px; font-size: 0.98rem; }
 .ib-menu-mobile .sub-menu a:hover { background: transparent; color: var(--gold-2); }
-.menu-item-has-children > .ib-sub-toggle { display: none; }
+.ib-offcanvas .ib-menu-mobile > li.menu-item-has-children { position: relative; }
+.ib-offcanvas .ib-menu-mobile > li.menu-item-has-children > a { padding-right: 54px; }
+.ib-offcanvas .ib-menu-mobile > li.menu-item-has-children > a::after { display: none; }
+.ib-offcanvas .ib-menu-mobile > li > .ib-sub-toggle {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	width: 36px;
+	height: 36px;
+	border: 1px solid rgba(255, 255, 255, 0.35);
+	border-radius: 50%;
+	background: transparent;
+	color: var(--white);
+	cursor: pointer;
+}
+.ib-offcanvas .ib-menu-mobile > li > .ib-sub-toggle::before,
+.ib-offcanvas .ib-menu-mobile > li > .ib-sub-toggle::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 12px;
+	height: 2px;
+	background: currentColor;
+	transform: translate(-50%, -50%);
+}
+.ib-offcanvas .ib-menu-mobile > li > .ib-sub-toggle::after {
+	transform: translate(-50%, -50%) rotate(90deg);
+	transition: opacity .2s ease;
+}
+.ib-offcanvas .ib-menu-mobile > li.submenu-open > .ib-sub-toggle {
+	background: var(--gold-2);
+	border-color: var(--gold-2);
+	color: var(--navy);
+}
+.ib-offcanvas .ib-menu-mobile > li.submenu-open > .ib-sub-toggle::after { opacity: 0; }
+.ib-offcanvas .ib-menu-mobile > li > .ib-sub-toggle:focus-visible { outline: 2px solid var(--gold-2); outline-offset: 3px; }
 
 .ib-offcanvas-foot { padding: 16px 20px 24px; border-top: 1px solid rgba(255, 255, 255, 0.14); display: grid; gap: 14px; }
 .ib-offcanvas-phone {
@@ -1176,8 +1211,6 @@ body.ib-offcanvas-open .ib-scrim { opacity: 1; }
 	.ib-about, .ib-why { padding-top: 72px; padding-bottom: 72px; }
 	.ib-sectors-panel, .ib-steps-panel { padding: 50px 30px 56px; }
 
-	/* Mobile menu dropdown static */
-	.ib-menu-mobile .sub-menu { opacity: 1; visibility: visible; }
 }
 
 @media (max-width: 640px) {

@@ -181,15 +181,53 @@
 	}
 
 	/* -------------------------------------------------------
-	   Dropdown tap fallback (touch + Escape + click-outside)
+	   Desktop dropdown touch handling and mobile drawer accordion
 	   ------------------------------------------------------- */
 	var menuItems = Array.prototype.slice.call(document.querySelectorAll('.menu-item-has-children'));
 	var closeAll = function () {
-		menuItems.forEach(function (li) { li.classList.remove('submenu-open'); });
+		menuItems.forEach(function (li) {
+			li.classList.remove('submenu-open');
+			var link = li.querySelector(':scope > a');
+			var toggle = li.querySelector(':scope > .ib-sub-toggle');
+			if (link) { link.setAttribute('aria-expanded', 'false'); }
+			if (toggle) {
+				toggle.setAttribute('aria-expanded', 'false');
+				toggle.setAttribute('aria-label', 'Show ' + link.textContent.trim() + ' submenu');
+			}
+		});
 	};
-	menuItems.forEach(function (li) {
+	menuItems.forEach(function (li, index) {
 		var link = li.querySelector(':scope > a');
 		if (!link) { return; }
+		if (li.closest('.ib-offcanvas')) {
+			var submenu = li.querySelector(':scope > .sub-menu');
+			if (!submenu) { return; }
+			var label = link.textContent.trim();
+			var toggle = document.createElement('button');
+			submenu.id = submenu.id || 'ib-mobile-submenu-' + index;
+			toggle.type = 'button';
+			toggle.className = 'ib-sub-toggle';
+			toggle.setAttribute('aria-controls', submenu.id);
+			toggle.setAttribute('aria-expanded', 'false');
+			toggle.setAttribute('aria-label', 'Show ' + label + ' submenu');
+			link.setAttribute('aria-expanded', 'false');
+			var setExpanded = function (open) {
+				if (open) { closeAll(); }
+				li.classList.toggle('submenu-open', open);
+				link.setAttribute('aria-expanded', open ? 'true' : 'false');
+				toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+				toggle.setAttribute('aria-label', (open ? 'Hide ' : 'Show ') + label + ' submenu');
+			};
+			toggle.addEventListener('click', function () { setExpanded(!li.classList.contains('submenu-open')); });
+			link.addEventListener('click', function (e) {
+				if (!li.classList.contains('submenu-open')) {
+					e.preventDefault();
+					setExpanded(true);
+				}
+			});
+			li.insertBefore(toggle, submenu);
+			return;
+		}
 		link.addEventListener('click', function (e) {
 			/* First tap opens the dropdown on touch/small screens */
 			if (window.innerWidth <= 920 && !li.classList.contains('submenu-open')) {
@@ -215,6 +253,7 @@
 	var scrim = document.getElementById('ib-scrim');
 
 	var setOffcanvas = function (open) {
+		if (!open) { closeAll(); }
 		document.body.classList.toggle('ib-offcanvas-open', open);
 		document.body.classList.toggle('ib-lock', open);
 		if (scrim) { scrim.hidden = false; }
