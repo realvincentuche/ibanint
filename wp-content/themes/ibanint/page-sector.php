@@ -22,7 +22,7 @@ $ibanint_intro_alt = $ibanint_sector ? $ibanint_sector['title'] : '';
 if ( $ibanint_is_logistics ) {
 	$ibanint_intro_alt = __( 'White Volvo truck viewed from the front', 'ibanint' );
 } elseif ( $ibanint_is_mining ) {
-	$ibanint_intro_alt = __( 'People at an open excavation site', 'ibanint' );
+	$ibanint_intro_alt = __( 'Three gold-coloured metal bars on a table', 'ibanint' );
 }
 
 if ( $ibanint_sector ) {
@@ -139,7 +139,7 @@ if ( $ibanint_sector ) {
 			<div class="ib-mining-media-head">
 				<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'From the field', 'ibanint' ); ?></p>
 				<h2 class="ib-h2" id="ib-mining-media-title"><?php echo ibanint_highlight_heading( __( 'Mining in motion', 'ibanint' ), 'in motion' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
-				<p><?php esc_html_e( 'Field footage, metal processing and two product photographs.', 'ibanint' ); ?></p>
+				<p><?php esc_html_e( 'Field footage, an excavation-site photograph, a gold sample and metal processing.', 'ibanint' ); ?></p>
 			</div>
 			<div class="ib-mining-media-grid">
 				<figure class="ib-mining-media-video ib-reveal">
@@ -152,8 +152,8 @@ if ( $ibanint_sector ) {
 					<figcaption><span>01 / <?php esc_html_e( 'Field footage', 'ibanint' ); ?></span><strong><?php esc_html_e( 'On-site operations', 'ibanint' ); ?></strong><p><?php esc_html_e( 'Excavation and haulage equipment at work.', 'ibanint' ); ?></p></figcaption>
 				</figure>
 				<figure class="ib-mining-media-photo ib-reveal">
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/mining-gold.jpg' ); ?>" alt="<?php esc_attr_e( 'Three gold-coloured metal bars on a table', 'ibanint' ); ?>" width="810" height="1080" loading="lazy">
-					<figcaption><span>02 / <?php esc_html_e( 'Material sample', 'ibanint' ); ?></span><strong><?php esc_html_e( 'Gold sample', 'ibanint' ); ?></strong><p><?php esc_html_e( 'A closer view of a supplied material photograph.', 'ibanint' ); ?></p></figcaption>
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/mining-site.jpg' ); ?>" alt="<?php esc_attr_e( 'People at an open excavation site', 'ibanint' ); ?>" width="1200" height="1600" loading="lazy">
+					<figcaption><span>02 / <?php esc_html_e( 'Field photograph', 'ibanint' ); ?></span><strong><?php esc_html_e( 'At the excavation', 'ibanint' ); ?></strong><p><?php esc_html_e( 'A view of the site and the people working there.', 'ibanint' ); ?></p></figcaption>
 				</figure>
 			</div>
 			<div class="ib-mining-media-grid ib-mining-media-grid-secondary">

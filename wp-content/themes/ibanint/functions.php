@@ -5,7 +5,7 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.2.31' );
+define( 'IBANINT_VERSION', '0.2.32' );
 
 /** Keep the brand capitalized in older WordPress content and site settings. */
 function ibanint_capitalize_brand( $name ) {
@@ -304,8 +304,8 @@ function ibanint_sectors() {
 			'blurb'      => 'We explore mining and natural resource projects with attention to responsible development and long-term value.',
 			'detail'     => 'We consider the resource, the development plan and the partners needed to move a project forward.',
 			'banner'     => 'banner-mining-excavation.jpg',
-			'intro_image' => 'mining-site.jpg',
-			'listing_image' => 'mining-site.jpg',
+			'intro_image' => 'mining-gold.jpg',
+			'listing_image' => 'mining-gold.jpg',
 			'connection' => 'Resource projects may call for infrastructure and transport.',
 		),
 	);
