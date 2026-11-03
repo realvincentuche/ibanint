@@ -419,7 +419,7 @@ body.ib-offcanvas-open .ib-scrim { opacity: 1; }
 	height: min(820px, 94vh);
 	overflow: visible;
 	margin-bottom: 0;
-	background: var(--navy-deep);
+	background: #263b39;
 	background-size: cover;
 	background-position: center;
 }
@@ -1245,7 +1245,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 .ib-menu > li > .sub-menu, .ib-menu > li .sub-menu { border-radius: 2px; }
 
 /* Image-led slider with clear manual controls. */
-.ib-hero { min-height: 600px; height: min(780px, 100vh); margin-top: 0; background: var(--navy-deep); overflow: hidden; }
+.ib-hero { min-height: 600px; height: min(780px, 100vh); margin-top: 0; background: #263b39; overflow: hidden; }
 .ib-hero::before { display: none; }
 .ib-hero-slides, .ib-hero-slide { position: absolute; inset: 0; }
 .ib-hero-slide { opacity: 0; visibility: hidden; transition: opacity .75s ease, visibility .75s; }
@@ -1543,6 +1543,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 		linear-gradient(0deg, rgba(18, 39, 43, .22), transparent 34%);
 }
 .home .ib-about { background: var(--home-ivory); }
+.home .ib-about-media img { object-position: center bottom; }
 .home .ib-sectors { background: var(--home-sage); }
 .home .ib-sectors-panel { background: var(--home-sage); border-top: 4px solid #b7c9bc; }
 .home .ib-sectors .ib-h2,

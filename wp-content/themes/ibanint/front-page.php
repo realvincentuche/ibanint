@@ -18,8 +18,8 @@ $ibanint_contact_url = home_url( '/contact/' );
 
 $ibanint_hero_slides = array(
 	array( 'image' => 'logistics-banner.jpg', 'width' => 1600, 'height' => 1200, 'alt' => 'Volvo truck at a transport yard', 'kicker' => 'International business development', 'title' => 'Connecting markets. Developing opportunity.', 'text' => 'We bring partners together across trade, infrastructure, energy and five other business areas.', 'cta' => 'Explore our businesses', 'url' => $ibanint_services_url ),
-	array( 'image' => 'mining-operation-poster.jpg', 'width' => 848, 'height' => 480, 'alt' => 'Excavator loading a haul truck at a mining site', 'kicker' => 'Connected expertise', 'title' => 'Where sectors meet, progress begins.', 'text' => 'Our work connects infrastructure, logistics and investment opportunities across borders.', 'cta' => 'How we work', 'url' => $ibanint_about_url ),
-	array( 'image' => 'food-hibiscus-client.jpg', 'width' => 769, 'height' => 1080, 'alt' => 'Dried hibiscus calyces', 'kicker' => 'Partnerships with purpose', 'title' => 'The right partners change what is possible.', 'text' => 'We look across the value chain to find the people and capabilities that move projects forward.', 'cta' => 'Start a conversation', 'url' => $ibanint_contact_url ),
+	array( 'image' => 'banner-infrastructure.jpg', 'width' => 1920, 'height' => 1371, 'alt' => 'Infrastructure development site seen from above', 'kicker' => 'Connected expertise', 'title' => 'Where sectors meet, progress begins.', 'text' => 'Our work connects infrastructure, logistics and investment opportunities across borders.', 'cta' => 'How we work', 'url' => $ibanint_about_url ),
+	array( 'image' => 'banner-agriculture.jpg', 'width' => 1920, 'height' => 1080, 'alt' => 'Combine harvester working in a field', 'kicker' => 'Partnerships with purpose', 'title' => 'The right partners change what is possible.', 'text' => 'We look across the value chain to find the people and capabilities that move projects forward.', 'cta' => 'Start a conversation', 'url' => $ibanint_contact_url ),
 );
 $ibanint_marquee = array(
 	'Connecting producers with markets',
@@ -86,7 +86,7 @@ $ibanint_marquee = array(
 		</div>
 
 		<div class="ib-about-media ib-reveal">
-			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/mining-site.jpg' ); ?>" alt="<?php esc_attr_e( 'People working at a mining site', 'ibanint' ); ?>" width="1200" height="1600" loading="lazy">
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/home-field-team.jpg' ); ?>" alt="<?php esc_attr_e( 'Two engineers reviewing plans at an infrastructure site', 'ibanint' ); ?>" width="1400" height="2100" loading="lazy">
 		</div>
 	</div>
 </section>
