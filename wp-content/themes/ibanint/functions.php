@@ -5,7 +5,7 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.2.34' );
+define( 'IBANINT_VERSION', '0.2.35' );
 
 /** Keep the brand capitalized in older WordPress content and site settings. */
 function ibanint_capitalize_brand( $name ) {
@@ -207,6 +207,7 @@ function ibanint_contact() {
 	$phones = array(
 		array( 'label' => '+255 762 199 712', 'href' => 'tel:+255762199712' ),
 		array( 'label' => '+255 767 680 442', 'href' => 'tel:+255767680442' ),
+		array( 'label' => '+234 909 384 3341', 'href' => 'tel:+2349093843341' ),
 		array( 'label' => '+1 917 566 4723', 'href' => 'tel:+19175664723' ),
 	);
 	return array(
