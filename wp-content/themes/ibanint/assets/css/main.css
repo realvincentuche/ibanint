@@ -1262,7 +1262,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 
 /* The navigation floats over image heroes and settles into a dark bar on scroll. */
 .ib-header { top: 0; background: rgba(255, 255, 255, .97); border-bottom: 1px solid var(--line); transition: background .25s ease, top .25s ease; }
-.ib-header.ib-scrolled { background: rgba(255, 255, 255, .5); backdrop-filter: blur(7px); }
+.ib-header.ib-scrolled { background: rgba(255, 255, 255, .7); backdrop-filter: blur(7px); }
 .ib-header-inner { min-height: 86px; border-radius: 0; box-shadow: none; background: transparent; backdrop-filter: none; }
 .ib-header.ib-scrolled .ib-header-inner { box-shadow: none; }
 .ib-logo { height: 72px; }
@@ -1275,7 +1275,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 .ib-header-overlay .ib-menu > li > a { color: #fff; }
 .ib-header-overlay .ib-menu > li > a:hover, .ib-header-overlay .ib-menu > li.current-menu-item > a, .ib-header-overlay .ib-menu > li.current-menu-parent > a { color: var(--gold-2); }
 .ib-header-overlay .sub-menu a { color: var(--navy); }
-.ib-header-overlay.ib-scrolled { top: 0; background: rgba(7, 23, 43, .5); }
+.ib-header-overlay.ib-scrolled { top: 0; background: rgba(7, 23, 43, .7); }
 .ib-header-overlay.ib-scrolled .ib-header-inner { background: transparent; backdrop-filter: none; }
 .ib-header-overlay.ib-scrolled .ib-menu > li > a { text-shadow: 0 1px 3px rgba(0, 0, 0, .8); }
 .ib-menu a { font-size: .88rem; font-weight: 700; }
@@ -1549,11 +1549,11 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 	.ib-estate-media-player { margin: 0 auto; max-height: 610px; }
 	.ib-header { top: 14px; left: 14px; right: 14px; background: transparent; border-bottom: 0; }
 	.ib-header.ib-scrolled { background: transparent; backdrop-filter: none; }
-	.ib-header.ib-scrolled .ib-header-inner { background: rgba(255,255,255,.5); backdrop-filter: blur(7px); }
+	.ib-header.ib-scrolled .ib-header-inner { background: rgba(255,255,255,.7); backdrop-filter: blur(7px); }
 	.ib-header-inner { min-height: 72px; }
-	.ib-header-overlay .ib-header-inner { background: rgba(7, 23, 43, .5); }
+	.ib-header-overlay .ib-header-inner { background: rgba(7, 23, 43, .7); }
 	.ib-header-overlay.ib-scrolled { top: 14px; background: transparent; }
-	.ib-header-overlay.ib-scrolled .ib-header-inner { background: rgba(7,23,43,.5); backdrop-filter: blur(7px); }
+	.ib-header-overlay.ib-scrolled .ib-header-inner { background: rgba(7,23,43,.7); backdrop-filter: blur(7px); }
 	.ib-logo { height: 42px; }
 	.ib-header-cta { display: none; }
 	.ib-burger { display: flex; flex-direction: column; justify-content: center; width: 42px; height: 42px; margin-left: auto; padding: 6px 8px; border-radius: 3px; }
