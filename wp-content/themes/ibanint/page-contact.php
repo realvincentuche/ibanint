@@ -35,11 +35,13 @@ get_template_part( 'template-parts/page-banner' );
 
 		<div class="ib-contact-cards">
 			<?php $ibanint_contact = ibanint_contact(); ?>
-			<a class="ib-contact-card ib-reveal" href="<?php echo esc_url( $ibanint_contact['phone_href'] ); ?>">
-				<i class="ph ph-phone" aria-hidden="true"></i>
-				<span class="screen-reader-text"><?php esc_html_e( 'Phone or WhatsApp: ', 'ibanint' ); ?></span>
-				<span class="ib-contact-value"><?php echo esc_html( $ibanint_contact['phone'] ); ?></span>
-			</a>
+			<?php foreach ( $ibanint_contact['phones'] as $ibanint_phone ) : ?>
+				<a class="ib-contact-card ib-reveal" href="<?php echo esc_url( $ibanint_phone['href'] ); ?>">
+					<i class="ph ph-phone" aria-hidden="true"></i>
+					<span class="screen-reader-text"><?php esc_html_e( 'Phone: ', 'ibanint' ); ?></span>
+					<span class="ib-contact-value"><?php echo esc_html( $ibanint_phone['label'] ); ?></span>
+				</a>
+			<?php endforeach; ?>
 			<?php if ( $ibanint_contact['email'] ) : ?>
 				<a class="ib-contact-card ib-reveal" href="<?php echo esc_url( 'mailto:' . $ibanint_contact['email'] ); ?>">
 					<i class="ph ph-envelope" aria-hidden="true"></i>

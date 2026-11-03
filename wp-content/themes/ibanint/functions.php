@@ -5,7 +5,7 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.2.23' );
+define( 'IBANINT_VERSION', '0.2.25' );
 
 /** Keep the brand capitalized in older WordPress content and site settings. */
 function ibanint_capitalize_brand( $name ) {
@@ -191,7 +191,7 @@ function ibanint_seo_head() {
 			'url'      => home_url( '/' ),
 			'logo'     => get_template_directory_uri() . '/assets/images/ibanint-logo-transparent.png',
 			'email'    => ibanint_contact()['email'],
-			'telephone'=> ibanint_contact()['phone'],
+			'telephone'=> array_column( ibanint_contact()['phones'], 'label' ),
 		);
 		printf( '<script type="application/ld+json">%s</script>' . "\n", wp_json_encode( $organization, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) );
 	}
@@ -204,11 +204,17 @@ add_action( 'wp_head', 'ibanint_seo_head', 5 );
  * @return array
  */
 function ibanint_contact() {
+	$phones = array(
+		array( 'label' => '+255 762 199 712', 'href' => 'tel:+255762199712' ),
+		array( 'label' => '+255 767 680 442', 'href' => 'tel:+255767680442' ),
+		array( 'label' => '+1 917 566 4723', 'href' => 'tel:+19175664723' ),
+	);
 	return array(
 		'name'        => 'IBAN International Ltd',
 		'tagline'     => 'Global Opportunities. Strategic Solutions. Lasting Value.',
-		'phone'       => '+255 762 199 712',
-		'phone_href'  => 'tel:+255762199712',
+		'phone'       => $phones[0]['label'],
+		'phone_href'  => $phones[0]['href'],
+		'phones'      => $phones,
 		'website'     => 'ibanint.com',
 		'website_href'=> 'https://ibanint.com',
 		'regions'     => 'Africa | Europe | Asia | Middle East | North America',

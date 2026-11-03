@@ -1388,7 +1388,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 .ib-food-media { padding: 90px 0 104px; background: #f1f0eb; }
 .ib-food-media-head { max-width: 680px; margin-bottom: 36px; }
 .ib-food-media-head > p:last-child { margin: 0; color: var(--muted); font-size: 1.08rem; }
-.ib-food-media-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(24px, 3vw, 44px); }
+.ib-food-media-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 2.5vw, 36px); }
 .ib-food-media-item { min-width: 0; margin: 0; }
 .ib-food-media-visual { position: relative; height: 620px; overflow: hidden; }
 .ib-food-media-video .ib-food-media-visual { display: grid; place-items: center; background: #291d29; }
@@ -1418,8 +1418,10 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 .ib-mining-media-head { max-width: 720px; margin-bottom: 36px; }
 .ib-mining-media-head > p:last-child { margin: 0; color: var(--muted); font-size: 1.08rem; }
 .ib-mining-media-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, .7fr); gap: clamp(24px, 3vw, 44px); align-items: start; }
+.ib-mining-media-grid-secondary { margin-top: 54px; }
 .ib-mining-media-grid figure { min-width: 0; margin: 0; }
 .ib-mining-media-video-frame { position: relative; aspect-ratio: 848 / 480; background: #1a2631; }
+.ib-mining-media-video-portrait .ib-mining-media-video-frame { aspect-ratio: 480 / 848; }
 .ib-mining-media-video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 .ib-mining-media-photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 48%; }
 .ib-mining-media-grid figcaption { padding-top: 18px; }
@@ -1472,6 +1474,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 	.ib-logistics-media-item figcaption { flex-direction: column; gap: 5px; font-size: 1.12rem; }
 	.ib-mining-media { padding: 70px 0 82px; }
 	.ib-mining-media-grid { grid-template-columns: 1fr; gap: 36px; }
+	.ib-mining-media-grid-secondary { margin-top: 36px; }
 	.ib-mining-media-photo img { aspect-ratio: 4 / 3; }
 	.ib-estate-media { padding: 70px 0 82px; }
 	.ib-estate-media-grid { grid-template-columns: 1fr; gap: 30px; }

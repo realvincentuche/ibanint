@@ -84,8 +84,18 @@ if ( $ibanint_sector ) {
 					</div>
 					<figcaption>
 						<span class="ib-food-media-label"><?php esc_html_e( '01 / Product footage', 'ibanint' ); ?></span>
-						<h3><?php esc_html_e( 'Dried hibiscus', 'ibanint' ); ?></h3>
+						<h3><?php esc_html_e( 'Hibiscus handling', 'ibanint' ); ?></h3>
 						<p><?php esc_html_e( 'A closer look at hibiscus (roselle) handling and packed stock.', 'ibanint' ); ?></p>
+					</figcaption>
+				</figure>
+				<figure class="ib-food-media-item ib-food-media-photo ib-reveal">
+					<div class="ib-food-media-visual">
+						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/food-hibiscus-client.jpg' ); ?>" alt="<?php esc_attr_e( 'Close-up of dried hibiscus calyces', 'ibanint' ); ?>" width="769" height="1080" loading="lazy">
+					</div>
+					<figcaption>
+						<span class="ib-food-media-label"><?php esc_html_e( '02 / Product image', 'ibanint' ); ?></span>
+						<h3><?php esc_html_e( 'Dried hibiscus', 'ibanint' ); ?></h3>
+						<p><?php esc_html_e( 'A close view of the dried product.', 'ibanint' ); ?></p>
 					</figcaption>
 				</figure>
 				<figure class="ib-food-media-item ib-food-media-photo ib-reveal">
@@ -93,7 +103,7 @@ if ( $ibanint_sector ) {
 						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/food-cashews.jpg' ); ?>" alt="<?php esc_attr_e( 'Packaged cashew kernels with a W240 sample label', 'ibanint' ); ?>" width="607" height="1080" loading="lazy">
 					</div>
 					<figcaption>
-						<span class="ib-food-media-label"><?php esc_html_e( '02 / Product image', 'ibanint' ); ?></span>
+						<span class="ib-food-media-label"><?php esc_html_e( '03 / Product image', 'ibanint' ); ?></span>
 						<h3><?php esc_html_e( 'Cashew kernels', 'ibanint' ); ?></h3>
 						<p><?php esc_html_e( 'A close view of a cashew product sample.', 'ibanint' ); ?></p>
 					</figcaption>
@@ -129,7 +139,7 @@ if ( $ibanint_sector ) {
 			<div class="ib-mining-media-head">
 				<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'From the field', 'ibanint' ); ?></p>
 				<h2 class="ib-h2" id="ib-mining-media-title"><?php echo ibanint_highlight_heading( __( 'Mining in motion', 'ibanint' ), 'in motion' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
-				<p><?php esc_html_e( 'Watch excavation footage and see a gold sample photograph.', 'ibanint' ); ?></p>
+				<p><?php esc_html_e( 'Field footage, metal processing and two product photographs.', 'ibanint' ); ?></p>
 			</div>
 			<div class="ib-mining-media-grid">
 				<figure class="ib-mining-media-video ib-reveal">
@@ -144,6 +154,21 @@ if ( $ibanint_sector ) {
 				<figure class="ib-mining-media-photo ib-reveal">
 					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/mining-gold.jpg' ); ?>" alt="<?php esc_attr_e( 'Three gold-coloured metal bars on a table', 'ibanint' ); ?>" width="810" height="1080" loading="lazy">
 					<figcaption><span>02 / <?php esc_html_e( 'Material sample', 'ibanint' ); ?></span><strong><?php esc_html_e( 'Gold sample', 'ibanint' ); ?></strong><p><?php esc_html_e( 'A closer view of a supplied material photograph.', 'ibanint' ); ?></p></figcaption>
+				</figure>
+			</div>
+			<div class="ib-mining-media-grid ib-mining-media-grid-secondary">
+				<figure class="ib-mining-media-photo ib-reveal">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/mining-gold-scale.jpg' ); ?>" alt="<?php esc_attr_e( 'Two gold-coloured bars on a digital scale', 'ibanint' ); ?>" width="1080" height="810" loading="lazy">
+					<figcaption><span>03 / <?php esc_html_e( 'Material detail', 'ibanint' ); ?></span><strong><?php esc_html_e( 'Gold on the scale', 'ibanint' ); ?></strong><p><?php esc_html_e( 'A second view of the supplied bars.', 'ibanint' ); ?></p></figcaption>
+				</figure>
+				<figure class="ib-mining-media-video ib-mining-media-video-portrait ib-reveal">
+					<div class="ib-mining-media-video-frame">
+						<video controls playsinline preload="none" poster="<?php echo esc_url( get_template_directory_uri() . '/assets/images/mining-process-poster.jpg' ); ?>" width="480" height="848" aria-label="<?php esc_attr_e( 'High-temperature metal processing footage', 'ibanint' ); ?>">
+							<source src="<?php echo esc_url( get_template_directory_uri() . '/assets/video/mining-process.mp4' ); ?>" type="video/mp4">
+							<a href="<?php echo esc_url( get_template_directory_uri() . '/assets/video/mining-process.mp4' ); ?>"><?php esc_html_e( 'Download the metal processing video', 'ibanint' ); ?></a>
+						</video>
+					</div>
+					<figcaption><span>04 / <?php esc_html_e( 'Processing footage', 'ibanint' ); ?></span><strong><?php esc_html_e( 'Metal processing', 'ibanint' ); ?></strong><p><?php esc_html_e( 'Molten metal being handled at high temperature.', 'ibanint' ); ?></p></figcaption>
 				</figure>
 			</div>
 		</div>

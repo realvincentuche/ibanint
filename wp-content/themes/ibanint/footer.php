@@ -86,11 +86,13 @@
 				<h2 class="ib-footer-h"><?php esc_html_e( 'Reach Us', 'ibanint' ); ?></h2>
 				<?php $ibanint_contact = ibanint_contact(); ?>
 				<ul class="ib-footer-touch">
-					<li>
-						<a href="<?php echo esc_url( $ibanint_contact['phone_href'] ); ?>">
-							<i class="ph ph-phone" aria-hidden="true"></i><span><?php echo esc_html( $ibanint_contact['phone'] ); ?> (WhatsApp)</span>
-						</a>
-					</li>
+					<?php foreach ( $ibanint_contact['phones'] as $ibanint_phone ) : ?>
+						<li>
+							<a href="<?php echo esc_url( $ibanint_phone['href'] ); ?>">
+								<i class="ph ph-phone" aria-hidden="true"></i><span><?php echo esc_html( $ibanint_phone['label'] ); ?></span>
+							</a>
+						</li>
+					<?php endforeach; ?>
 					<li>
 						<a href="<?php echo esc_url( $ibanint_contact['website_href'] ); ?>">
 							<i class="ph ph-globe" aria-hidden="true"></i><span><?php echo esc_html( $ibanint_contact['website'] ); ?></span>
