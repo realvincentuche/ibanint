@@ -5,7 +5,7 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.2.47' );
+define( 'IBANINT_VERSION', '0.2.48' );
 
 /** Use images large enough for the wider single-post gallery layout. */
 function ibanint_post_gallery_image_size( $atts ) {
