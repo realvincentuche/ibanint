@@ -71,7 +71,7 @@ if ( $ibanint_sector ) {
 			<div class="ib-food-media-head">
 				<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Product perspectives', 'ibanint' ); ?></p>
 				<h2 class="ib-h2" id="ib-food-media-title"><?php echo ibanint_highlight_heading( __( 'Agriculture in focus', 'ibanint' ), 'in focus' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
-				<p><?php esc_html_e( 'A closer view of dried hibiscus handling and cashew kernels.', 'ibanint' ); ?></p>
+				<p><?php esc_html_e( 'Dried hibiscus handling and two cashew kernel samples.', 'ibanint' ); ?></p>
 			</div>
 			<div class="ib-food-media-grid">
 				<figure class="ib-food-media-item ib-food-media-video ib-reveal">
@@ -103,8 +103,18 @@ if ( $ibanint_sector ) {
 					</div>
 					<figcaption>
 						<span class="ib-food-media-label"><?php esc_html_e( '03 / Product image', 'ibanint' ); ?></span>
-						<h3><?php esc_html_e( 'Cashew kernels', 'ibanint' ); ?></h3>
-						<p><?php esc_html_e( 'A close view of a cashew product sample.', 'ibanint' ); ?></p>
+						<h3><?php esc_html_e( 'Cashew kernels, W240', 'ibanint' ); ?></h3>
+						<p><?php esc_html_e( 'Packaged sample labelled W240.', 'ibanint' ); ?></p>
+					</figcaption>
+				</figure>
+				<figure class="ib-food-media-item ib-food-media-photo ib-reveal">
+					<div class="ib-food-media-visual">
+						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/food-cashews-w320.jpg' ); ?>" alt="<?php esc_attr_e( 'Packaged cashew kernels with a W320 sample label', 'ibanint' ); ?>" width="607" height="1080" loading="lazy">
+					</div>
+					<figcaption>
+						<span class="ib-food-media-label"><?php esc_html_e( '04 / Product image', 'ibanint' ); ?></span>
+						<h3><?php esc_html_e( 'Cashew kernels, W320', 'ibanint' ); ?></h3>
+						<p><?php esc_html_e( 'Packaged sample labelled W320.', 'ibanint' ); ?></p>
 					</figcaption>
 				</figure>
 			</div>
