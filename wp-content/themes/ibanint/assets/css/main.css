@@ -1585,10 +1585,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 .ib-logistics-buses-head > p { max-width: 370px; margin: 0 0 5px; color: var(--muted); font-size: 1.05rem; line-height: 1.6; }
 .ib-logistics-buses-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 32px; }
 .ib-logistics-buses-grid img { height: 550px; object-position: center; }
-.ib-logistics-buses-credit { margin: 28px 0 0; color: var(--muted); font-size: .8rem; line-height: 1.5; }
-.ib-logistics-buses-credit summary { width: fit-content; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
-.ib-logistics-buses-credit p { margin: 10px 0 0; }
-.ib-logistics-buses-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 
 /* Mining: landscape field footage paired with the supplied material photograph. */
 .ib-mining-media { padding: 90px 0 104px; background: #f1f0eb; }

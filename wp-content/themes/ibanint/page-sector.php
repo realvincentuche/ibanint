@@ -221,27 +221,18 @@ if ( $ibanint_sector ) {
 						<p class="ib-kicker"><span class="ib-kicker-dash"></span><?php esc_html_e( 'Passenger transport', 'ibanint' ); ?></p>
 						<h2 id="ib-logistics-media-title"><?php echo ibanint_highlight_heading( __( 'Commercial buses', 'ibanint' ), 'buses' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 					</div>
-					<p><?php esc_html_e( 'Chinese-built commercial bus designs offer options for city routes and longer-distance travel.', 'ibanint' ); ?></p>
+					<p><?php esc_html_e( 'Modern buses in China show the range of options for city transport and passenger services.', 'ibanint' ); ?></p>
 				</div>
 				<div class="ib-logistics-buses-grid">
 					<figure class="ib-logistics-media-item ib-reveal">
-						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logistics-yutong-double-decker.jpg' ); ?>" alt="<?php esc_attr_e( 'Red Yutong double-deck commercial bus on display', 'ibanint' ); ?>" width="1920" height="2560" loading="lazy">
-						<figcaption><span>01 / <?php esc_html_e( 'City travel', 'ibanint' ); ?></span><?php esc_html_e( 'Double-deck bus', 'ibanint' ); ?></figcaption>
+						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logistics-bus-shanghai-city.jpg' ); ?>" alt="<?php esc_attr_e( 'Modern city bus at a stop in Shanghai', 'ibanint' ); ?>" width="1800" height="2700" loading="lazy">
+						<figcaption><span>01 / <?php esc_html_e( 'City travel', 'ibanint' ); ?></span><?php esc_html_e( 'City bus', 'ibanint' ); ?></figcaption>
 					</figure>
 					<figure class="ib-logistics-media-item ib-reveal">
-						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logistics-yutong-coach.jpg' ); ?>" alt="<?php esc_attr_e( 'Silver Yutong commercial coach on display', 'ibanint' ); ?>" width="1920" height="1440" loading="lazy">
-						<figcaption><span>02 / <?php esc_html_e( 'Intercity travel', 'ibanint' ); ?></span><?php esc_html_e( 'Commercial coach', 'ibanint' ); ?></figcaption>
+						<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logistics-bus-shanghai-electric.jpg' ); ?>" alt="<?php esc_attr_e( 'Two modern buses parked at a station in Shanghai', 'ibanint' ); ?>" width="1800" height="1013" loading="lazy">
+						<figcaption><span>02 / <?php esc_html_e( 'Urban fleet', 'ibanint' ); ?></span><?php esc_html_e( 'Modern buses', 'ibanint' ); ?></figcaption>
 					</figure>
 				</div>
-				<details class="ib-logistics-buses-credit">
-					<summary><?php esc_html_e( 'Image credits', 'ibanint' ); ?></summary>
-					<p>
-						<a href="https://commons.wikimedia.org/wiki/File:Busworld_Europe_2025,_Brussels_(20251003-P1052212).jpg">Matti Blume</a>
-						<?php esc_html_e( 'and', 'ibanint' ); ?>
-						<a href="https://commons.wikimedia.org/wiki/File:Busworld_Europe_2025,_Brussels_(P1210645).jpg">Celestinesucess</a>,
-						<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. <?php esc_html_e( 'Cropped for display.', 'ibanint' ); ?>
-					</p>
-				</details>
 			</div>
 			<div class="ib-logistics-freight">
 			<div class="ib-logistics-media-head">
