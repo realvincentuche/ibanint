@@ -5,7 +5,16 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.2.46' );
+define( 'IBANINT_VERSION', '0.2.47' );
+
+/** Use images large enough for the wider single-post gallery layout. */
+function ibanint_post_gallery_image_size( $atts ) {
+	if ( is_singular( 'post' ) && isset( $atts['size'] ) && 'thumbnail' === $atts['size'] ) {
+		$atts['size'] = 'medium_large';
+	}
+	return $atts;
+}
+add_filter( 'shortcode_atts_gallery', 'ibanint_post_gallery_image_size' );
 
 /** Keep the brand capitalized in older WordPress content and site settings. */
 function ibanint_capitalize_brand( $name ) {
