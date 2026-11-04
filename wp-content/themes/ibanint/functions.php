@@ -5,13 +5,18 @@
  * @package Ibanint
  */
 
-define( 'IBANINT_VERSION', '0.2.49' );
+define( 'IBANINT_VERSION', '0.2.50' );
 
 /** Use images large enough for the wider single-post gallery layout. */
 function ibanint_post_gallery_image_size( $atts ) {
-	if ( is_singular( 'post' ) && isset( $atts['size'] ) && 'thumbnail' === $atts['size'] ) {
+	if ( ! is_singular( 'post' ) ) {
+		return $atts;
+	}
+	if ( isset( $atts['size'] ) && 'thumbnail' === $atts['size'] ) {
 		$atts['size'] = 'medium_large';
 	}
+	// Give the lightbox a full-size source even when the editor selected "Link To: None".
+	$atts['link'] = 'file';
 	return $atts;
 }
 add_filter( 'shortcode_atts_gallery', 'ibanint_post_gallery_image_size' );
