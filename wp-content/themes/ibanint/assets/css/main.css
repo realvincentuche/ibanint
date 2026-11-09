@@ -1393,9 +1393,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold-2); outlin
 .ib-logo-overlay { display: none; }
 .ib-header-overlay { top: 14px; background: transparent; border: 0; }
 .ib-header-overlay .ib-header-inner { background: rgba(7, 23, 43, .2); backdrop-filter: blur(7px); }
-.ib-header-overlay .ib-logo-overlay { display: block; }
-.ib-header-overlay .ib-logo-solid { display: none; }
-.ib-header-overlay .custom-logo { filter: brightness(0) invert(1); }
 .ib-header-overlay .ib-menu > li > a { color: #fff; }
 .ib-header-overlay .ib-menu > li > a:hover, .ib-header-overlay .ib-menu > li.current-menu-item > a, .ib-header-overlay .ib-menu > li.current-menu-parent > a { color: var(--gold-2); }
 .ib-header-overlay .sub-menu a { color: var(--navy); }

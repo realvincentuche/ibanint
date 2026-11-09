@@ -35,7 +35,7 @@
 		<div class="ib-footer-grid">
 
 			<div class="ib-footer-brand">
-				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/ibanint-logo-band-dark.png' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="ib-footer-logo" width="952" height="424" loading="lazy">
+				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/iban_logo_white.png' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="ib-footer-logo" width="2909" height="1255" loading="lazy">
 				<p class="ib-footer-tagline">
 					<?php echo esc_html( get_bloginfo( 'description' ) ); ?>
 				</p>
